@@ -1,0 +1,69 @@
+* Flappy Block
+
+While astronauts are kept pretty busy while on the ISS, they still need to grab a few minutes of relaxation time every now and then. As their are two Raspberry Pis with Sense HATS up there with them, a little game of Flappy Block would be the perfect way to unwind after a hard day's work in zero g.
+
+** Setting up the Sense HAT
+1. Open IDLE by clicking on =Menu > Programming > Python 3 (IDLE)=.
+2. In the window that appears on your Desktop, create a new text file by clicking =File > New File=
+3. Click into the new window and then press the *Ctrl* key along with the *s* key to save the file. Call it =flappy.py=
+4. The first few lines of code will will write just import the Sense HAT library and clear the LED matrix.
+
+#+begin_src python
+from sense_hat import SenseHat
+
+sense = SenseHat()
+sense.clear()
+#+end_src
+
+** Drawing a block
+1. Next you need to illuminate a single LED. This will be the block that moves up and down as it avoids the columns. The block will have always appear on row 3 of the LED matrix, and it's vertical position will be stored as a variable =y=. You need to be able to alter the colour of the LED, so this can be passed into the function as an argument.
+
+#+begin_src python
+y = 4
+
+def draw_block(colour):
+    sense.set_pixel(3,y,colour)
+#+end_src
+
+1. As the block will be moving up and down the LED matrix, in response to user input, you need to illuminate a LED, pause for a little, and then turn the LED off again. This can be accomplished in a =while= loop. First off, at the top of your code, you need to get the =sleep()= function from the =time= library.
+
+#+begin_src python
+from sense_hat import SenseHat
+from time import sleep
+#+end_src
+
+1. Now add in a while loop, which calls the =draw_block()= function twice, with a sleep inbetween. The first call will set the LED to be white =(255,255,255)= and the second will set it to be black =(0,0,0)=
+
+#+begin_src python
+game_over = False
+
+while not game_over:
+    draw_block((255,255,255))
+    sleep(0.1)
+    draw_block((0,0,0))
+#+end_src
+
+1. Open a terminal and run your script. A single LED should be illuminated on the matrix.
+
+#+begin_src bash
+python3 flappy.py
+#+end_src
+
+** Moving the Block.
+1. You need the block to /fall/ to the bottom of the martix, and only move upwards when the user shakes the Raspberry Pi. To do this you can use a =speed= variable, and have the block rise and fall depending on the direction of the =speed=. Create the speed variable first
+
+#+begin_src python
+y = 4
+game_over = False
+speed = +1
+#+end_src
+
+1. In the =while= loop, the speed can then be used to change the position of the block.
+
+#+begin_src python
+while not game_over:
+    draw_block((255,255,255))
+    sleep(0.1)
+    draw_block((0,0,0))
+    y += speed
+#+end_src
