@@ -8,18 +8,19 @@ sense.clear()
 
 speed = +1
 y = 4
+game_over = False
+
 
 def draw_tim(colour):
     sense.set_pixel(4,y,colour)
 
 def get_shake():
     global speed
-    while True:
+    while not game_over:
         accel = sense.get_accelerometer_raw()
         x = round(accel['x'])
         y = round(accel['y'])
         z = round(accel['z'])
-        print(round(x),round(y),round(z))
         sleep(0.01)
         if x != 0 or y != 0 or z != 1:
             speed = -1
@@ -27,23 +28,30 @@ def get_shake():
             speed = +1
 
 def draw_column():
+    global game_over
     x = 7
     gap = randint(2,6)
-    while x > 0:
-
+    while x > 0 and not game_over:
         for i in range(8):
             sense.set_pixel(x,i,0,0,255)
         sense.set_pixel(x,gap,0,0,0)
         sense.set_pixel(x,gap-1,0,0,0)
         sense.set_pixel(x,gap+1,0,0,0)
-        sleep(1)
+        sleep(0.5)
         for i in range(8):
             sense.set_pixel(x,i,0,0,0)
+        if collision(x,gap):
+            game_over = True
         x -= 1
 
-
+def collision(x,gap):
+    if x == 4:
+        if y < gap -1 or y > gap +1:
+            return True
+    return False
+    
 def draw_columns():
-    while True:
+    while not game_over:
         column = threading.Thread(target=draw_column)
         column.start()
         sleep(4)
@@ -54,11 +62,7 @@ columns.start()
 sensing = threading.Thread(target=get_shake)
 sensing.start()
 
-
-
-
-while True:
-
+while not game_over:
     draw_tim((255,255,255))
     sleep(0.1)
     draw_tim((0,0,0))
@@ -68,5 +72,6 @@ while True:
     if y < 0:
         y = 0    
 
-    sleep(0.1)
+
 sensing.join()
+sense.show_message("You Lose", text_colour=(255,0,0))
