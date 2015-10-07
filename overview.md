@@ -1,1 +1,1 @@
-In this resource you will make a clone of the infamous Flappy Bird game, using the Raspberry Pi Sense HAT's LED Matrix for a display, and the accelerometer as a controller.
+In this activity you will create a Flappy Bird clone using your Raspberry Pi and a Sense HAT, along with some Python code. Flappy Astronaut uses the accelerometer in the Sense HAT to control the astronaut, by shaking the Raspberry Pi.

@@ -1,6 +1,6 @@
-# Flappy Block
+# Flappy Astronaut
 
-While astronauts are kept pretty busy while on the ISS, they still need to grab a few minutes of relaxation time every now and then. As there are two Raspberry Pis with Sense HATS up there with them, a little game of Flappy Block would be the perfect way to unwind after a hard day's work in zero g.
+While astronauts are kept pretty busy while on the ISS, they still need to grab a few minutes of relaxation time every now and then. As there are two Raspberry Pis with Sense HATS up there with them, a little game of flappy astronaut would be the perfect way to unwind after a hard day's work in zero g.
 
 ## Setting up the Sense HAT
 
@@ -25,7 +25,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 	game_over = False
 	```
 
-1. To begin with, you can produce a vertical line of LEDs that scroll across the screen. This can be produced using a function called `draw_column`. The function will need to be able to change the `game_over` variable, so within the funtion you need to set it as a global variable.
+1. To begin with, you can produce a vertical line of LEDs that scroll across the screen. This can be produced using a function called `draw_column`. The function will need to be able to change the `game_over` variable, so within the function you need to set it as a global variable.
 
 ```python
 def draw_column():
@@ -42,7 +42,7 @@ def draw_column():
 	x = 7
 ```
 
-1. Now you need to illuminate the last column of LEDs, pause for a little bit, turn off the column of LEDs and then illuminate the next column along, by reducing the value of `x` by one. This can all be done within a `while` loop, that keeps looping until te value of x gets to 0 or the game is over.
+1. Now you need to illuminate the last column of LEDs, pause for a little bit, turn off the column of LEDs and then illuminate the next column along, by reducing the value of `x` by one. This can all be done within a `while` loop, that keeps looping until the value of x gets to 0 or the game is over.
 
 ```python
 def draw_column():
@@ -87,7 +87,7 @@ def draw_column():
 		x -= 1
 ```
 
-1. You can test this function out if you want, but you won't see much. The LEDs will switch on then off, so quicly that there'll be nothing to see. A pause between the LEDs coming on and then off again is needed. At the top of you file, import the `time` module
+1. You can test this function out if you want, but you won't see much. The LEDs will switch on then off, so quickly that there'll be nothing to see. A pause between the LEDs coming on and then off again is needed. At the top of you file, import the `time` module
 
 ```python
 from time import sleep
@@ -114,13 +114,13 @@ def draw_column():
 
 The game would be a little tricky if each column is a solid wall of leds, so you need to add a gap. It would be a little easy if the gap was always in the same place, so you'll need some randomness to it's placement.
 
-1. Add a line near the top of youf file to get the `randint` function from `random`. This will generate random integers for you.
+1. Add a line near the top of your file to get the `randint` function from `random`. This will generate random integers for you.
 
 ```python
 from random import randint
 ```
 
-1. You'll need the program to get a random integer between 1 and 6 (inclusive) and then place a gap in the line of pixels centered about that value. Don't forget, adding a gap just means turning off a few pixels.
+1. You'll need the program to get a random integer between 1 and 6 (inclusive) and then place a gap in the line of pixels centred about that value. Don't forget, adding a gap just means turning off a few pixels.
 
 ```python
 def draw_column():
@@ -158,7 +158,7 @@ So that has a single column scrolling across the matrix, but only one at a time.
 
 The problem is that at the moment, the program has to wait for a function to finish, before it can be called again. It is possible to over come this problem by using `threading`.
 
-`Threading` allows you to call a function in a way that doesn't block the rest of your program, meaning that the `draw_colunm()` function can be called several times in a row.
+`Threading` allows you to call a function in a way that doesn't block the rest of your program, meaning that the `draw_column()` function can be called several times in a row.
 
 1. First you'll need the `Thread` function. At the top of your program add in a line to import it.
 
@@ -177,7 +177,7 @@ while not game_over:
 	column.start()
     sleep(2)
 ```
-1. The problem is that now you have this while loop blocking the program, and there is still a lot to do, such as getting some user input and moving the *flappy block* up and down. The solution is to place the `while` loop into a function, and have it called as another thread. Add it to a function first:
+1. The problem is that now you have this while loop blocking the program, and there is still a lot to do, such as getting some user input and moving the *flappy astronaut* up and down. The solution is to place the `while` loop into a function, and have it called as another thread. Add it to a function first:
 
 ```python
 def draw_columns():
@@ -187,7 +187,7 @@ def draw_columns():
 		sleep(2)
 ```
 
-1. Then call it as a threaded funtion.
+1. Then call it as a threaded function.
 
 ```python
 columns = Thread(target=draw_columns)
@@ -236,9 +236,9 @@ columns.start()
 ```
 1. Save *(Ctrl+s)* and run *(F5)* your program to make sure that it works.
 
-## Adding the flappy block
+## Adding the flappy astronaut
 
-1. The flappy block will always sit horzontally on the 4th column of LEDs (position 3), but it's vertical (y) values will have to change. This can be set as a global variable. As the block can either be moving up or down, you can also set a global speed variable with `1` indicating it's moving down and `-1` indicating it's moving up. A nice blue colour would suit the block as well.
+1. The flappy astronaut will always sit horizontally on the 4th column of LEDs (position 3), but it's vertical (y) values will have to change. This can be set as a global variable. As the astronaut can either be moving up or down, you can also set a global speed variable with `1` indicating it's moving down and `-1` indicating it's moving up. A nice blue colour would suit the astronaut as well.
 
 ```python
 ##Globals
@@ -267,7 +267,7 @@ while not game_over:
 	y += speed
 ```
 
-1. When you run this, your program will crash, becuase `y` eventually reaches a value of 8, and that is off the matrix. It's simple to fix this though.
+1. When you run this, your program will crash, because `y` eventually reaches a value of 8, and that is off the matrix. It's simple to fix this though.
 
 ```python
 while not game_over:
@@ -283,7 +283,7 @@ while not game_over:
 
 ## Catching user input
 
-1. The block needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the *accelerometer* readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
+1. The astronaut needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the *accelerometer* readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
 
 ```python]
 def get_shake():
@@ -292,7 +292,7 @@ def get_shake():
 	
 ```
 
-1. The next step is to read the data from the accelermoeter, and then round each of the values. The accelerometer detects *changes* in velocity (speed) in three directions - x, y and z.
+1. The next step is to read the data from the accelerometer, and then round each of the values. The accelerometer detects *changes* in velocity (speed) in three directions - x, y and z.
 
 ```python]
 def get_shake():
@@ -312,7 +312,7 @@ y will be 0
 z will be 1
 ```
 
-1. z is one becuase it is reading the gravitational pull of the Earth. If these values change (becuase the Pi is being shaken), then you want the speed of the block to change. A simple conditional will do this.
+1. z is one because it is reading the gravitational pull of the Earth. If these values change (because the Pi is being shaken), then you want the speed of the astronaut to change. A simple conditional will do this.
 
 ```python
 def get_shake():
@@ -335,7 +335,7 @@ shake = Thread(target=get_shake)
 shake.start()
 ```
 
-1. Save and run your code, and shake the Raspberry Pi (carefully) to see the block move up and then down.
+1. Save and run your code, and shake the Raspberry Pi (carefully) to see the astronaut move up and then down.
 
 1. Your script should so far look like this:
 
@@ -410,22 +410,22 @@ while not game_over:
 
 ## Detecting a collision
 
-1. To finish off you need the game to end if the *flappy block* collides with the wall. Or to put it another way, you want the game to continue playing, as long as the *flappy block* makes it though the gap.
+1. To finish off you need the game to end if the *flappy astronaut* collides with the wall. Or to put it another way, you want the game to continue playing, as long as the *flappy astronaut* makes it though the gap.
 
-1. A simple function can be provided the `x` position of the columns and the positon of the gap, to determine if the block makes it though.
+1. A simple function can be provided the `x` position of the columns and the posit on of the gap, to determine if the astronaut makes it though.
 
 ```python
 def collision(x,gap):
 ```
 
-1. If the `x` value of the column is 3, then the column and block have the same horizontal position.
+1. If the `x` value of the column is 3, then the column and astronaut have the same horizontal position.
 
 ```python
 def collision(x,gap):
     if x == 3:
 ```
 
-1. Then if the `y` position of the block is between `gap-1` and `gap+1`, the block has made it through the gap.
+1. Then if the `y` position of the astronaut is between `gap-1` and `gap+1`, the astronaut has made it through the gap.
 
 ```python
 def collision(x,gap):
@@ -560,6 +560,6 @@ sense.show_message("You Lose", text_colour=(255,0,0))
 
 1. Can you play around with the variable values to make the game easier/more difficult?
 
-1. Can you keep a score so that each time a column is succesfully negotiated the score increase by 1?
+1. Can you keep a score so that each time a column is successfully negotiated the score increase by 1?
 
-1. Can you think of other ways of controlling the block? Mayb you could use the joystick or the humidity sensor?
+1. Can you think of other ways of controlling the astronaut? Maybe you could use the joystick or the humidity sensor?

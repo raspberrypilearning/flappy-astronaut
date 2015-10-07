@@ -1,7 +1,5 @@
-By creating a something with your Raspberry Pi you will learn:
+By coding a Pong game with your Raspberry Pi and Sense HAT, you will learn:
 
-- How to set up a Raspberry Pi camera
-- How to use GPIO pins
-- How to create a circuit on a breadboard
-- Controlling GPIO pins with Python code
-- Controlling the camera module with Python code
+- How to illuminate Sense HAT pixels
+- How to capture data from the accelerometer
+- How to use multiple threads to have non-blocking funtions
