@@ -1,17 +1,17 @@
 from sense_hat import SenseHat
 from time import sleep
 from random import randint
-import threading
+from threading import Thread
 
 sense = SenseHat()
 sense.clear()
 
-y = 4
+##Globals
 game_over = False
+RED = (255,0,0)
+BLACK = (0,0,0)
+y = 4
 speed = +1
-
-def draw_block(colour):
-    sense.set_pixel(3,y,colour)
 
 def get_shake():
     global speed
@@ -31,14 +31,14 @@ def draw_column():
     x = 7
     gap = randint(2,6)
     while x > 0 and not game_over:
-        for i in range(8):
-            sense.set_pixel(x,i,0,0,255)
-        sense.set_pixel(x,gap,0,0,0)
-        sense.set_pixel(x,gap-1,0,0,0)
-        sense.set_pixel(x,gap+1,0,0,0)
+        for led in range(8):
+            sense.set_pixel(x,led,RED)
+        sense.set_pixel(x,gap,BLACK)
+        sense.set_pixel(x,gap-1,BLACK)
+        sense.set_pixel(x,gap+1,BLACK)
         sleep(0.5)
         for i in range(8):
-            sense.set_pixel(x,i,0,0,0)
+            sense.set_pixel(x,i,BLACK)
         if collision(x,gap):
             game_over = True
         x -= 1
@@ -51,20 +51,20 @@ def collision(x,gap):
     
 def draw_columns():
     while not game_over:
-        column = threading.Thread(target=draw_column)
+        column = Thread(target=draw_column)
         column.start()
-        sleep(4)
+        sleep(2)
 
-columns = threading.Thread(target=draw_columns)
+columns = Thread(target=draw_columns)
 columns.start()
 
-sensing = threading.Thread(target=get_shake)
+sensing = Thread(target=get_shake)
 sensing.start()
 
 while not game_over:
-    draw_block((255,255,255))
+    sense.set_pixel(3,y,WHITE)
     sleep(0.1)
-    draw_block((0,0,0))
+    sense.set_pixel(3,y,BLACK)
     y += speed
     if y > 7:
         y = 7
