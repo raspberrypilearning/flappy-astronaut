@@ -120,13 +120,13 @@ The game would be a little tricky if each column is a solid wall of leds, so you
 from random import randint
 ```
 
-1. You'll need the program to get a random integer between 2 and 6 (inclusive) and then place a gap in the line of pixels centered about that value. Don't forget, adding a gap just means turning off a few pixels.
+1. You'll need the program to get a random integer between 1 and 6 (inclusive) and then place a gap in the line of pixels centered about that value. Don't forget, adding a gap just means turning off a few pixels.
 
 ```python
 def draw_column():
     global game_over
     x = 7
-    gap = randint(2,6)
+    gap = randint(1,6)
     while x > 0 and not game_over:
         for led in range(8):
             sense.set_pixel(x,led,RED)
@@ -194,7 +194,7 @@ columns = Thread(target=draw_columns)
 columns.start()
 ```
 
-Your entire code should so far look like this.
+1. Your entire code should so far look like this.
 
 ```python
 from sense_hat import SenseHat
@@ -209,6 +209,152 @@ sense.clear()
 game_over = False
 RED = (255,0,0)
 BLACK = (0,0,0)
+
+def draw_column():
+    global game_over
+    x = 7
+    gap = randint(1,6)
+    while x > 0 and not game_over:
+        for led in range(8):
+            sense.set_pixel(x,led,RED)
+        sense.set_pixel(x,gap,BLACK)
+        sense.set_pixel(x,gap-1,BLACK)
+        sense.set_pixel(x,gap+1,BLACK)
+        sleep(0.5)
+        for i in range(8):
+            sense.set_pixel(x,i,BLACK)
+        x -= 1
+    
+def draw_columns():
+    while not game_over:
+        column = Thread(target=draw_column)
+        column.start()
+        sleep(2)
+
+columns = Thread(target=draw_columns)
+columns.start()
+```
+1. Save *(Ctrl+s)* and run *(F5)* your program to make sure that it works.
+
+## Adding the flappy block
+
+1. The flappy block will always sit horzontally on the 4th column of LEDs (position 3), but it's vertical (y) values will have to change. This can be set as a global variable. As the block can either be moving up or down, you can also set a global speed variable with `1` indicating it's moving down and `-1` indicating it's moving up. A nice blue colour would suit the block as well.
+
+```python
+##Globals
+game_over = False
+RED = (255,0,0)
+BLACK = (0,0,0)
+BLUE = (0,0,255)
+y = 4
+speed = +1
+```
+
+1. You can start just by illuminating a single LED, by adding a new `while` loop to the bottom of your script.
+
+```python
+while not game_over:
+    sense.set_pixel(3,y,BLUE)
+```
+
+1. Then make it fall:
+
+```python
+while not game_over:
+    sense.set_pixel(3,y,BLUE)
+	sleep(0.1)
+	sense.set_pixel(3,y,BLACK)
+	y += speed
+```
+
+1. When you run this, your program will crash, becuase `y` eventually reaches a value of 8, and that is off the matrix. It's simple to fix this though.
+
+```python
+while not game_over:
+    sense.set_pixel(3,y,BLUE)
+	sleep(0.1)
+	sense.set_pixel(3,y,BLACK)
+	y += speed
+	if y > 7:
+	    y = 7
+	elif y < 0:
+	    y = 0	
+```
+
+## Catching user input
+
+1. The block needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the *accelerometer* readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
+
+```python]
+def get_shake():
+    global speed
+	while not game_over:
+	
+```
+
+1. The next step is to read the data from the accelermoeter, and then round each of the values. The accelerometer detects *changes* in velocity (speed) in three directions - x, y and z.
+
+```python]
+def get_shake():
+    global speed
+	while not game_over:
+	    accel = sense.get_accelerometer_raw()
+        x = round(accel['x'])
+        y = round(accel['y'])
+        z = round(accel['z'])
+```
+
+1. If the Raspberry Pi and Sense HAT are motionless and sitting flat on a surface then the values should be:
+
+```
+x will be 0
+y will be 0
+z will be 1
+```
+
+1. z is one becuase it is reading the gravitational pull of the Earth. If these values change (becuase the Pi is being shaken), then you want the speed of the block to change. A simple conditional will do this.
+
+```python
+def get_shake():
+    global speed
+    while not game_over:
+        accel = sense.get_accelerometer_raw()
+        x = round(accel['x'])
+        y = round(accel['y'])
+        z = round(accel['z'])
+        if x != 0 or y != 0 or z != 1:
+            speed = -1
+        else:
+            speed = +1
+```
+
+1. Then make this function threaded, by adding these two lines.
+
+```python
+shake = Thread(target=get_shake)
+shake.start()
+```
+
+1. Save and run your code, and shake the Raspberry Pi (carefully) to see the block move up and then down.
+
+1. Your script should so far look like this:
+
+```python
+from sense_hat import SenseHat
+from time import sleep
+from random import randint
+from threading import Thread
+
+sense = SenseHat()
+sense.clear()
+
+##Globals
+game_over = False
+RED = (255,0,0)
+BLACK = (0,0,0)
+BLUE = (0,0,255)
+y = 4
+speed = +1
 
 def draw_column():
     global game_over
@@ -231,21 +377,189 @@ def draw_columns():
         column.start()
         sleep(2)
 
+def get_shake():
+    global speed
+    while not game_over:
+        accel = sense.get_accelerometer_raw()
+        x = round(accel['x'])
+        y = round(accel['y'])
+        z = round(accel['z'])
+        sleep(0.01)
+        if x != 0 or y != 0 or z != 1:
+            speed = -1
+        else:
+            speed = +1
+        
 columns = Thread(target=draw_columns)
 columns.start()
+
+shake = Thread(target=get_shake)
+shake.start()
+
+while not game_over:
+    sense.set_pixel(3,y,BLUE)
+    sleep(0.1)
+    sense.set_pixel(3,y,BLACK)
+    y += speed
+    if y > 7:
+        y = 7
+    if y < 0:
+        y = 0    
+
 ```
 
-## Adding the flappy block
+## Detecting a collision
 
-1. The flappy block will always sit horzontally on the 4th column of LEDs (position 3), but it's vertical (y) values will have to change. This can be set as a global variable. As the block can either be moving up or down, you can also set a global speed variable with `1` indicating it's moving down and `-1` indicating it's moving up.
+1. To finish off you need the game to end if the *flappy block* collides with the wall. Or to put it another way, you want the game to continue playing, as long as the *flappy block* makes it though the gap.
+
+1. A simple function can be provided the `x` position of the columns and the positon of the gap, to determine if the block makes it though.
 
 ```python
+def collision(x,gap):
+```
+
+1. If the `x` value of the column is 3, then the column and block have the same horizontal position.
+
+```python
+def collision(x,gap):
+    if x == 3:
+```
+
+1. Then if the `y` position of the block is between `gap-1` and `gap+1`, the block has made it through the gap.
+
+```python
+def collision(x,gap):
+    if x == 3:
+        if y < gap -1 or y > gap +1:
+            return True
+    return False
+```
+
+1. This function can be called inside the `draw_column` to see if the game needs to be ended or not.
+
+```python
+def draw_column():
+    global game_over
+    x = 7
+    gap = randint(2,6)
+    while x > 0 and not game_over:
+        for led in range(8):
+            sense.set_pixel(x,led,RED)
+        sense.set_pixel(x,gap,BLACK)
+        sense.set_pixel(x,gap-1,BLACK)
+        sense.set_pixel(x,gap+1,BLACK)
+        sleep(0.5)
+        for i in range(8):
+            sense.set_pixel(x,i,BLACK)
+        if collision(x,gap):
+            game_over = True
+        x -= 1
+```
+		
+1. Test your game to see if it's working.
+
+## Finishing off
+
+1. To finish off you need to make sure that the two threads have actually ended. You can also leave a message for the player.
+
+```python
+shake.join()
+columns.join()
+
+sense.show_message("You Lose", text_colour=(255,0,0))
+```
+
+1. Have a play with your game. Your full code should look like this:
+
+```python
+from sense_hat import SenseHat
+from time import sleep
+from random import randint
+from threading import Thread
+
+sense = SenseHat()
+sense.clear()
+
 ##Globals
 game_over = False
 RED = (255,0,0)
 BLACK = (0,0,0)
+BLUE = (0,0,255)
 y = 4
 speed = +1
+
+
+def draw_column():
+    global game_over
+    x = 7
+    gap = randint(2,6)
+    while x > 0 and not game_over:
+        for led in range(8):
+            sense.set_pixel(x,led,RED)
+        sense.set_pixel(x,gap,BLACK)
+        sense.set_pixel(x,gap-1,BLACK)
+        sense.set_pixel(x,gap+1,BLACK)
+        sleep(0.5)
+        for i in range(8):
+            sense.set_pixel(x,i,BLACK)
+        if collision(x,gap):
+            game_over = True
+        x -= 1
+
+    
+def draw_columns():
+    while not game_over:
+        column = Thread(target=draw_column)
+        column.start()
+        sleep(2)
+
+def get_shake():
+    global speed
+    while not game_over:
+        accel = sense.get_accelerometer_raw()
+        x = round(accel['x'])
+        y = round(accel['y'])
+        z = round(accel['z'])
+        sleep(0.01)
+        if x != 0 or y != 0 or z != 1:
+            speed = -1
+        else:
+            speed = +1
+
+def collision(x,gap):
+    if x == 3:
+        if y < gap -1 or y > gap +1:
+            return True
+    return False
+
+        
+columns = Thread(target=draw_columns)
+columns.start()
+
+shake = Thread(target=get_shake)
+shake.start()
+
+while not game_over:
+    sense.set_pixel(3,y,BLUE)
+    sleep(0.1)
+    sense.set_pixel(3,y,BLACK)
+    y += speed
+    if y > 7:
+        y = 7
+    if y < 0:
+        y = 0    
+
+
+shake.join()
+columns.join()
+
+sense.show_message("You Lose", text_colour=(255,0,0))
 ```
 
-1. 
+## What Next?
+
+1. Can you play around with the variable values to make the game easier/more difficult?
+
+1. Can you keep a score so that each time a column is succesfully negotiated the score increase by 1?
+
+1. Can you think of other ways of controlling the block? Mayb you could use the joystick or the humidity sensor?
