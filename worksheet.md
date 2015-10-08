@@ -75,6 +75,8 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 ![column](images/column.jpg)
 
+## Moving the columns
+
 1. Next we want to switch off all those LEDs and decrease the variable `x` by one, then let the loop carry on around. Another for loop can be easily used to turn off all the LEDs.
 
 	```python
