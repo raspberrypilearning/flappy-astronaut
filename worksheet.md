@@ -73,6 +73,8 @@ def draw_column():
 
 1. You can test out your new function, to make sure a line of LEDs are being switched on. Save your file as **flappy.py** and then press *F5* to run it. Nothing will happen at first, because you haven't *called* the function, so just switch over into the *Python Shell* and type `draw_column()`
 
+![column](images/column.jpg)
+
 1. Next we want to switch off all those LEDs and decrease the variable `x` by one, then let the loop carry on around. Another for loop can be easily used to turn off all the LEDs.
 
 ```python
@@ -142,6 +144,8 @@ def draw_column():
 
 1. Save and run your code, then type `draw_column()` into the interpreter, to check that it's all working.
 
+![gap](images/gap.gif)
+
 ## Multiple Columns.
 
 1. Now that you have a single column scrolling across the matrix, you'll want keep them coming. This can be achieved with a `while` loop. Add this code to the bottom of your script.
@@ -193,6 +197,8 @@ def draw_columns():
 columns = Thread(target=draw_columns)
 columns.start()
 ```
+
+![scrolling](images/scrolling.gif)
 
 1. Your entire code should so far look like this.
 
