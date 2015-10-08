@@ -27,49 +27,49 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 1. To begin with, you can produce a vertical line of LEDs that scroll across the screen. This can be produced using a function called `draw_column`. The function will need to be able to change the `game_over` variable, so within the function you need to set it as a global variable.
 
-```python
-def draw_column():
-    global game_over
-```
+	```python
+	def draw_column():
+		global game_over
+	```
 
 1. The column is going to start on the far right of the matrix. If you look a the diagram below, you can see that this means it will have a position on the `x` axis of 7.
 
 1. Set the starting position of the column, in the `draw_column` function.
 
-```python
-def draw_column():
-    global game_over
-	x = 7
-```
+	```python
+	def draw_column():
+		global game_over
+		x = 7
+	```
 
 1. Now you need to illuminate the last column of LEDs, pause for a little bit, turn off the column of LEDs and then illuminate the next column along, by reducing the value of `x` by one. This can all be done within a `while` loop, that keeps looping until the value of x gets to 0 or the game is over.
 
-```python
-def draw_column():
-    global game_over
-	x = 7
-	while x > 0 and not game_over:
-```
+	```python
+	def draw_column():
+		global game_over
+		x = 7
+		while x >= 0 and not game_over:
+	```
 
 1. The column of LEDs is going to be red, and to switch them off they're going to be turned black. You need to specify these variables in your `##Globals` section.
 
-```python
-##Globals
-game_over = False
-RED = (255,0,0)
-BLACK = (0,0,0)
-```
+	```python
+	##Globals
+	game_over = False
+	RED = (255,0,0)
+	BLACK = (0,0,0)
+	```
 
 1. To illuminate all the pixels in a given column, you could write something like `sense.set_pixel(x,0,RED)` eight times, changing the 0 to 1, then 2, then 3, etc. However, this is simpler to do in a `for` loop.
 
-```python
-def draw_column():
-    global game_over
-	x = 7
-	while x > 0 and not game_over:
-	    for led in range(8):
-		    sense.set_pixel(x,led,RED)
-```
+	```python
+	def draw_column():
+		global game_over
+		x = 7
+		while x >= 0 and not game_over:
+			for led in range(8):
+				sense.set_pixel(x,led,RED)
+	```
 
 1. You can test out your new function, to make sure a line of LEDs are being switched on. Save your file as **flappy.py** and then press *F5* to run it. Nothing will happen at first, because you haven't *called* the function, so just switch over into the *Python Shell* and type `draw_column()`
 
@@ -77,40 +77,42 @@ def draw_column():
 
 1. Next we want to switch off all those LEDs and decrease the variable `x` by one, then let the loop carry on around. Another for loop can be easily used to turn off all the LEDs.
 
-```python
-def draw_column():
-    global game_over
-	x = 7
-	while x >= 0 and not game_over:
-	    for led in range(8):
-		    sense.set_pixel(x,led,RED)
-		for led in range(8):
-		    sense.set_pixel(x,led,BLACK)
-		x -= 1
-```
+	```python
+	def draw_column():
+		global game_over
+		x = 7
+		while x >= 0 and not game_over:
+			for led in range(8):
+				sense.set_pixel(x,led,RED)
+			for led in range(8):
+				sense.set_pixel(x,led,BLACK)
+			x -= 1
+	```
 
 1. You can test this function out if you want, but you won't see much. The LEDs will switch on then off, so quickly that there'll be nothing to see. A pause between the LEDs coming on and then off again is needed. At the top of you file, import the `time` module
 
-```python
-from time import sleep
-```
+	```python
+	from time import sleep
+	```
 
 1. Then add a sleep between switching the LEDs on an off again.
 
-```python
-def draw_column():
-    global game_over
-	x = 7
-	while x > 0 and not game_over:
-	    for led in range(8):
-		    sense.set_pixel(x,led,RED)
-		sleep(0.5)
-		for led in range(8):
-		    sense.set_pixel(x,led,BLACK)
-		x -= 1
-```
+   ```python
+   def draw_column():
+	   global game_over
+	   x = 7
+	   while x >= 0 and not game_over:
+		   for led in range(8):
+			   sense.set_pixel(x,led,RED)
+		   sleep(0.5)
+		   for led in range(8):
+			   sense.set_pixel(x,led,BLACK)
+		   x -= 1
+   ```
 		
 1. Save your code and then press *F5* to run it. Type `draw_column()` in the Python shell to see it working.
+
+![column](images/column.gif)
 
 ## Splitting the columns.
 
@@ -118,29 +120,29 @@ The game would be a little tricky if each column is a solid wall of leds, so you
 
 1. Add a line near the top of your file to get the `randint` function from `random`. This will generate random integers for you.
 
-```python
-from random import randint
-```
+	```python
+	from random import randint
+	```
 
 1. You'll need the program to get a random integer between 1 and 6 (inclusive) and then place a gap in the line of pixels centred about that value. Don't forget, adding a gap just means turning off a few pixels.
 
-```python
-def draw_column():
-    global game_over
-    x = 7
-    gap = randint(1,6)
-    while x > 0 and not game_over:
-        for led in range(8):
-            sense.set_pixel(x,led,RED)
-        sense.set_pixel(x,gap,BLACK)
-        sense.set_pixel(x,gap-1,BLACK)
-        sense.set_pixel(x,gap+1,BLACK)
-        sleep(0.5)
-        for i in range(8):
-            sense.set_pixel(x,i,BLACK)
-        x -= 1
+	```python
+	def draw_column():
+		global game_over
+		x = 7
+		gap = randint(1,6)
+		while x >= 0 and not game_over:
+			for led in range(8):
+				sense.set_pixel(x,led,RED)
+			sense.set_pixel(x,gap,BLACK)
+			sense.set_pixel(x,gap-1,BLACK)
+			sense.set_pixel(x,gap+1,BLACK)
+			sleep(0.5)
+			for i in range(8):
+				sense.set_pixel(x,i,BLACK)
+			x -= 1
 
-```
+	```
 
 1. Save and run your code, then type `draw_column()` into the interpreter, to check that it's all working.
 
@@ -150,11 +152,11 @@ def draw_column():
 
 1. Now that you have a single column scrolling across the matrix, you'll want keep them coming. This can be achieved with a `while` loop. Add this code to the bottom of your script.
 
-```python
-while not game_over:
-    draw_column()
-    sleep(2)
-```
+	```python
+	while not game_over:
+		draw_column()
+		sleep(2)
+	```
 
 ## Threading
 
@@ -166,253 +168,254 @@ The problem is that at the moment, the program has to wait for a function to fin
 
 1. First you'll need the `Thread` function. At the top of your program add in a line to import it.
 
-```python
-from sense_hat import SenseHat
-from time import sleep
-from random import randint
-from threading import Thread
-```
+	```python
+	from sense_hat import SenseHat
+	from time import sleep
+	from random import randint
+	from threading import Thread
+	```
 
 1. Now you can turn the function call in the `while` loop into a threaded function call, that will be called every two seconds
 
-```python
-while not game_over:
-    column = Thread(target=draw_column)
-	column.start()
-    sleep(2)
-```
-1. The problem is that now you have this while loop blocking the program, and there is still a lot to do, such as getting some user input and moving the *flappy astronaut* up and down. The solution is to place the `while` loop into a function, and have it called as another thread. Add it to a function first:
-
-```python
-def draw_columns():
+	```python
 	while not game_over:
 		column = Thread(target=draw_column)
 		column.start()
 		sleep(2)
-```
+	```
+
+1. The problem is that now you have this while loop blocking the program, and there is still a lot to do, such as getting some user input and moving the *flappy astronaut* up and down. The solution is to place the `while` loop into a function, and have it called as another thread. Add it to a function first:
+
+	```python
+	def draw_columns():
+		while not game_over:
+			column = Thread(target=draw_column)
+			column.start()
+			sleep(2)
+	```
 
 1. Then call it as a threaded function.
 
-```python
-columns = Thread(target=draw_columns)
-columns.start()
-```
+	```python
+	columns = Thread(target=draw_columns)
+	columns.start()
+	```
 
 ![scrolling](images/scrolling.gif)
 
 1. Your entire code should so far look like this.
 
-```python
-from sense_hat import SenseHat
-from time import sleep
-from random import randint
-from threading import Thread
+	```python
+	from sense_hat import SenseHat
+	from time import sleep
+	from random import randint
+	from threading import Thread
 
-sense = SenseHat()
-sense.clear()
+	sense = SenseHat()
+	sense.clear()
 
-##Globals
-game_over = False
-RED = (255,0,0)
-BLACK = (0,0,0)
+	##Globals
+	game_over = False
+	RED = (255,0,0)
+	BLACK = (0,0,0)
 
-def draw_column():
-    global game_over
-    x = 7
-    gap = randint(1,6)
-    while x > 0 and not game_over:
-        for led in range(8):
-            sense.set_pixel(x,led,RED)
-        sense.set_pixel(x,gap,BLACK)
-        sense.set_pixel(x,gap-1,BLACK)
-        sense.set_pixel(x,gap+1,BLACK)
-        sleep(0.5)
-        for i in range(8):
-            sense.set_pixel(x,i,BLACK)
-        x -= 1
-    
-def draw_columns():
-    while not game_over:
-        column = Thread(target=draw_column)
-        column.start()
-        sleep(2)
+	def draw_column():
+		global game_over
+		x = 7
+		gap = randint(1,6)
+		while x >= 0 and not game_over:
+			for led in range(8):
+				sense.set_pixel(x,led,RED)
+			sense.set_pixel(x,gap,BLACK)
+			sense.set_pixel(x,gap-1,BLACK)
+			sense.set_pixel(x,gap+1,BLACK)
+			sleep(0.5)
+			for i in range(8):
+				sense.set_pixel(x,i,BLACK)
+			x -= 1
 
-columns = Thread(target=draw_columns)
-columns.start()
-```
+	def draw_columns():
+		while not game_over:
+			column = Thread(target=draw_column)
+			column.start()
+			sleep(2)
+
+	columns = Thread(target=draw_columns)
+	columns.start()
+	```
 1. Save *(Ctrl+s)* and run *(F5)* your program to make sure that it works.
 
 ## Adding the flappy astronaut
 
 1. The flappy astronaut will always sit horizontally on the 4th column of LEDs (position 3), but it's vertical (y) values will have to change. This can be set as a global variable. As the astronaut can either be moving up or down, you can also set a global speed variable with `1` indicating it's moving down and `-1` indicating it's moving up. A nice blue colour would suit the astronaut as well.
 
-```python
-##Globals
-game_over = False
-RED = (255,0,0)
-BLACK = (0,0,0)
-BLUE = (0,0,255)
-y = 4
-speed = +1
-```
+	```python
+	##Globals
+	game_over = False
+	RED = (255,0,0)
+	BLACK = (0,0,0)
+	BLUE = (0,0,255)
+	y = 4
+	speed = +1
+	```
 
 1. You can start just by illuminating a single LED, by adding a new `while` loop to the bottom of your script.
 
-```python
-while not game_over:
-    sense.set_pixel(3,y,BLUE)
-```
+	```python
+	while not game_over:
+		sense.set_pixel(3,y,BLUE)
+	```
 
 1. Then make it fall:
 
-```python
-while not game_over:
-    sense.set_pixel(3,y,BLUE)
-	sleep(0.1)
-	sense.set_pixel(3,y,BLACK)
-	y += speed
-```
+	```python
+	while not game_over:
+		sense.set_pixel(3,y,BLUE)
+		sleep(0.1)
+		sense.set_pixel(3,y,BLACK)
+		y += speed
+	```
 
 1. When you run this, your program will crash, because `y` eventually reaches a value of 8, and that is off the matrix. It's simple to fix this though.
 
-```python
-while not game_over:
-    sense.set_pixel(3,y,BLUE)
-	sleep(0.1)
-	sense.set_pixel(3,y,BLACK)
-	y += speed
-	if y > 7:
-	    y = 7
-	elif y < 0:
-	    y = 0	
-```
+	```python
+	while not game_over:
+		sense.set_pixel(3,y,BLUE)
+		sleep(0.1)
+		sense.set_pixel(3,y,BLACK)
+		y += speed
+		if y > 7:
+			y = 7
+		elif y < 0:
+			y = 0	
+	```
 
 ## Catching user input
 
 1. The astronaut needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the *accelerometer* readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
 
-```python]
-def get_shake():
-    global speed
-	while not game_over:
-	
-```
+	```python]
+	def get_shake():
+		global speed
+		while not game_over:
+
+	```
 
 1. The next step is to read the data from the accelerometer, and then round each of the values. The accelerometer detects *changes* in velocity (speed) in three directions - x, y and z.
 
-```python]
-def get_shake():
-    global speed
-	while not game_over:
-	    accel = sense.get_accelerometer_raw()
-        x = round(accel['x'])
-        y = round(accel['y'])
-        z = round(accel['z'])
-```
+	```python]
+	def get_shake():
+		global speed
+		while not game_over:
+			accel = sense.get_accelerometer_raw()
+			x = round(accel['x'])
+			y = round(accel['y'])
+			z = round(accel['z'])
+	```
 
 1. If the Raspberry Pi and Sense HAT are motionless and sitting flat on a surface then the values should be:
 
-```
-x will be 0
-y will be 0
-z will be 1
-```
+	```
+	x will be 0
+	y will be 0
+	z will be 1
+	```
 
 1. z is one because it is reading the gravitational pull of the Earth. If these values change (because the Pi is being shaken), then you want the speed of the astronaut to change. A simple conditional will do this.
 
-```python
-def get_shake():
-    global speed
-    while not game_over:
-        accel = sense.get_accelerometer_raw()
-        x = round(accel['x'])
-        y = round(accel['y'])
-        z = round(accel['z'])
-        if x != 0 or y != 0 or z != 1:
-            speed = -1
-        else:
-            speed = +1
-```
+	```python
+	def get_shake():
+		global speed
+		while not game_over:
+			accel = sense.get_accelerometer_raw()
+			x = round(accel['x'])
+			y = round(accel['y'])
+			z = round(accel['z'])
+			if x != 0 or y != 0 or z != 1:
+				speed = -1
+			else:
+				speed = +1
+	```
 
 1. Then make this function threaded, by adding these two lines.
 
-```python
-shake = Thread(target=get_shake)
-shake.start()
-```
+	```python
+	shake = Thread(target=get_shake)
+	shake.start()
+	```
 
 1. Save and run your code, and shake the Raspberry Pi (carefully) to see the astronaut move up and then down.
 
 1. Your script should so far look like this:
 
-```python
-from sense_hat import SenseHat
-from time import sleep
-from random import randint
-from threading import Thread
+	```python
+	from sense_hat import SenseHat
+	from time import sleep
+	from random import randint
+	from threading import Thread
 
-sense = SenseHat()
-sense.clear()
+	sense = SenseHat()
+	sense.clear()
 
-##Globals
-game_over = False
-RED = (255,0,0)
-BLACK = (0,0,0)
-BLUE = (0,0,255)
-y = 4
-speed = +1
+	##Globals
+	game_over = False
+	RED = (255,0,0)
+	BLACK = (0,0,0)
+	BLUE = (0,0,255)
+	y = 4
+	speed = +1
 
-def draw_column():
-    global game_over
-    x = 7
-    gap = randint(2,6)
-    while x > 0 and not game_over:
-        for led in range(8):
-            sense.set_pixel(x,led,RED)
-        sense.set_pixel(x,gap,BLACK)
-        sense.set_pixel(x,gap-1,BLACK)
-        sense.set_pixel(x,gap+1,BLACK)
-        sleep(0.5)
-        for i in range(8):
-            sense.set_pixel(x,i,BLACK)
-        x -= 1
-    
-def draw_columns():
-    while not game_over:
-        column = Thread(target=draw_column)
-        column.start()
-        sleep(2)
+	def draw_column():
+		global game_over
+		x = 7
+		gap = randint(2,6)
+		while x >= 0 and not game_over:
+			for led in range(8):
+				sense.set_pixel(x,led,RED)
+			sense.set_pixel(x,gap,BLACK)
+			sense.set_pixel(x,gap-1,BLACK)
+			sense.set_pixel(x,gap+1,BLACK)
+			sleep(0.5)
+			for i in range(8):
+				sense.set_pixel(x,i,BLACK)
+			x -= 1
 
-def get_shake():
-    global speed
-    while not game_over:
-        accel = sense.get_accelerometer_raw()
-        x = round(accel['x'])
-        y = round(accel['y'])
-        z = round(accel['z'])
-        sleep(0.01)
-        if x != 0 or y != 0 or z != 1:
-            speed = -1
-        else:
-            speed = +1
-        
-columns = Thread(target=draw_columns)
-columns.start()
+	def draw_columns():
+		while not game_over:
+			column = Thread(target=draw_column)
+			column.start()
+			sleep(2)
 
-shake = Thread(target=get_shake)
-shake.start()
+	def get_shake():
+		global speed
+		while not game_over:
+			accel = sense.get_accelerometer_raw()
+			x = round(accel['x'])
+			y = round(accel['y'])
+			z = round(accel['z'])
+			sleep(0.01)
+			if x != 0 or y != 0 or z != 1:
+				speed = -1
+			else:
+				speed = +1
 
-while not game_over:
-    sense.set_pixel(3,y,BLUE)
-    sleep(0.1)
-    sense.set_pixel(3,y,BLACK)
-    y += speed
-    if y > 7:
-        y = 7
-    if y < 0:
-        y = 0    
+	columns = Thread(target=draw_columns)
+	columns.start()
 
-```
+	shake = Thread(target=get_shake)
+	shake.start()
+
+	while not game_over:
+		sense.set_pixel(3,y,BLUE)
+		sleep(0.1)
+		sense.set_pixel(3,y,BLACK)
+		y += speed
+		if y > 7:
+			y = 7
+		if y < 0:
+			y = 0    
+
+	```
 
 ## Detecting a collision
 
@@ -420,47 +423,47 @@ while not game_over:
 
 1. A simple function can be provided the `x` position of the columns and the posit on of the gap, to determine if the astronaut makes it though.
 
-```python
-def collision(x,gap):
-```
+	```python
+	def collision(x,gap):
+	```
 
 1. If the `x` value of the column is 3, then the column and astronaut have the same horizontal position.
 
-```python
-def collision(x,gap):
-    if x == 3:
-```
+	```python
+	def collision(x,gap):
+		if x == 3:
+	```
 
 1. Then if the `y` position of the astronaut is between `gap-1` and `gap+1`, the astronaut has made it through the gap.
 
-```python
-def collision(x,gap):
-    if x == 3:
-        if y < gap -1 or y > gap +1:
-            return True
-    return False
-```
+	```python
+	def collision(x,gap):
+		if x == 3:
+			if y < gap -1 or y > gap +1:
+				return True
+		return False
+	```
 
 1. This function can be called inside the `draw_column` to see if the game needs to be ended or not.
 
-```python
-def draw_column():
-    global game_over
-    x = 7
-    gap = randint(2,6)
-    while x > 0 and not game_over:
-        for led in range(8):
-            sense.set_pixel(x,led,RED)
-        sense.set_pixel(x,gap,BLACK)
-        sense.set_pixel(x,gap-1,BLACK)
-        sense.set_pixel(x,gap+1,BLACK)
-        sleep(0.5)
-        for i in range(8):
-            sense.set_pixel(x,i,BLACK)
-        if collision(x,gap):
-            game_over = True
-        x -= 1
-```
+	```python
+	def draw_column():
+		global game_over
+		x = 7
+		gap = randint(2,6)
+		while x > 0 and not game_over:
+			for led in range(8):
+				sense.set_pixel(x,led,RED)
+			sense.set_pixel(x,gap,BLACK)
+			sense.set_pixel(x,gap-1,BLACK)
+			sense.set_pixel(x,gap+1,BLACK)
+			sleep(0.5)
+			for i in range(8):
+				sense.set_pixel(x,i,BLACK)
+			if collision(x,gap):
+				game_over = True
+			x -= 1
+	```
 		
 1. Test your game to see if it's working.
 
@@ -468,99 +471,99 @@ def draw_column():
 
 1. To finish off you need to make sure that the two threads have actually ended. You can also leave a message for the player.
 
-```python
-shake.join()
-columns.join()
+	```python
+	shake.join()
+	columns.join()
 
-sense.show_message("You Lose", text_colour=(255,0,0))
-```
+	sense.show_message("You Lose", text_colour=(255,0,0))
+	```
 
 1. Have a play with your game. Your full code should look like this:
 
-```python
-from sense_hat import SenseHat
-from time import sleep
-from random import randint
-from threading import Thread
+	```python
+	from sense_hat import SenseHat
+	from time import sleep
+	from random import randint
+	from threading import Thread
 
-sense = SenseHat()
-sense.clear()
+	sense = SenseHat()
+	sense.clear()
 
-##Globals
-game_over = False
-RED = (255,0,0)
-BLACK = (0,0,0)
-BLUE = (0,0,255)
-y = 4
-speed = +1
-
-
-def draw_column():
-    global game_over
-    x = 7
-    gap = randint(2,6)
-    while x > 0 and not game_over:
-        for led in range(8):
-            sense.set_pixel(x,led,RED)
-        sense.set_pixel(x,gap,BLACK)
-        sense.set_pixel(x,gap-1,BLACK)
-        sense.set_pixel(x,gap+1,BLACK)
-        sleep(0.5)
-        for i in range(8):
-            sense.set_pixel(x,i,BLACK)
-        if collision(x,gap):
-            game_over = True
-        x -= 1
-
-    
-def draw_columns():
-    while not game_over:
-        column = Thread(target=draw_column)
-        column.start()
-        sleep(2)
-
-def get_shake():
-    global speed
-    while not game_over:
-        accel = sense.get_accelerometer_raw()
-        x = round(accel['x'])
-        y = round(accel['y'])
-        z = round(accel['z'])
-        sleep(0.01)
-        if x != 0 or y != 0 or z != 1:
-            speed = -1
-        else:
-            speed = +1
-
-def collision(x,gap):
-    if x == 3:
-        if y < gap -1 or y > gap +1:
-            return True
-    return False
-
-        
-columns = Thread(target=draw_columns)
-columns.start()
-
-shake = Thread(target=get_shake)
-shake.start()
-
-while not game_over:
-    sense.set_pixel(3,y,BLUE)
-    sleep(0.1)
-    sense.set_pixel(3,y,BLACK)
-    y += speed
-    if y > 7:
-        y = 7
-    if y < 0:
-        y = 0    
+	##Globals
+	game_over = False
+	RED = (255,0,0)
+	BLACK = (0,0,0)
+	BLUE = (0,0,255)
+	y = 4
+	speed = +1
 
 
-shake.join()
-columns.join()
+	def draw_column():
+		global game_over
+		x = 7
+		gap = randint(2,6)
+		while x >= 0 and not game_over:
+			for led in range(8):
+				sense.set_pixel(x,led,RED)
+			sense.set_pixel(x,gap,BLACK)
+			sense.set_pixel(x,gap-1,BLACK)
+			sense.set_pixel(x,gap+1,BLACK)
+			sleep(0.5)
+			for i in range(8):
+				sense.set_pixel(x,i,BLACK)
+			if collision(x,gap):
+				game_over = True
+			x -= 1
 
-sense.show_message("You Lose", text_colour=(255,0,0))
-```
+
+	def draw_columns():
+		while not game_over:
+			column = Thread(target=draw_column)
+			column.start()
+			sleep(2)
+
+	def get_shake():
+		global speed
+		while not game_over:
+			accel = sense.get_accelerometer_raw()
+			x = round(accel['x'])
+			y = round(accel['y'])
+			z = round(accel['z'])
+			sleep(0.01)
+			if x != 0 or y != 0 or z != 1:
+				speed = -1
+			else:
+				speed = +1
+
+	def collision(x,gap):
+		if x == 3:
+			if y < gap -1 or y > gap +1:
+				return True
+		return False
+
+
+	columns = Thread(target=draw_columns)
+	columns.start()
+
+	shake = Thread(target=get_shake)
+	shake.start()
+
+	while not game_over:
+		sense.set_pixel(3,y,BLUE)
+		sleep(0.1)
+		sense.set_pixel(3,y,BLACK)
+		y += speed
+		if y > 7:
+			y = 7
+		if y < 0:
+			y = 0    
+
+
+	shake.join()
+	columns.join()
+
+	sense.show_message("You Lose", text_colour=(255,0,0))
+	```
 
 ## What Next?
 
