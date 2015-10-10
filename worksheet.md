@@ -168,7 +168,7 @@ The problem is that, at the moment, the program has to wait for a function to fi
 
 Threading allows you to call a function in a way that doesn't block the rest of your program, meaning that the `draw_column()` function can be called several times in a row.
 
-1. First you'll need the `Thread` function. At the top of your program add in a line to import it.
+1. First you'll need the `Thread` function. At the top of your program, add in a line to import it.
 
 	```python
 	from sense_hat import SenseHat
@@ -186,7 +186,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 		sleep(2)
 	```
 
-1. The problem is that now you have this while loop blocking the program, and there is still a lot to do, such as getting some user input and moving the *flappy astronaut* up and down. The solution is to place the `while` loop into a function, and have it called as another thread. Add it to a function first:
+1. The problem is that now you have this while loop blocking the program, and there is still a lot to do, such as getting some user input and moving the flappy astronaut itself up and down. The solution is to place the `while` loop into a function, and have it called as another thread. Add it to a function first:
 
 	```python
 	def draw_columns():
@@ -203,7 +203,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	columns.start()
 	```
 
-![scrolling](images/scrolling.gif)
+	![scrolling](images/scrolling.gif)
 
 1. Your entire code should so far look like this.
 
@@ -245,11 +245,11 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	columns = Thread(target=draw_columns)
 	columns.start()
 	```
-1. Save *(Ctrl+s)* and run *(F5)* your program to make sure that it works.
+1. Save **(Ctrl+s)** and run **(F5)** your program to make sure that it works.
 
 ## Adding the flappy astronaut
 
-1. The flappy astronaut will always sit horizontally on the 4th column of LEDs (position 3), but it's vertical (y) values will have to change. This can be set as a global variable. As the astronaut can either be moving up or down, you can also set a global speed variable with `1` indicating it's moving down and `-1` indicating it's moving up. A nice blue colour would suit the astronaut as well.
+1. The flappy astronaut will always sit horizontally on the 4th column of LEDs (position 3), but its vertical (y) values will have to change. This can be set as a global variable. As the astronaut can either be moving up or down, you can also set a global speed variable with `1` indicating that it is moving down and `-1` indicating that it is moving up. A nice blue colour would suit the astronaut as well.
 
 	```python
 	##Globals
@@ -294,7 +294,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 ## Catching user input
 
-1. The astronaut needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the *accelerometer* readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
+1. The astronaut needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the **accelerometer** readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
 
 	```python]
 	def get_shake():
@@ -303,7 +303,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 	```
 
-1. The next step is to read the data from the accelerometer, and then round each of the values. The accelerometer detects *changes* in velocity (speed) in three directions - x, y and z.
+1. The next step is to read the data from the accelerometer, and then round each of the values. The accelerometer detects changes in velocity (speed) in three directions: x, y, and z.
 
 	```python]
 	def get_shake():
@@ -421,9 +421,9 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 ## Detecting a collision
 
-1. To finish off you need the game to end if the *flappy astronaut* collides with the wall. Or to put it another way, you want the game to continue playing, as long as the *flappy astronaut* makes it though the gap.
+1. To finish off you need the game to end if the flappy astronaut collides with the wall. Or, to put it another way, you want the game to continue playing, as long as the flappy astronaut makes it though the gap in the column.
 
-1. A simple function can be provided the `x` position of the columns and the posit on of the gap, to determine if the astronaut makes it though.
+1. A simple function can be provided the `x` position of the columns and the position of the gap, to determine if the astronaut makes it though.
 
 	```python
 	def collision(x,gap):
