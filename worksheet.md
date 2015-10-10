@@ -91,13 +91,13 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 			x -= 1
 	```
 
-1. You can test this function out if you want, but you won't see much. The LEDs will switch on then off, so quickly that there'll be nothing to see. A pause between the LEDs coming on and then off again is needed. At the top of your file, import the `time` module
+1. You can test this function out if you want, but you won't see much. The LEDs will switch on then off, so quickly that there'll be nothing to see. You need to ensure there is a pause between the LEDs lighting up and then turning off again. At the top of your file, import the `time` module
 
 	```python
 	from time import sleep
 	```
 
-1. Then add a sleep between switching the LEDs on an off again.
+1. Then add a sleep interval between switching the LEDs on an off again.
 
    ```python
    def draw_column():
@@ -112,13 +112,13 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 		   x -= 1
    ```
 		
-1. Save your code and then press *F5* to run it. Type `draw_column()` in the Python shell to see it working.
+1. Save your code and then press **F5** to run it. Type `draw_column()` in the Python shell to see it working.
 
 ![column](images/column.gif)
 
 ## Splitting the columns.
 
-The game would be a little tricky if each column is a solid wall of leds, so you need to add a gap. It would be a little easy if the gap was always in the same place, so you'll need some randomness to it's placement.
+The game would be a little tricky if each column is a solid wall of LEDs, so you need to add a gap into the column. It would be a little too easy if the gap was always in the same place, so you'll need some randomness to its placement.
 
 1. Add a line near the top of your file to get the `randint` function from `random`. This will generate random integers for you.
 
