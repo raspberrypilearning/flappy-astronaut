@@ -126,7 +126,7 @@ The game would be a little tricky if each column is a solid wall of LEDs, so you
 	from random import randint
 	```
 
-1. You'll need the program to get a random integer between 1 and 6 (inclusive) and then place a gap in the line of pixels centred about that value. Don't forget, adding a gap just means turning off a few pixels.
+1. You'll need the program to get a random integer between 1 and 6 (inclusive) and then place a gap in the line of pixels centred about that value. Don't forget, adding a gap in the column just means that you are turning off a few pixels.
 
 	```python
 	def draw_column():
@@ -146,7 +146,7 @@ The game would be a little tricky if each column is a solid wall of LEDs, so you
 
 	```
 
-1. Save and run your code, then type `draw_column()` into the interpreter, to check that it's all working.
+1. Save and run your code, then type `draw_column()` into the interpreter, to check that everything is working.
 
 ![gap](images/gap.gif)
 
@@ -162,11 +162,11 @@ The game would be a little tricky if each column is a solid wall of LEDs, so you
 
 ## Threading
 
-So that has a single column scrolling across the matrix, but only one at a time. It would be possible to alter the `draw_column` function to produce more than one column, but it is easier to have the same function called several times.
+Now we have a single column scrolling across the matrix, but what if we wanted to display more than one column at a time? It would be possible to alter the `draw_column` function to produce more than one column, but it is easier to have the same function called several times.
 
-The problem is that at the moment, the program has to wait for a function to finish, before it can be called again. It is possible to over come this problem by using `threading`.
+The problem is that, at the moment, the program has to wait for a function to finish before it can be called again. It is possible to overcome this problem by using **threading**.
 
-`Threading` allows you to call a function in a way that doesn't block the rest of your program, meaning that the `draw_column()` function can be called several times in a row.
+Threading allows you to call a function in a way that doesn't block the rest of your program, meaning that the `draw_column()` function can be called several times in a row.
 
 1. First you'll need the `Thread` function. At the top of your program add in a line to import it.
 
@@ -569,8 +569,8 @@ The problem is that at the moment, the program has to wait for a function to fin
 
 ## What Next?
 
-1. Can you play around with the variable values to make the game easier/more difficult?
+1. Can you play around with the variable values to make the game easier or more difficult?
 
-1. Can you keep a score so that each time a column is successfully negotiated the score increase by 1?
+1. Can you keep a score so that each time a column is successfully negotiated, the score increases by one point?
 
 1. Can you think of other ways of controlling the astronaut? Maybe you could use the joystick or the humidity sensor?
