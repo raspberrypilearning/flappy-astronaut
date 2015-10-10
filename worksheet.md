@@ -1,6 +1,6 @@
 # Flappy Astronaut
 
-While astronauts are kept pretty busy while on the ISS, they still need to grab a few minutes of relaxation time every now and then. As there are two Raspberry Pis with Sense HATS up there with them, a little game of flappy astronaut would be the perfect way to unwind after a hard day's work in zero g.
+While astronauts are kept pretty busy while on the ISS, they still need to grab a few minutes of relaxation time every now and then. As there are two Raspberry Pis with Sense HATs up there with them, a little game of Flappy Astronaut would be the perfect way to unwind after a hard day's work in zero g.
 
 ## Setting up the Sense HAT
 
@@ -8,7 +8,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 1. Now create a new text file to write your code in (`File>New File`)
 
-1. You're going to need to import some modules from the sense_hat package to get going, so write the following three lines into your text file that will enable access to the Sense HAT and clear the LED matrix.
+1. You're going to need to import some modules from the `sense_hat` package to get going, so write the following three lines into your text file that will enable access to the Sense HAT and clear the LED matrix.
 
 	```python
 	from sense_hat import SenseHat
@@ -18,14 +18,14 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 ## Drawing the columns
 
-1. You can start by drawing the columns that will scroll across the LED matrix. You're going to need some loops in this game, so you'll need a way to bring the loops to a close. For this reason, you can use a *global variable* called `game_over` to keep track of whether the game is being played or has ended.
+1. You can start by drawing the columns that will scroll across the LED matrix. You're going to use some loops in this game, so you'll need a way to bring the loops to a close. To achieve this, you can use a **global variable** called `game_over` to keep track of whether the game is being played or has ended.
 
     ```python
 	## GLOBALS
 	game_over = False
 	```
 
-1. To begin with, you can produce a vertical line of LEDs that scroll across the screen. This can be produced using a function called `draw_column`. The function will need to be able to change the `game_over` variable, so within the function you need to set it as a global variable.
+1. To begin with, you will make a vertical line of LEDs that scroll across the screen. This can be produced using a function called `draw_column`. The function will need to be able to change the `game_over` variable, so within the function you need to set it as a global variable.
 
 	```python
 	def draw_column():
@@ -42,7 +42,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 		x = 7
 	```
 
-1. Now you need to illuminate the last column of LEDs, pause for a little bit, turn off the column of LEDs and then illuminate the next column along, by reducing the value of `x` by one. This can all be done within a `while` loop, that keeps looping until the value of x gets to 0 or the game is over.
+1. Now you need to illuminate the last column of LEDs, pause for a little bit, turn off the column of LEDs and then illuminate the next column along, by reducing the value of `x` by one. This can all be done within a `while` loop, which keeps looping until the value of x gets to 0 or the game is over.
 
 	```python
 	def draw_column():
@@ -51,7 +51,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 		while x >= 0 and not game_over:
 	```
 
-1. The column of LEDs is going to be red, and to switch them off they're going to be turned black. You need to specify these variables in your `##Globals` section.
+1. The column of LEDs is going to be red, and to switch them off, they're going to be changed to black. You need to specify these variables in your `##Globals` section.
 
 	```python
 	##Globals
@@ -71,13 +71,13 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 				sense.set_pixel(x,led,RED)
 	```
 
-1. You can test out your new function, to make sure a line of LEDs are being switched on. Save your file as **flappy.py** and then press *F5* to run it. Nothing will happen at first, because you haven't *called* the function, so just switch over into the *Python Shell* and type `draw_column()`
+1. You can test out your new function, to make sure a line of LEDs are being switched on. Save your file as **flappy.py** and then press **F5** to run it. Nothing will happen at first, because you haven't called the function, so just switch over into the *Python Shell* and type `draw_column()`
 
 ![column](images/column.jpg)
 
 ## Moving the columns
 
-1. Next we want to switch off all those LEDs and decrease the variable `x` by one, then let the loop carry on around. Another for loop can be easily used to turn off all the LEDs.
+1. Next we want to switch all those LEDs off and decrease the variable `x` by one, then let the loop carry on around. Another `for` loop can be easily used to turn off all the LEDs.
 
 	```python
 	def draw_column():
@@ -91,7 +91,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 			x -= 1
 	```
 
-1. You can test this function out if you want, but you won't see much. The LEDs will switch on then off, so quickly that there'll be nothing to see. A pause between the LEDs coming on and then off again is needed. At the top of you file, import the `time` module
+1. You can test this function out if you want, but you won't see much. The LEDs will switch on then off, so quickly that there'll be nothing to see. A pause between the LEDs coming on and then off again is needed. At the top of your file, import the `time` module
 
 	```python
 	from time import sleep
