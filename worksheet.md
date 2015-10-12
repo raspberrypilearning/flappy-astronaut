@@ -296,7 +296,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 1. The astronaut needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the **accelerometer** readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
 
-	```python]
+	```python
 	def get_shake():
 		global speed
 		while not game_over:
@@ -305,7 +305,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 1. The next step is to read the data from the accelerometer, and then round each of the values. The accelerometer detects changes in velocity (speed) in three directions: x, y, and z.
 
-	```python]
+	```python
 	def get_shake():
 		global speed
 		while not game_over:
