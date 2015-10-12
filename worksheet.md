@@ -323,7 +323,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	z will be 1
 	```
 
-1. z is one because it is reading the gravitational pull of the Earth. If these values change (because the Pi is being shaken), then you want the speed of the astronaut to change. A simple conditional will do this.
+1. Note that z has a value of 1 because it is reading the gravitational pull of the Earth. If these values change (because the Pi is being shaken), then you want the speed of the astronaut to change. A simple conditional will do this.
 
 	```python
 	def get_shake():
@@ -421,7 +421,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 ## Detecting a collision
 
-1. To finish off you need the game to end if the flappy astronaut collides with the wall. Or, to put it another way, you want the game to continue playing, as long as the flappy astronaut makes it though the gap in the column.
+1. To finish off, you need the game to end if the flappy astronaut collides with the wall. Or, to put it another way, you want the game to continue playing, as long as the flappy astronaut makes it though the gap in the column.
 
 1. A simple function can be provided the `x` position of the columns and the position of the gap, to determine if the astronaut makes it though.
 
