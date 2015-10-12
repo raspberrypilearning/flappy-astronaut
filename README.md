@@ -2,7 +2,7 @@
 
 ![Flappy Astronaut](cover.png)
 
-In this activity you will make a Flappy Bird clone using your Raspberry Pi and the Sense HAT. The player will control the Astronaut by shaking their Raspberry Pi, to make it move upwards.
+In this activity you will make a Flappy Bird clone using your Raspberry Pi and the Sense HAT. The player will control the astronaut by shaking their Raspberry Pi, to make the astronaut move upwards.
 
 ## Requirements
 
