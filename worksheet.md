@@ -71,7 +71,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 				sense.set_pixel(x,led,RED)
 	```
 
-1. You can test out your new function, to make sure a line of LEDs are being switched on. Save your file as **flappy.py** and then press **F5** to run it. Nothing will happen at first, because you haven't called the function, so just switch over into the *Python Shell* and type `draw_column()`
+1. You can test out your new function, to make sure a line of LEDs are being switched on. Save your file as **flappy.py** and then press **F5** to run it. Nothing will happen at first, because you haven't called the function, so just switch over into the Python Shell and type `draw_column()`
 
 ![column](images/column.jpg)
 
