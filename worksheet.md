@@ -150,7 +150,7 @@ The game would be a little tricky if each column is a solid wall of LEDs, so you
 
 ![gap](images/gap.gif)
 
-## Multiple Columns.
+## Multiple Columns
 
 1. Now that you have a single column scrolling across the matrix, you'll want keep them coming. This can be achieved with a `while` loop. Add this code to the bottom of your script.
 
