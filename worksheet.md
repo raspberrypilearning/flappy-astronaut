@@ -4,9 +4,9 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 ## Setting up the Sense HAT
 
-1. To begin with you'll need to start IDLE (`Menu>Programming>Python 3 (IDLE)`).
+1. To begin with you'll need to open IDLE3 by clicking on the **Main Menu**, **Programming** and selecting **Python 3**.
 
-1. Now create a new text file to write your code in (`File>New File`)
+1. Now create a new text file to write your code in `File>New File`.
 
 1. You're going to need to import some modules from the `sense_hat` package to get going, so write the following three lines into your text file that will enable access to the Sense HAT and clear the LED matrix.
 
