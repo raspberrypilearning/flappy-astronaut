@@ -1,4 +1,4 @@
-By coding a Pong game with your Raspberry Pi and Sense HAT, you will learn:
+By coding a Flappy Astronaut game with your Raspberry Pi and Sense HAT, you will learn:
 
 - How to illuminate Sense HAT pixels
 - How to capture data from the accelerometer
