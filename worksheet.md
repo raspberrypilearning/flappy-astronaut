@@ -4,7 +4,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 ## Setting up the Sense HAT
 
-1. To begin with you'll need to open IDLE3 by clicking on the **Main Menu**, **Programming** and selecting **Python 3**.
+1. To begin with you'll need to open IDLE3 by clicking on the **Main Menu**, **Programming** and selecting **Python 3**. Alternatively, you could use the [Trinket.io](https://trinket.io/) for the first part of the resource, or the [Desktop Sense HAT Emulator](https://www.raspberrypi.org/blog/desktop-sense-hat-emulator/).
 
 1. Now create a new text file to write your code in `File>New File`.
 
@@ -15,6 +15,8 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 	sense = SenseHat()
 	sense.clear()
 	```
+
+<iframe src="https://trinket.io/embed/python/bca5631501" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ## Drawing the columns
 
@@ -71,13 +73,15 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 				sense.set_pixel(x,led,RED)
 	```
 
-1. You can test out your new function, to make sure a line of LEDs are being switched on. Save your file as **flappy.py** and then press **F5** to run it. Nothing will happen at first, because you haven't called the function, so just switch over into the Python Shell and type `draw_column()`
+1. To test that the function is working, it needs to be *called*. You can temporarily add in a function call to the bottom of your script or you could type `draw_column()` in the IDLE shell, after saving and running your script (`ctrl+s` and `F5`).
 
 ![column](images/column.jpg)
 
+<iframe src="https://trinket.io/embed/python/dfd655bfbb" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 ## Moving the columns
 
-1. Next we want to switch all those LEDs off and decrease the variable `x` by one, then let the loop carry on around. Another `for` loop can be easily used to turn off all the LEDs.
+1. Next we want to switch all those LEDs off and decrease the variable `x` by one, then let the loop carry on around. Another `for` loop can be easily used to turn off all the LEDs. Edit your function, so that it looks like this:
 
 	```python
 	def draw_column():
@@ -100,21 +104,28 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 1. Then add a sleep interval between switching the LEDs on an off again.
 
    ```python
-   def draw_column():
-	   global game_over
-	   x = 7
-	   while x >= 0 and not game_over:
-		   for led in range(8):
-			   sense.set_pixel(x,led,RED)
-		   sleep(0.5)
-		   for led in range(8):
-			   sense.set_pixel(x,led,BLACK)
-		   x -= 1
+		def draw_column():
+			global game_over
+			x = 7
+			while x >= 0 and not game_over:
+				for led in range(8):
+					sense.set_pixel(x,led,RED)
+				sleep(0.5)
+				for led in range(8):
+					sense.set_pixel(x,led,BLACK)
+				x -= 1
+				
+		##Testing function call
+		draw_column()
    ```
 		
-1. Save your code and then press **F5** to run it. Type `draw_column()` in the Python shell to see it working.
+1. Save your code and then press **F5** to run it.
 
 ![column](images/column.gif)
+
+
+<iframe src="https://trinket.io/embed/python/0bce675835" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 
 ## Splitting the columns.
 
@@ -144,21 +155,27 @@ The game would be a little tricky if each column is a solid wall of LEDs, so you
 				sense.set_pixel(x,i,BLACK)
 			x -= 1
 
+	##Testing function call
+	draw_column()
 	```
 
-1. Save and run your code, then type `draw_column()` into the interpreter, to check that everything is working.
+1. Save and run your code. Each time it is run, the gap in the column should randomly change position.
 
 ![gap](images/gap.gif)
 
+<iframe src="https://trinket.io/embed/python/27f336c50d" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 ## Multiple Columns
 
-1. Now that you have a single column scrolling across the matrix, you'll want keep them coming. This can be achieved with a `while` loop. Add this code to the bottom of your script.
+1. Now that you have a single column scrolling across the matrix, you'll want keep them coming. This can be achieved with a `while` loop. Add this code to the bottom of your script, and remove the function call you used for testing.
 
 	```python
 	while not game_over:
 		draw_column()
 		sleep(2)
 	```
+
+<iframe src="https://trinket.io/embed/python/55d742ffaf" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ## Threading
 
@@ -176,6 +193,8 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	from random import randint
 	from threading import Thread
 	```
+	
+	**If you're using the trinket.io emulator, you'll need to stop at this point, as it doesn't support threading, and start working locally on your computer. 
 
 1. Now you can turn the function call in the `while` loop into a threaded function call, that will be called every two seconds
 
