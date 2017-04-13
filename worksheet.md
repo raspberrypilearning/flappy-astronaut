@@ -194,7 +194,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	from threading import Thread
 	```
 	
-	**If you're using the trinket.io emulator, you'll need to stop at this point, as it doesn't support threading, and start working locally on your computer. 
+	**If you're using the trinket.io emulator, you'll need to stop at this point, as it doesn't yet support threading, and start working locally on your computer.**
 
 1. Now you can turn the function call in the `while` loop into a threaded function call, that will be called every two seconds
 
