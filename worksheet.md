@@ -1,14 +1,14 @@
 # Flappy Astronaut
 
-While astronauts are kept pretty busy while on the ISS, they still need to grab a few minutes of relaxation time every now and then. As there are two Raspberry Pis with Sense HATs up there with them, a little game of Flappy Astronaut would be the perfect way to unwind after a hard day's work in zero gravity.
+While astronauts are kept pretty busy while on the ISS, they still need to grab a few minutes of relaxation time every now and then. There are two Raspberry Pis with Sense HATs up there with them, so a little game of Flappy Astronaut would be the perfect way to unwind after a hard day's work in zero gravity.
 
 ## Setting up the Sense HAT
 
-1. To begin with you'll need to open IDLE3 by clicking on the **Main Menu**, **Programming** and selecting **Python 3**. Alternatively, you could use the [Trinket.io](https://trinket.io/) for the first part of the resource, or the [Desktop Sense HAT Emulator](https://www.raspberrypi.org/blog/desktop-sense-hat-emulator/).
+1. To begin with you'll need to open IDLE3 by clicking on **Main Menu**, **Programming**, and selecting **Python 3**. Alternatively, you could use the [Trinket.io](https://trinket.io/) for the first part of the resource, or the [Desktop Sense HAT Emulator](https://www.raspberrypi.org/blog/desktop-sense-hat-emulator/).
 
 1. Now create a new text file to write your code in `File>New File`.
 
-1. You're going to need to import some modules from the `sense_hat` package to get going, so write the following three lines into your text file that will enable access to the Sense HAT and clear the LED matrix.
+1. You're going to need to import some modules from the `sense_hat` package to get going, so write the following three lines into your text file to enable access to the Sense HAT and clear the LED matrix.
 
 	```python
 	from sense_hat import SenseHat
@@ -53,7 +53,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 		while x >= 0 and not game_over:
 	```
 
-1. The column of LEDs is going to be red, and to switch them off, they're going to be changed to black. You need to specify these variables in your `##Globals` section.
+1. The column of LEDs is going to be red. To switch them off, we can change them to black. You need to specify these variables in your `##Globals` section.
 
 	```python
 	##Globals
@@ -73,7 +73,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 				sense.set_pixel(x,led,RED)
 	```
 
-1. To test that the function is working, it needs to be *called*. You can temporarily add in a function call to the bottom of your script or you could type `draw_column()` in the IDLE shell, after saving and running your script (`ctrl+s` and `F5`).
+1. To test that the function is working, it needs to be **called**. You can temporarily add in a function call to the bottom of your script or you could type `draw_column()` in the IDLE shell, after saving and running your script (`ctrl+s` and `F5`).
 
 ![column](images/column.jpg)
 
@@ -81,7 +81,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 ## Moving the columns
 
-1. Next we want to switch all those LEDs off and decrease the variable `x` by one, then let the loop carry on around. Another `for` loop can be easily used to turn off all the LEDs. Edit your function, so that it looks like this:
+1. Next, we want to switch all those LEDs off and decrease the variable `x` by one, then let the loop carry on around. Another `for` loop can be easily used to turn off all the LEDs. Edit your function, so that it looks like this:
 
 	```python
 	def draw_column():
@@ -101,7 +101,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 	from time import sleep
 	```
 
-1. Then add a sleep interval between switching the LEDs on an off again.
+1. Then add a sleep interval between switching the LEDs on and off again.
 
    ```python
 		def draw_column():
@@ -129,7 +129,7 @@ While astronauts are kept pretty busy while on the ISS, they still need to grab 
 
 ## Splitting the columns.
 
-The game would be a little tricky if each column is a solid wall of LEDs, so you need to add a gap into the column. It would be a little too easy if the gap was always in the same place, so you'll need some randomness to its placement.
+The game would be a little tricky if each column was a solid wall of LEDs, so you need to add a gap into the column. It would be a little too easy if the gap was always in the same place, so you'll need some randomness to its placement.
 
 1. Add a line near the top of your file to get the `randint` function from `random`. This will generate random integers for you.
 
@@ -196,7 +196,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	
 	**If you're using the trinket.io emulator, you'll need to stop at this point, as it doesn't yet support threading, and start working locally on your computer.**
 
-1. Now you can turn the function call in the `while` loop into a threaded function call, that will be called every two seconds
+1. Now you can turn the function call in the `while` loop into a threaded function call, that will be called every two seconds:
 
 	```python
 	while not game_over:
@@ -215,7 +215,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 			sleep(2)
 	```
 
-1. Then call it as a threaded function.
+1. Then call it as a threaded function:
 
 	```python
 	columns = Thread(target=draw_columns)
@@ -224,7 +224,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 	![scrolling](images/scrolling.gif)
 
-1. Your entire code should so far look like this.
+1. Your entire code so far should look like this:
 
 	```python
 	from sense_hat import SenseHat
@@ -264,7 +264,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	columns = Thread(target=draw_columns)
 	columns.start()
 	```
-1. Save **(Ctrl+s)** and run **(F5)** your program to make sure that it works.
+1. Save and run your program (Ctrl+s, F5) to make sure that it works.
 
 ## Adding the flappy astronaut
 
@@ -280,7 +280,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	speed = +1
 	```
 
-1. You can start just by illuminating a single LED, by adding a new `while` loop to the bottom of your script.
+1. You can start by illuminating a single LED. Add a new `while` loop to the bottom of your script:
 
 	```python
 	while not game_over:
@@ -297,7 +297,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 		y += speed
 	```
 
-1. When you run this, your program will crash, because `y` eventually reaches a value of 8, and that is off the matrix. It's simple to fix this though.
+1. When you run this, your program will crash, because `y` eventually reaches a value of 8, and that is off the edge of the matrix. It's simple to fix this though:
 
 	```python
 	while not game_over:
@@ -342,7 +342,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	z will be 1
 	```
 
-1. Note that z has a value of 1 because it is reading the gravitational pull of the Earth. If these values change (because the Pi is being shaken), then you want the speed of the astronaut to change. A simple conditional will do this.
+1. Note that z has a value of 1 because it is reading the gravitational pull of the Earth. If these values change (because the Sense HAT is being shaken), you want the speed of the astronaut to change. A simple conditional will do this:
 
 	```python
 	def get_shake():
@@ -365,7 +365,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 	shake.start()
 	```
 
-1. Save and run your code, and shake the Raspberry Pi (carefully) to see the astronaut move up and then down.
+1. Save and run your code, and shake the Sense HAT (carefully) to see the astronaut move up and then down.
 
 1. Your script should so far look like this:
 
@@ -440,9 +440,9 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 
 ## Detecting a collision
 
-1. To finish off, you need the game to end if the flappy astronaut collides with the wall. Or, to put it another way, you want the game to continue playing, as long as the flappy astronaut makes it though the gap in the column.
+1. Next, you need the game to end if the flappy astronaut collides with the wall. Or, to put it another way, you want the game to continue playing, as long as the flappy astronaut makes it though the gap in the column.
 
-1. A simple function can be provided the `x` position of the columns and the position of the gap, to determine if the astronaut makes it though.
+1. A simple function can be provided with the `x` position of the columns and the position of the gap, to determine whether the astronaut makes it though.
 
 	```python
 	def collision(x,gap):
@@ -465,7 +465,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 		return False
 	```
 
-1. This function can be called inside the `draw_column` to see if the game needs to be ended or not.
+1. This function can be called inside the `draw_column` to see whether or not the game needs to be ended.
 
 	```python
 	def draw_column():
@@ -486,7 +486,7 @@ Threading allows you to call a function in a way that doesn't block the rest of 
 			x -= 1
 	```
 		
-1. Test your game to see if it's working.
+1. Test your game to see whether it's working.
 
 ## Finishing off
 
