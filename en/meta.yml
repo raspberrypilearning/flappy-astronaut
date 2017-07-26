@@ -1,0 +1,31 @@
+---
+title: Flappy Astronaut
+hero_image: images/banner.png
+description: In this activity you will make a Flappy Bird clone using your Raspberry
+  Pi and the Sense HAT.
+original_url: https://raspberrypi.org/learning/flappy-astronaut
+theme: red
+duration: 2
+listed: false
+ingredient: false
+copyedit: true
+curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
+interests: ''
+technologies: rpi, physical computing, python
+site_areas: ''
+steps:
+- title: Introduction
+- title: What you will need
+- title: Flappy Astronaut
+- title: Setting up the Sense HAT
+- title: Drawing the columns
+- title: Moving the columns
+- title: Splitting the columns.
+- title: Multiple Columns
+- title: Threading
+- title: Adding the flappy astronaut
+- title: Catching user input
+- title: Detecting a collision
+- title: Finishing off
+- title: What Next?
+
