@@ -4,7 +4,7 @@ hero_image: images/banner.png
 description: In this activity you will make a Flappy Bird clone using your Raspberry
   Pi and the Sense HAT.
 original_url: https://raspberrypi.org/learning/flappy-astronaut
-theme: red
+theme: green
 duration: 2
 listed: true
 ingredient: false
