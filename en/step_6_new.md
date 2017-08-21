@@ -11,11 +11,33 @@
   
 - You already have code that does the first part. To do the second step, you'll need to import the `sleep` method from the `time` module. Add this line to the top of your code, where you imported the `sense_hat` module.
 
-```python
-from time import sleep
-```
+	```python
+	from time import sleep
+	```
 
-- 
+- Now, after the red column of pixels have been drawn, you can pause your program for half a second using `sleep(0.5)` and then redraw the same column using black pixels.
+
+	```python
+	from sense_hat import SenseHat
+	from time import sleep
+	sense = SenseHat()
+
+	red = (255, 0, 0)
+	black = (0, 0, 0)
+
+	for y in range(8):
+		sense.set_pixel(7, y, red)
+	sleep(0.5)
+	for y in range(8):
+		sense.set_pixel(7, y, black)
+	```
+	
+- If you run this code you should see the line of pixels being drawn and then dissapearing.
+
+- Now you need to redraw the column, but instead of using `sense.set_pixel(7, y, red)`, the `7` needs to become a `6`. You can do this using another `for` loop.
+
+
+
 - You can start by drawing the columns that will scroll across the LED matrix. You're going to use some loops in this game, so you'll need a way to bring the loops to a close. To achieve this, you can use a **global variable** called `game_over` to keep track of whether the game is being played or has ended.
 
     ```python

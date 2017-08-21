@@ -40,8 +40,8 @@ sense = SenseHat()
 
 red = (255, 0, 0)
 
-for i in range(8):
-	sense.set_pixel(7, i, red)
+for y in range(8):
+	sense.set_pixel(7, y, red)
 ```
 <iframe src="https://trinket.io/embed/python/d192c65943" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 --- /hint --- --- /hints ---
