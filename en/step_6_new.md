@@ -5,7 +5,7 @@
 - Currently the column starts on the far right of the matrix, at position `x = 7`. So to make it move, you need to use this simple algorithm.
   1. Draw a column at `x = 7` with colour red
   2. Wait half a second
-  3. Draw a colum at `x = 7` with colour black
+  3. Draw a column at `x = 7` with colour black
   4. Draw a column at `x = 6` with colour red
   5. Keep doing this until `x = 0`
   
@@ -32,68 +32,45 @@
 		sense.set_pixel(7, y, black)
 	```
 	
-- If you run this code you should see the line of pixels being drawn and then dissapearing.
+- If you run this code you should see the line of pixels being drawn and then disappearing.
 
-- Now you need to redraw the column, but instead of using `sense.set_pixel(7, y, red)`, the `7` needs to become a `6`. You can do this using another `for` loop.
+- Now you need to redraw the column, but instead of using `sense.set_pixel(7, y, red)`, the `7` needs to become a `6`, and then a `5` and so on.
 
+- You can do this using another `for` loop, and a negative step value in the `range` function. Have a look at the section below if you are unfamiliar with the `range` function.
 
+[[[generic-python-range-function]]]
 
-- You can start by drawing the columns that will scroll across the LED matrix. You're going to use some loops in this game, so you'll need a way to bring the loops to a close. To achieve this, you can use a **global variable** called `game_over` to keep track of whether the game is being played or has ended.
+- Now, use another `for` loop, that **nests** the other two loops. It should use a `range` that produces a sequence from `7` down to `0`. You can use that variable `x` for the output of the loop, and replace `7` with `x` in your `set_pixel`.
 
-    ```python
-	## GLOBALS
-	game_over = False
-	```
-
-- To begin with, you will make a vertical line of LEDs that scroll across the screen. This can be produced using a function called `draw_column`. The function will need to be able to change the `game_over` variable, so within the function you need to set it as a global variable.
-
-	```python
-	def draw_column():
-		global game_over
-	```
-
-- The column is going to start on the far right of the matrix. If you look a the diagram below, you can see that this means it will have a position on the `x` axis of 7.
-
-- Set the starting position of the column, in the `draw_column` function.
-
-	```python
-	def draw_column():
-		global game_over
-		x = 7
-	```
-
-- Now you need to illuminate the last column of LEDs, pause for a little bit, turn off the column of LEDs and then illuminate the next column along, by reducing the value of `x` by one. This can all be done within a `while` loop, which keeps looping until the value of x gets to 0 or the game is over.
-
-	```python
-	def draw_column():
-		global game_over
-		x = 7
-		while x >= 0 and not game_over:
-	```
-
-- The column of LEDs is going to be red. To switch them off, we can change them to black. You need to specify these variables in your `##Globals` section.
-
-	```python
-	##Globals
-	game_over = False
-	RED = (255,0,0)
-	BLACK = (0,0,0)
-	```
-
-- To illuminate all the pixels in a given column, you could write something like `sense.set_pixel(x,0,RED)` eight times, changing the 0 to 1, then 2, then 3, etc. However, this is simpler to do in a `for` loop.
-
-	```python
-	def draw_column():
-		global game_over
-		x = 7
-		while x >= 0 and not game_over:
-			for led in range(8):
-				sense.set_pixel(x,led,RED)
-	```
-
-- To test that the function is working, it needs to be **called**. You can temporarily add in a function call to the bottom of your script or you could type `draw_column()` in the IDLE shell, after saving and running your script (`ctrl+s` and `F5`).
-
-![column](images/column.jpg)
-
-<iframe src="https://trinket.io/embed/python/dfd655bfbb" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
+--- hints --- --- hint ---
+Your new loop should nest the other two loops.
+```python
+for x in range(something here):
+    for y in range(8):
+		sense.set_pixel(7, y, red)
+	sleep(0.5)
+	for y in range(8):
+		sense.set_pixel(7, y, black)
+```
+--- /hint --- --- hint ---
+The range needs to start at `7` and end at `-1` with an increment of `-1`. This will produce a sequence starting at `7` and going down to `0`.
+```python
+for x in range(7, -1, -1):
+    for y in range(8):
+		sense.set_pixel(7, y, red)
+	sleep(0.5)
+	for y in range(8):
+		sense.set_pixel(7, y, black)
+```
+--- /hint --- --- hint ---
+The `7` in each `set_pixel` can now be replaced with the `x`.
+```python
+for x in range(7, -1, -1):
+    for y in range(8):
+		sense.set_pixel(x, y, red)
+	sleep(0.5)
+	for y in range(8):
+		sense.set_pixel(x, y, black)
+```
+<iframe src="https://trinket.io/embed/python/51ac109480" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+--- /hint --- --- /hints ---
