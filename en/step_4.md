@@ -1,16 +1,33 @@
-## Setting up the Sense HAT
+## Representing pixels
 
-- To begin with you'll need to open IDLE3 by clicking on **Main Menu**, **Programming**, and selecting **Python 3**. Alternatively, you could use the [Trinket.io](https://trinket.io/) for the first part of the resource, or the [Desktop Sense HAT Emulator](https://www.raspberrypi.org/blog/desktop-sense-hat-emulator/).
+The Sense HAT has an 8 x 8 pixel LED matrix. Each of the pixels can be illuminated, in any colour. This is going to be the screen you use to display your flappy astronaut game.
 
-- Now create a new text file to write your code in `File > New File`.
+When programmers want to colour a specific pixel on a screen, they normally refer to it's `x` and `y` coordinates. The same is true of the Sense HAT's LED matrix. If you want to see how the `x` and `y` coordinates can be used to set a specific pixel, then have a look at the section below.
 
-- You're going to need to import some modules from the `sense_hat` package to get going, so write the following three lines into your text file to enable access to the Sense HAT and clear the LED matrix.
+[[[rpi-sensehat-single-pixle]]]
 
-	```python
-	from sense_hat import SenseHat
-	sense = SenseHat()
-	sense.clear()
-	```
+If you want to set multiple pixels though, your going to need a lot of lines of code. Luckily, the Sense HAT let's you set multiple pixels at a time by using a **list**. You can read more about this, and see some example code below.
 
-<iframe src="https://trinket.io/embed/python/bca5631501" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+[[[rpi-sensehat-multiple-pixels]]]
 
+The only problem with using a single list like this, is it can be tricky to figure out which item in the list corresponds to which pixel on the screen. For instance: The pixel at `x = 5` and `y = 5`, is at which index in the list? To calculate this you would have to do the following calculation.
+
+```
+index = (y - 1) * 8 + x
+```
+
+This tells you that the index is `37`, but it's not very intuitive.
+
+To solve this, programmers often use 2d lists, or what are sometimes known as lists of lists, to represent the arrangement of pixels on a screen.
+
+Here is a simple list of lists to describe a noughts & crosses (tic-tac-toe) board.
+
+```python
+board = [['X', 'O', 'X'],
+	     ['O', 'X', 'O'],
+		 ['O', 'O', 'X']]
+```
+
+What makes this an easy way of representing the board, is that you can easily use `x` and `y` coordinates to find out what is in each of the squares. For instance, if you want to find out which character is in the bottom left corner, you know that it has an `x` position of `0` and a `y` position of '2' (Don't forget that we start counting items in a list from 0).
+
+To find out the character in that position then, you can just use `board[y][x]`. So in this example that would be `board[2][0]`

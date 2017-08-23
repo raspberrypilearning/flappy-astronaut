@@ -1,61 +1,60 @@
-## Drawing the columns
+## Using 2D lists with the Sense HAT
 
-- You can start by drawing the columns that will scroll across the LED matrix. You're going to use some loops in this game, so you'll need a way to bring the loops to a close. To achieve this, you can use a **global variable** called `game_over` to keep track of whether the game is being played or has ended.
+- Now you know that the best way to represent the pixels on the LED matrix is using a 2D list, let's see how this can be done with the Sense HAT.
 
-    ```python
-	## GLOBALS
-	game_over = False
-	```
+- Open a new Python file, or use the emulator at [trinket.io](https://trinket.io/).
 
-- To begin with, you will make a vertical line of LEDs that scroll across the screen. This can be produced using a function called `draw_column`. The function will need to be able to change the `game_over` variable, so within the function you need to set it as a global variable.
+- The first two lines of code, just import the Sense HAT modules and create a `SenseHAT` object that can be used to control the LED matrix.
 
 	```python
-	def draw_column():
-		global game_over
+	from sense_hat import SenseHat
+
+	sense = SenseHat()
 	```
 
-- The column is going to start on the far right of the matrix. If you look a the diagram below, you can see that this means it will have a position on the `x` axis of 7.
+- To begin with, you need to create two variables that represent the pixels colour. To make this simple, you can use red and blue. If you want to learn a little more about how computers represent colours, then have a look at the section below.
 
-- Set the starting position of the column, in the `draw_column` function.
+[[[generic-theory-colours]]]
+
+- To store the colour information, you can use a pair of tuples. One for red and one for blue.
 
 	```python
-	def draw_column():
-		global game_over
-		x = 7
+	RED = (255, 0, 0)
+	BLUE = (0, 0, 255)
 	```
 
-- Now you need to illuminate the last column of LEDs, pause for a little bit, turn off the column of LEDs and then illuminate the next column along, by reducing the value of `x` by one. This can all be done within a `while` loop, which keeps looping until the value of x gets to 0 or the game is over.
+- Now you are going to create a list of lists, that is filled with the variable `BLUE`. This would mean a lot of typing or copy and pasting, to manually create it, but you can use a list comprehension to complete the task in a single line.
 
 	```python
-	def draw_column():
-		global game_over
-		x = 7
-		while x >= 0 and not game_over:
+	matrix = [[BLUE for column in range(8)] for row in range(8)]
 	```
 
-- The column of LEDs is going to be red. To switch them off, we can change them to black. You need to specify these variables in your `##Globals` section.
+- What does this do? The section `[BLUE for column in range(8)]` creates a single list, with 8 values of `(0, 0, 255)` inside it. Then the `for row in range(8)` makes 8 copies of that list, inside another list. You can switch over to the interpreter and type `matrix` if you want to see it for yourself, after running the code.
+
+- You can't use this list of lists with the Sense HAT yet though, as the module only understands a **flat** 1D list. To solve, this, you are going to make a function that turns 2D lists into 1D lists. You can then use this function, every time the `matrix` needs to be displayed.
+
+- To flatten a 2D list into a 1D list, you can again use a list comprehension.
 
 	```python
-	##Globals
-	game_over = False
-	RED = (255,0,0)
-	BLACK = (0,0,0)
+	flattened = [pixel for row in matrix for pixel in row]
 	```
 
-- To illuminate all the pixels in a given column, you could write something like `sense.set_pixel(x,0,RED)` eight times, changing the 0 to 1, then 2, then 3, etc. However, this is simpler to do in a `for` loop.
+- What does this do? The `for row in matrix` looks at each of the lists in the matrix 2D list and the `for pixel in row` looks at the individual pixels in each row. These pixels are then all placed into a single list.
+
+- You can turn this into a function, to save having to write it out all the time.
 
 	```python
-	def draw_column():
-		global game_over
-		x = 7
-		while x >= 0 and not game_over:
-			for led in range(8):
-				sense.set_pixel(x,led,RED)
+	def flatten(matrix):
+		flattened = [pixel for row in matrix for pixel in row]
+		return flattened
 	```
 
-- To test that the function is working, it needs to be **called**. You can temporarily add in a function call to the bottom of your script or you could type `draw_column()` in the IDLE shell, after saving and running your script (`ctrl+s` and `F5`).
+- To flatten your matrix and then display it on the Sense HAT, you can now simply add these lines of code.
 
-![column](images/column.jpg)
+	```python
+	matrix = flatten(matrix)
+	sense.set_pixels(matrix)
+	``` 
+- Save and run your code. You can see an example of the code and out put in the embedded trinket below.
 
-<iframe src="https://trinket.io/embed/python/dfd655bfbb" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
+<iframe src="https://trinket.io/embed/python/b4c1aad6c3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
