@@ -2,7 +2,11 @@
 
 In flappy astronaut the astronaut will have to avoid "pipes" that sprout from the top and bottom of the matrix. The pipes are going to be red in colour.
 
-- To begin, you can first create a single column of red pixels on the far, right hand-side of the matrix. All you need to do is to set the last item in each of the lists within the matrix to be `RED` instead of `BLUE`. Below is a refresher of how to access items in a list.
+- To begin, you can first create a single column of red pixels on the far, right hand-side of the matrix.
+
+	![column](SH-1.png)
+
+- All you need to do is to set the last item in each of the lists within the matrix to be `RED` instead of `BLUE`. Below is a refresher of how to access items in a 
 
 [[[generic-python-list-index]]]
 
@@ -12,7 +16,6 @@ In flappy astronaut the astronaut will have to avoid "pipes" that sprout from th
 - Here is an example of what your code should look like, with some comments added in for where your `for` loop would go.
 ```python
 from sense_hat import SenseHat
-from random import randint
 
 sense = SenseHat()
 RED = (255, 0, 0)
