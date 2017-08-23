@@ -41,4 +41,6 @@ for row in matrix:
 for row in matrix:
     row[-1] = RED
 ```
+- Here's what it should do:
+<iframe src="https://trinket.io/embed/python/55875860f1" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 --- /hint --- --- /hints ---
