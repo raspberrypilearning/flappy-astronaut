@@ -17,15 +17,17 @@ steps:
 - title: Introduction
 - title: What you will need
 - title: Flappy Astronaut
-- title: Setting up the Sense HAT
-- title: Drawing the columns
-- title: Moving the columns
-- title: Splitting the columns.
-- title: Multiple Columns
-- title: Threading
-- title: Adding the flappy astronaut
-- title: Catching user input
-- title: Detecting a collision
-- title: Finishing off
-- title: What Next?
-
+- title: Representing pixels
+- title: Using 2D lists with the Sense HAT
+- title: Generating pipes.
+- title: Mind the gaps
+- title: Create a function to make more pipes.
+- title: Moving pipes algorithm
+- title: Moving the pipes
+- title: Watching the pipes move
+- title: Adding your astronaut
+- title: Moving the astronaut
+- title: Edge detection
+- title: Collisions
+- title: Finishing up
+- title: Taking it further
