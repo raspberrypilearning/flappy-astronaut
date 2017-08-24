@@ -29,8 +29,9 @@ Running your code at the moment won't do much. You need to call you functions in
 	```python
 	matrix = gen_pipes(matrix)
 	for i in range(9):
-		sense.set_pixels(flatten(matrix))
 		matrix = move_pipes(matrix)
+		sense.set_pixels(flatten(matrix))
+
 	```
 
 - Try and run that and see what happens. Was it a little fast?
@@ -46,8 +47,8 @@ Running your code at the moment won't do much. You need to call you functions in
 	```python
 	matrix = gen_pipes(matrix)
 	for i in range(9):
-		sense.set_pixels(flatten(matrix))
 		matrix = move_pipes(matrix)
+		sense.set_pixels(flatten(matrix))
 		sleep(1)
 	```
 
@@ -61,8 +62,8 @@ Running your code at the moment won't do much. You need to call you functions in
   while True:
 	  matrix = gen_pipes(matrix)
 	  for i in range(3):
-		  sense.set_pixels(flatten(matrix))
 		  matrix = move_pipes(matrix)
+		  sense.set_pixels(flatten(matrix))
 		  sleep(1)
   ```
 
