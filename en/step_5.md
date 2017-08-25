@@ -12,7 +12,7 @@
 	sense = SenseHat()
 	```
 
-- To begin with, you need to create two variables that represent the pixels colour. To make this simple, you can use red and blue. If you want to learn a little more about how computers represent colours, then have a look at the section below.
+- To begin with, you need to create two variables that represent the pixel colours. To make this simple, you can use red and blue. If you want to learn a little more about how computers represent colours, then have a look at the section below.
 
 [[[generic-theory-colours]]]
 

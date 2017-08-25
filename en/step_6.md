@@ -4,7 +4,7 @@ In flappy astronaut the astronaut will have to avoid "pipes" that sprout from th
 
 - To begin, you can first create a single column of red pixels on the far, right hand-side of the matrix.
 
-	![column](SH-1.png)
+	![column](images/SH-1.png)
 
 - All you need to do is to set the last item in each of the lists within the matrix to be `RED` instead of `BLUE`. Below is a refresher of how to access items in a 
 
