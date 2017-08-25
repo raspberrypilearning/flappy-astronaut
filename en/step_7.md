@@ -4,7 +4,7 @@ Now that you have a column of pixels down the right hand side of the matrix, you
 
 - The gap needs to be three pixels in height and placed randomly in the column of red pixels.
 
-	![gap](SH-2.png)
+	![gap](images/SH-2.png)
 
 - You'll want the three pixel gap to be centred around one of the rows between 1 and 6 (inclusive). You can use the random module to achieve this:
 
