@@ -24,8 +24,8 @@ Here is a simple list of lists to describe a noughts & crosses (tic-tac-toe) boa
 
 ```python
 board = [['X', 'O', 'X'],
-	['O', 'X', 'O'],
-	['O', 'O', 'X']]
+         ['O', 'X', 'O'],
+         ['O', 'O', 'X']]
 ```
 
 What makes this an easy way of representing the board, is that you can easily use `x` and `y` coordinates to find out what is in each of the squares. For instance, if you want to find out which character is in the bottom left corner, you know that it has an `x` position of `0` and a `y` position of '2' (Don't forget that we start counting items in a list from 0).
