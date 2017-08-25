@@ -4,7 +4,7 @@ The Sense HAT has an 8 x 8 pixel LED matrix. Each of the pixels can be illuminat
 
 When programmers want to colour a specific pixel on a screen, they normally refer to it's `x` and `y` coordinates. The same is true of the Sense HAT's LED matrix. If you want to see how the `x` and `y` coordinates can be used to set a specific pixel, then have a look at the section below.
 
-[[[rpi-sensehat-single-pixle]]]
+[[[rpi-sensehat-led-coordinates]]]
 
 If you want to set multiple pixels though, your going to need a lot of lines of code. Luckily, the Sense HAT let's you set multiple pixels at a time by using a **list**. You can read more about this, and see some example code below.
 
