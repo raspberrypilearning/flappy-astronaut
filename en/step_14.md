@@ -21,7 +21,7 @@
 	  y -= 1
   ```
 --- /hint --- --- hint ---
-Here's the whole function.
+- Here's the whole function.
 	```python
 	def draw_astronaut(event):
 		global y

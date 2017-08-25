@@ -1,6 +1,6 @@
 ## Watching the pipes move
 
-Running your code at the moment won't do much. You need to call you functions in a loop to see it working.
+Running your code at the moment won't do much. You need to call your functions in a loop to see it working.
 
 - At the moment you should have these three lines at the bottom of your code.
 
