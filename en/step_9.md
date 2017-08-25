@@ -41,4 +41,4 @@ Now that you can generate as many pipes as you want, you need to move them acros
 	```
 - If you did this with your matrix then you would get the following happening.
 
-![moving pipes](SH-1.gif)
+![moving pipes](images/SH-1.gif)
