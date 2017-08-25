@@ -10,6 +10,9 @@ By coding a Flappy Astronaut game with your Raspberry Pi and Sense HAT, you will
 - How to use the Sense HAT joystick
 - How to use 2D lists to represent a screen.
 
+
+Click on the arrow in the emulation below to play the game. Use your cursor keys to guide your astronaut through the pipes.
+
 <iframe src="https://trinket.io/embed/python/e77660ee7e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 This resource covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](https://www.raspberrypi.org/curriculum/):
