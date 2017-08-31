@@ -31,6 +31,21 @@
 			sleep(1)
 	```
 
+- Then you can get rid of those nasty `break`s by setting `game_over` to be `True`.
+
+	```python
+	while not game_over:
+		matrix = gen_pipes(matrix)
+		if check_collision(matrix):
+			game_over = True
+		for i in range(3):
+			matrix = move_pipes(matrix)
+			sense.set_pixels(flatten(matrix))
+			sense.set_pixel(x, y, YELLOW)   
+			if check_collision(matrix):
+				game_over = True
+			sleep(1)
+	```
 - Lastly add `global game_over` to the draw astronaut function, and if there is a collision `game_over` can become `True`.
 
 	```python

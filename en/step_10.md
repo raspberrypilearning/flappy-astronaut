@@ -1,11 +1,11 @@
 ## Moving the pipes
 
-- As mentioned in the earlier section, this algorithm will need to be repeated, each time you want to shift the pixels left by one. Any code that needs to be repeated, can be placed inside a function. Create this function beneath you `gen_pipes(matrix)` function.
+As mentioned in the earlier section, this algorithm will need to be repeated, each time you want to shift the pixels left by one. Any code that needs to be repeated, can be placed inside a function. Create this function beneath you `gen_pipes(matrix)` function.
 
 	```python
 	def move_pipes(matrix):
 	```
-- The algorithm can be broken down into structured English.
+The algorithm can be broken down into structured English.
   1. For each row in the matrix
 	 1. For each item in the row from 0 through to 7.
 	 1. Set the item to be the same as the next item in the row.

@@ -1,12 +1,12 @@
 ## Edge detection
 
-- You may notice that if your astronaut drifts off the edge of the screen, your program crashes. Try it, if this hasn't happened to you yet.
+You may notice that if your astronaut drifts off the edge of the screen, your program crashes. Try it, if this hasn't happened to you yet.
 
-- This is because if the `x` or `y` coordinates go above `7` or below `0`, as there are no LEDs at these coordinates, the `sense_hat` module errors.
+This is because if the `x` or `y` coordinates go above `7` or below `0`, as there are no LEDs at these coordinates, the `sense_hat` module errors.
 
-- You can use a logical operator to help with this. For instance, you would only move the astronaut pixel up, if the joystick event was `up` **and** the `y` coordinate is greater than `0`.
+You can use a logical operator to help with this. For instance, you would only move the astronaut pixel up, if the joystick event was `up` **and** the `y` coordinate is greater than `0`.
 
-- Have a look at the section below to see how to use Boolean logical operators within your conditional selection.
+Have a look at the section below to see how to use Boolean logical operators within your conditional selection.
 
 [[[generic-python-conditional-selection-with-boolean]]]
 

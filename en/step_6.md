@@ -2,11 +2,11 @@
 
 In flappy astronaut the astronaut will have to avoid "pipes" that sprout from the top and bottom of the matrix. The pipes are going to be red in colour.
 
-- To begin, you can first create a single column of red pixels on the far, right hand-side of the matrix.
+To begin, you can first create a single column of red pixels on the far, right hand-side of the matrix.
 
 	![column](images/SH-1.png)
 
-- All you need to do is to set the last item in each of the lists within the matrix to be `RED` instead of `BLUE`. Below is a refresher of how to access items in a list.
+All you need to do is to set the last item in each of the lists within the matrix to be `RED` instead of `BLUE`. Below is a refresher of how to access items in a list.
 
 [[[generic-python-list-index]]]
 
@@ -24,12 +24,12 @@ In flappy astronaut the astronaut will have to avoid "pipes" that sprout from th
 	matrix = [[BLUE for column in range(8)] for row in range(8)]
 
 	def flatten(matrix):
-		flattened = [pixel for row in matrix for pixel in row]
-		return flattened
+	  flattened = [pixel for row in matrix for pixel in row]
+	  return flattened
+
 
 	## Place your for loop here
 
-	matrix = gen_pipes(matrix)    
 	matrix = flatten(matrix)
 	sense.set_pixels(matrix)
 	```

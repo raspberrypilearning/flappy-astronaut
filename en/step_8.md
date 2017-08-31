@@ -8,11 +8,11 @@ The game would be a little easy, if only one set of pipes were created, but by u
 	def gen_pipes(matrix):
 	```
 
-- Within this function can go your code to generate a set of pipes. At the end of the function, you should return the altered `matrix` lists.
+- Within this function can the code you wrote to generate a set of pipes. You can just add some indentation to add it in. At the end of the function, you should return the altered `matrix` lists.
   ```python
   def gen_pipes(matrix):
 	  for row in matrix:
-	  row[-1] = RED
+		row[-1] = RED
 	  gap = randint(1, 6)
 	  matrix[gap][-1] = BLUE
 	  matrix[gap - 1][-1] = BLUE

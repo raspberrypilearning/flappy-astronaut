@@ -2,11 +2,11 @@
 
 Now that you have a column of pixels down the right hand side of the matrix, you need to insert a gap into it, through which the astronaut can fly.
 
-- The gap needs to be three pixels in height and placed randomly in the column of red pixels.
+The gap needs to be three pixels in height and placed randomly in the column of red pixels.
 
 	![gap](images/SH-2.png)
 
-- You'll want the three pixel gap to be centred around one of the rows between 1 and 6 (inclusive). You can use the random module to achieve this:
+You'll want the three pixel gap to be centred around one of the rows between 1 and 6 (inclusive). You can use the random module to achieve this:
 
 [[[generic-python-random]]]
 

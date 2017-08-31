@@ -20,7 +20,7 @@
 	```python
 	sense.stick.direction_any = draw_astronaut
 	```
-- Now you need to create that `draw_astronaut` function. It will have a single parameter, which is the event. Anywhere, amongst your other functions, create your `draw_astronaut` function.
+- Now you need to create that `draw_astronaut` function. It will have a single parameter, which is the event. Create your `draw_astronaut` function, and place it beneath one of your other functions.
 
 	```python
 	def draw_astronaut(event):

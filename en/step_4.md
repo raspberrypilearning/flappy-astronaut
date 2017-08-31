@@ -6,9 +6,47 @@ When programmers want to colour a specific pixel on a screen, they normally refe
 
 [[[rpi-sensehat-led-coordinates]]]
 
+- Now try setting a single pixel on the Sense Hat. You can use the following code:
+
+	```python
+	from sense_hat import SenseHat
+	sense = SenseHat()
+
+	r = (255, 0, 0)
+	sense.set_pixel(0, 0, r)
+	```
+
+- Have a go at changing the position of the pixel you are setting. Also try and change the colour.
+
 If you want to set multiple pixels though, your going to need a lot of lines of code. Luckily, the Sense HAT let's you set multiple pixels at a time by using a **list**. You can read more about this, and see some example code below.
 
 [[[rpi-sensehat-multiple-pixels]]]
+
+- Have a go at creating an image using a list. You can use this code to begin:
+
+	```python
+	from sense_hat import SenseHat
+
+	sense = SenseHat()
+
+	g = (0, 255, 0)
+	b = (0, 0, 0)
+
+	creeper_pixels = [
+		g, g, g, g, g, g, g, g,
+		g, g, g, g, g, g, g, g,
+		g, b, b, g, g, b, b, g,
+		g, b, b, g, g, b, b, g,
+		g, g, g, b, b, g, g, g,
+		g, g, b, b, b, b, g, g,
+		g, g, b, b, b, b, g, g,
+		g, g, b, g, g, b, g, g
+	]
+
+	sense.set_pixels(creeper_pixels)
+	```
+	
+- Have a try at creating another image, using the list. How about creating a smiley face?
 
 The only problem with using a single list like this, is it can be tricky to figure out which item in the list corresponds to which pixel on the screen. For instance: The pixel at `x = 5` and `y = 5`, is at which index in the list? To calculate this you would have to do the following calculation.
 

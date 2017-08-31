@@ -2,7 +2,7 @@
 
 Running your code at the moment won't do much. You need to call your functions in a loop to see it working.
 
-- At the moment you should have these three lines at the bottom of your code.
+At the moment you should have these three lines at the bottom of your code.
 
 	```python
 	matrix = gen_pipes(matrix)
@@ -10,7 +10,7 @@ Running your code at the moment won't do much. You need to call your functions i
 	sense.set_pixels(matrix)
 	```
 
-- Instead of flattening the matrix and then displaying it, you can do this in a single line. This will stop the 2D matrix being actually flattened each time, and instead just use the flattened matrix for the display.
+- Instead of flattening the matrix and then displaying it, you can do this in a single line. This will stop the 2D matrix being actually flattened each time, and instead just use the flattened matrix for the display. Replace those last three lines with this:
 
 	```python
 	matrix = gen_pipes(matrix)
@@ -21,17 +21,16 @@ Running your code at the moment won't do much. You need to call your functions i
 
 	```python
 	matrix = gen_pipes(matrix)
-	sense.set_pixels(flatten(matrix))
-	matrix = move_pipes(matrix)
+	sense.set_pixels(flatten(matrix))	
+	matrix = move_pipes(matrix)	
 	```
 - Although this will move the pipes, they won't be displayed, as there is no second `set_pixels` call. To solve this, you can just add in a loop, so that moving and displaying always follow each other.
 
 	```python
 	matrix = gen_pipes(matrix)
 	for i in range(9):
+		sense.set_pixels(flatten(matrix))	
 		matrix = move_pipes(matrix)
-		sense.set_pixels(flatten(matrix))
-
 	```
 
 - Try and run that and see what happens. Was it a little fast?
@@ -47,8 +46,8 @@ Running your code at the moment won't do much. You need to call your functions i
 	```python
 	matrix = gen_pipes(matrix)
 	for i in range(9):
+		sense.set_pixels(flatten(matrix))	
 		matrix = move_pipes(matrix)
-		sense.set_pixels(flatten(matrix))
 		sleep(1)
 	```
 
@@ -62,8 +61,8 @@ Running your code at the moment won't do much. You need to call your functions i
   while True:
 	  matrix = gen_pipes(matrix)
 	  for i in range(3):
-		  matrix = move_pipes(matrix)
 		  sense.set_pixels(flatten(matrix))
+		  matrix = move_pipes(matrix)
 		  sleep(1)
   ```
 
