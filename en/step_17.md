@@ -1,5 +1,5 @@
 --- challenge ---
-## Taking it further
+## Challenge: Taking it further
 
 Here are some ideas for how you could alter your game.
 - The `for` loop alters the spacing between the pipes. Try changing it to see if that makes the game trickier.
