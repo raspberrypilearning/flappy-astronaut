@@ -1,20 +1,20 @@
 ## Moving the pipes
 
-As mentioned in the earlier section, this algorithm will need to be repeated, each time you want to shift the pixels left by one. Any code that needs to be repeated, can be placed inside a function. Create this function beneath you `gen_pipes(matrix)` function.
+As mentioned in the section before, the algorithm to move the pipes will need to be repeated each time you want to shift the pixels left by `1`. Any code that needs to be repeated can be placed inside a function. Create this function below you `gen_pipes(matrix)` function:
 
 	```python
 	def move_pipes(matrix):
 	```
-The algorithm can be broken down into structured English.
+The algorithm can be broken down like this:
   1. For each row in the matrix
-	 1. For each item in the row from 0 through to 7.
-	 1. Set the item to be the same as the next item in the row.
-  1. Set the last item in the row to be `BLUE`
+	 1. For each item in the row from `0` to `7`
+	 1. Set the item to be the same as the next item in the row
+  1. Set the last item in the row to be `BLUE`.
   
-- Try and complete this yourself, and use the hints below if you need some help.
+- Try and complete this by yourself, and use the hints below if you need some help.
 
 --- hints --- --- hint ---
-- Within the function you can begin your `for` loop.
+- Within the function you can begin your for loop like this:
 ```python
 def move_pipes(matrix):
     for row in matrix:
@@ -29,7 +29,7 @@ def move_pipes(matrix):
 		    row[i] = row[i + 1]
 ```
 --- /hint --- --- hint ---
-- To finish off set the last item in each row to be BLUE and then return the altered matrix
+- To finish, set the last item in each row to be `BLUE`, and then return the altered matrix.
 ```python
 def move_pipes(matrix):
     for row in matrix:
