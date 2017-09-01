@@ -1,8 +1,8 @@
 ## Moving the astronaut
 
-- You can now program the pixel representing the astronaut, to move around the screen in response to the joysticks movements. The basic algorithm that would sit inside your `draw_astronaut` function is as follows.
+- You can now program the pixel representing the astronaut to move around the screen in response to the joystick's movements. The basic algorithm inside your `draw_astronaut` function should do the following:
   - If the joystick is pressed:
-	- change the colour to `BLUE` to "hide" the astronaut
+	- change the colour to `BLUE` to 'hide' the astronaut
 	- if the direction is up
 	  - decrease `y` b`y` `1`
 	- if the direction is down
@@ -11,7 +11,7 @@
 	  - increase `x` b`y` `1`
 	- if the direction is left
 	  - decrease `x` b`y` `1`
-	- change the colour to `YELLOW` to show the astronaut.
+	- change the colour to `YELLOW` to show the astronaut
 
 - To learn how to use the `sense_hat` module's joystick events, have a look at the section below.
 
@@ -20,7 +20,7 @@
 - Now add some **conditional selection** to your `draw_astronaut` function, so that the pixel will move around the LED matrix when the joystick is pressed.
 
 --- hints --- --- hint ---
-- The first thing to do is to "hide" the astronaut. In other words, set the colour to `BLUE` so that it is the same as the background.
+- The first thing to do is to 'hide' the astronaut. In other words, set the colour to `BLUE` so that it is the same as the background.
 	```python
 	def draw_astronaut(event):
 		global y
@@ -40,7 +40,7 @@
   ```
 - Now see if you can add `elif` statements to detect other movements and set the `x` and `y` coordinates.
 --- /hint --- --- hint ---
-- Here's the complete function.
+- Here's the complete function:
   ```python
   def draw_astronaut(event):
 	  global y
