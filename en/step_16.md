@@ -1,21 +1,21 @@
 ## Finishing up
-- There are just a couple of things to finish off now. On the very last line, you should display a message to indicate that the game is over.
+- There are just a couple of things to do before you're done. On the very last line, you should display a message to indicate that the game is over.
 
 	```python
 	sense.show_message('You Lose')
 	```
 
-- Now when your astronaut collides with the pipes, the message should scroll.
+- Now, when your astronaut collides with the pipes, the message should scroll.
 
 - You may notice a small bug in the program. Sometimes you can fly your astronaut straight through the pipes. This is because the joystick detection is operating outside of the main game loop.
 
-- To fix this create a new variable called `game_over` and set it to `False` near where you have set your colour constants.
+- To fix this, create a new variable called `game_over`, and set it to `False` near where you have set your colour constants.
 
 	```python
 	game_over = False
 	```
 
-- Now you can change your `while True` loop, so that it becomes a `while not game_over` loop.
+- Now you can change your while True loop so that it becomes a `while not game_over` loop:
 
 	```python
 	while not game_over:
@@ -46,7 +46,7 @@
 				game_over = True
 			sleep(1)
 	```
-- Lastly add `global game_over` to the draw astronaut function, and if there is a collision `game_over` can become `True`.
+- Lastly, add `global game_over` to the draw astronaut function so that, if there is a collision, `game_over` can become `True`:
 
 	```python
 	def draw_astronaut(event):
@@ -68,6 +68,6 @@
 			game_over = True
 	```
 
-- Now you should have a finished program, you can play. Have a look at the last step to get some ideas for how you can improve your game.
+- Now you should have a finished program you can play. Have a look at the last step to get some ideas for how you can improve it.
 
 
