@@ -8,18 +8,18 @@ To finish off the game, you need to ensure that it ends whenever the astronaut c
 	def check_collision(matrix):
 	```
 
-- Now all you need to do is check whether the astronaut's `x` and `y` position corresponds to a `RED` item in the matrix. If it does, you can return `True` and if not return `False`.
+- Now all you need to do is check whether the astronaut's `x, y` position corresponds to a `RED` item in the matrix. If it does, you can return `True`, and if not, return `False`.
 
 --- hints --- --- hint ---
 - The astronaut's position is at `x` and `y`. So the item you need to be checking is at `matrix[y][x]`.
 --- /hint --- --- hint ---
-- Within your function you'll need to use a conditional to check the item.
+- Within your function, you'll need to use a conditional to check the item.
   ```python
   def check_collision(matrix):
 	  if matrix[y][x] == RED:
   ```
 --- /hint --- --- hint ---
-- Here's the complete function
+- Here's the complete function:
   ```python
   def check_collision(matrix):
 	  if matrix[y][x] == RED:
@@ -29,7 +29,7 @@ To finish off the game, you need to ensure that it ends whenever the astronaut c
   ```
 --- /hint --- --- /hints ---
 
-- Now that you are checking for a collision, you can use this in you game loop. It will need to be in both the `for` loop and within the `while` loop. If it comes back as `True` then you can exit the loops.
+- Now that you are checking for a collision, you can use this conditional in you game loop. It will need to be in both the for loop and the while loop. If it returns `True`, then you can exit the loops.
 
 ```python
 while True:
