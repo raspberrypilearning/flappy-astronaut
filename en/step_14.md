@@ -1,27 +1,27 @@
 ## Edge detection
 
-You may notice that if your astronaut drifts off the edge of the screen, your program crashes. Try it, if this hasn't happened to you yet.
+You may notice that if your astronaut drifts off the edge of the screen, your program crashes. Try it out if this hasn't happened to you yet.
 
-This is because if the `x` or `y` coordinates go above `7` or below `0`, as there are no LEDs at these coordinates, the `sense_hat` module errors.
+This is because if the `x` or `y` coordinates go above `7` or below `0`, the `sense_hat` module throws an error, since there are no LEDs at these coordinates.
 
-You can use a logical operator to help with this. For instance, you would only move the astronaut pixel up, if the joystick event was `up` **and** the `y` coordinate is greater than `0`.
+You can use a logical operator to help with this. For instance, you would only move the astronaut pixel up if the joystick event was `up` **and** the `y` coordinate is greater than `0`.
 
 Have a look at the section below to see how to use Boolean logical operators within your conditional selection.
 
 [[[generic-python-conditional-selection-with-boolean]]]
 
-- Now add some edge detection to your `draw_astronaut` function, so that the pixel coordinates can't go lower than `0` or above `7`.
+- Now add some edge detection to your `draw_astronaut` function, so that the pixel coordinate values can't be less than `0` or greater than `7`.
 
 --- hints --- --- hint ---
-- You need to be checking the coordinate is always greater than `0` before decreasing it, and always less than `7` before increasing it.
+- You need to check every time that the coordinate is greater than `0` before decreasing it, and less than `7` before increasing it.
 --- /hint --- --- hint ---
-- Here is your first check within the `draw_astronaut` function.
+- Here is your first check within the `draw_astronaut` function:
   ```python
   if event.direction == "up" and y > 0:
 	  y -= 1
   ```
 --- /hint --- --- hint ---
-- Here's the whole function.
+- Here's the whole function:
 	```python
 	def draw_astronaut(event):
 		global y
@@ -38,6 +38,6 @@ Have a look at the section below to see how to use Boolean logical operators wit
 				x -= 1
 		sense.set_pixel(x, y, YELLOW)   
 	```
-- Here's an example of the completed code.
+- Here's an example of the completed code:
 <iframe src="https://trinket.io/embed/python/c50810b1b0" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 --- /hint --- --- /hints ---
