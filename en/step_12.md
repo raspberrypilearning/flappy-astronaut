@@ -1,6 +1,6 @@
 ## Adding your astronaut
 
-- In this game your astronaut will be represented by a single coloured pixel. The choice of colours is yours, but the examples will use yellow. Where you have set your other colour constants, now create a new tuple for your chosen colour.
+- In this game your astronaut will be represented by a single coloured pixel. You can choose whatever colour you want for the astronaut, but the example will use yellow. Where you have set your other colour variables, now create a new tuple for your chosen astronaut colour.
 
 	```python
 	RED = (255, 0, 0)
@@ -15,18 +15,18 @@
 	y = 0
 	```
 
-- The player is going to control the astronaut with the Sense HAT's joystick. The joystick can be setup so that whenever it is used, it sends the **event** to a function you have created. Events can be things such as **pressed up** or **released right**. Just above your `while True` loop, you can set this up to use a function you have not yet created.
+- The player is going to control the astronaut with the Sense HAT's joystick. The joystick can be set up so that whenever it is used, it sends the **event** to a function you have created. Events can be things such as 'pressed up' or 'released right'. Just above your `while True` loop, add in code for the joystick to use a function (one which you have not yet created):
 
 	```python
 	sense.stick.direction_any = draw_astronaut
 	```
-- Now you need to create that `draw_astronaut` function. It will have a single parameter, which is the event. Create your `draw_astronaut` function, and place it beneath one of your other functions.
+- Now you need to create this `draw_astronaut` function. It will have a single parameter, which is the event. Create the function below one of your other functions.
 
 	```python
 	def draw_astronaut(event):
 	```
 
-- Now this function is going to need to alter the `x` and `y` variables you set earlier, for the astronaut's position. In Python, a function is not normally allowed to alter the value of variables that have been declared outside of the function. To enable your `draw_astronaut` function to do this, you need to state that the `x` and `y` variables are **global** variables.
+- This function is going to need to alter the `x` and `y` variables you set earlier for the astronaut's position. In Python, a function is not normally allowed to alter the value of variables that have been declared outside of the function. To enable your `draw_astronaut` function to do this, you need to state that the `x` and `y` variables are **global** variables:
 
 	```python
 	def draw_astronaut(event):
@@ -34,7 +34,7 @@
 		global y
 	```
 
-- Now you can illuminate the pixel at the `x` and `y` coordinates.
+- Now you can illuminate the pixel at the `x` and `y` coordinates:
 
 	```python
 	def draw_astronaut(event):
