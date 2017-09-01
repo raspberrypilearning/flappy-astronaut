@@ -55,7 +55,7 @@ What does this do? The `for row in matrix` part looks at each of the lists in th
 	matrix = flatten(matrix)
 	sense.set_pixels(matrix)
 	``` 
-- Save and run your code. You can see an example of the code and out put in the embedded Trinket below.
+- Save and run your code. You can see an example of the code and its output in the embedded Trinket below.
 
 <iframe src="https://trinket.io/embed/python/b4c1aad6c3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
