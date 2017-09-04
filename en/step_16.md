@@ -1,11 +1,11 @@
-## Finishing up
-- There are just a couple of things to do before you're done. On the very last line, you should display a message to indicate that the game is over.
+## Finishing your game
+- There are just a couple of things to do before you're completely done. On the very last line, you should insert code to display a message to indicate that the game is over.
 
 	```python
-	sense.show_message('You Lose')
+	sense.show_message('You lose')
 	```
 
-- Now, when your astronaut collides with the pipes, the message should scroll.
+- Now, when your astronaut collides with the pipes, this message should scroll.
 
 - You may notice a small bug in the program. Sometimes you can fly your astronaut straight through the pipes. This is because the joystick detection is operating outside of the main game loop.
 
@@ -15,7 +15,7 @@
 	game_over = False
 	```
 
-- Now you can change your while True loop so that it becomes a `while not game_over` loop:
+- Now you can change your `while True` loop so that it becomes a `while not game_over` loop:
 
 	```python
 	while not game_over:
@@ -31,7 +31,7 @@
 			sleep(1)
 	```
 
-- Then you can get rid of those nasty `break`s by setting `game_over` to be `True`.
+- Then you can get rid of those nasty `break`s by setting `game_over` to `True`.
 
 	```python
 	while not game_over:
@@ -68,6 +68,4 @@
 			game_over = True
 	```
 
-- Now you should have a finished program you can play. Have a look at the last step to get some ideas for how you can improve it.
-
-
+- Now you should have a finished program, and a game you can play! Have a look at the last step to get some ideas for how you can improve it.
