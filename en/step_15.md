@@ -13,7 +13,7 @@ To finish off the game, you need to ensure that it ends whenever the astronaut c
 --- hints --- --- hint ---
 - The astronaut's position is at `x` and `y`. So the item you need to be checking is at `matrix[y][x]`.
 --- /hint --- --- hint ---
-- Within your function, you'll need to use a conditional to check the item.
+- Within your function, use a conditional to check the item.
   ```python
   def check_collision(matrix):
 	  if matrix[y][x] == RED:
