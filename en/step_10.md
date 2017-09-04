@@ -5,7 +5,7 @@ As mentioned in the section before, the algorithm to move the pipes will need to
 	```python
 	def move_pipes(matrix):
 	```
-The algorithm can be broken down like this:
+The algorithm for this function can be broken down like this:
   1. For each row in the matrix
 	 1. For each item in the row from `0` to `7`
 	 1. Set the item to be the same as the next item in the row
