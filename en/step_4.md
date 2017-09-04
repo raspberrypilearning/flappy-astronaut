@@ -18,7 +18,7 @@ When programmers want to colour a specific pixel on a screen, they normally refe
 
 - Have a go at changing the position of the pixel you are setting. Also try and change the colour.
 
-If you want to set multiple pixels in this way, you're going to need a lot of lines of code. Luckily, the Sense HAT lets you set multiple pixels at a time by using a **list**. You can read more about this, and see some example code in the section below.
+If you want to set multiple pixels in this way, you're going to need a lot of lines of code. Luckily, the Sense HAT lets you set multiple pixels at a time by using a **list**. In the section below, you can read more about this, and see some example code.
 
 [[[rpi-sensehat-multiple-pixels]]]
 
@@ -54,9 +54,9 @@ The only problem with using a single list like this is that it can be tricky to 
 index = (y - 1) * 8 + x
 ```
 
-This  will tells you that the index is `37`, but that's not very intuitive.
+This will tell you that the index is `37`, but that's not very easy to understand.
 
-To solve this, programmers often use two-dimensional lists, which are also known as lists of lists, to represent the arrangement of pixels on a screen.
+To get around this problem, programmers often use two-dimensional lists, which are also known as lists of lists, to represent the arrangement of pixels on a screen.
 
 Here is a simple list of lists to describe a noughts and crosses (tic-tac-toe) board.
 
