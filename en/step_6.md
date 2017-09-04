@@ -10,10 +10,10 @@ All you need to do is to set the last item in each of the lists within the matri
 
 [[[generic-python-list-index]]]
 
-- To do this you can use a for loop, so that for each list in the matrix, the last item in tit is set to `RED`. Position this for loop so that it occurs before you flatten and display the matrix. You can use the hints below to help you out if you need them.
+- You can use a for loop so that, for each list in the matrix, the last item is set to `RED`. Position this for loop so that it runs before you flatten and display the matrix. You can use the hints below to help you out if you need them.
 
 --- hints --- --- hint ---
-- Here is an example of what your code should look like, with some comments added in for where your for loop would go.
+- Here is an example of what your code should look like, with some comments added in where your for loop should go.
 	```python
 	from sense_hat import SenseHat
 
