@@ -1,6 +1,8 @@
 ## Adding your astronaut
 
-- In this game your astronaut will be represented by a single coloured pixel. You can choose whatever colour you want for the astronaut, but the example will use yellow. Where you have set your other colour variables, now create a new tuple for your chosen astronaut colour.
+Your astronaut will be represented by a single coloured pixel. You can choose whatever colour you want for the astronaut, but the example will use yellow.
+
+- Where you have set your other colour variables, now create a new tuple for your chosen astronaut colour.
 
 	```python
 	RED = (255, 0, 0)
