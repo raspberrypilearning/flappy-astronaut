@@ -33,7 +33,7 @@ Right now you should have these three lines at the bottom of your code:
 		matrix = move_pipes(matrix)
 	```
 
-- Try and run this code, and see what happens. Was it a little fast?
+Try and run this code, and see what happens. Was it a little fast?
 
 - You can solve this by adding a `sleep()` command. At the top of your code, import the `sleep` method from the `time` module:
 
