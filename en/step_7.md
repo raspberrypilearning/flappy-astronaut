@@ -1,6 +1,6 @@
 ## Mind the gaps
 
-Now that you have a column of pixels down the right-hand side of the matrix, you need to insert a gap into it through which the astronaut can fly.
+Now that you have a column of pixels representing a pipe on the right-hand side of the matrix, you need to insert a gap into it through which the astronaut can fly.
 
 The gap needs to be three pixels high, and should be placed randomly in the column of red pixels.
 
