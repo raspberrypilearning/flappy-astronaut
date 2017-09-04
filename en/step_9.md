@@ -29,16 +29,16 @@ This would then give you a matrix that looks like this:
 	3 b b b r b
 	4 b b b r b
 	```
-You could then run the algorithm again to repeat the movement. which would give you this:
+You could run the algorithm again to repeat the movement, which would give you this:
 
 	```
 	  0 1 2 3 4
 	0 b b r b b
-	1 b b r b g
+	1 b b r b b
 	2 b b b b b
 	3 b b r b b
 	4 b b r b b
 	```
-If you did this with your matrix, then the following would happen.
+If you do this with your matrix, then the following will happen:
 
 ![moving pipes](images/SH-1.gif)
