@@ -1,5 +1,5 @@
 ## What you will make
-In this activity you will create a Flappy Bird clone using your Raspberry Pi, a Sense HAT, and some Python code. In this Flappy Astronaut game the player uses the joystick of the Sense HAT to navigate an astronaut around pipes.
+In this activity you will create a Flappy Bird clone using your Raspberry Pi, a Sense HAT, and some Python code. In your Flappy Astronaut game the player uses the Sense HAT joystick to navigate an astronaut around pipes.
 
 ## What you will learn
 By making a Flappy Astronaut game with your Raspberry Pi and Sense HAT, you will learn how to:
