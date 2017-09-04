@@ -8,7 +8,7 @@ The game would be a little easy if only one set of pipes were created. You can g
 	def gen_pipes(matrix):
 	```
 
-- Within this function goes the code you wrote to generate a set of pipes. You can just add some indentation to add it in. At the end of the function, you should `return` the altered `matrix`.
+- Put the code you wrote to generate a set of pipes into this function. You can just add some indentation to do this. At the end of the function, you should `return` the altered `matrix`.
   ```python
   def gen_pipes(matrix):
 	  for row in matrix:
