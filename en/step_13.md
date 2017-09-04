@@ -1,6 +1,6 @@
 ## Moving the astronaut
 
-- You can now program the pixel representing the astronaut to move around the screen in response to the joystick's movements. The basic algorithm inside your `draw_astronaut` function should do the following:
+- You can now program the pixel representing the astronaut to move around the screen in response to the joystick's movements by using **conditional selection**. The basic algorithm inside your `draw_astronaut` function should do the following:
   - If the joystick is pressed:
 	- change the colour to `BLUE` to 'hide' the astronaut
 	- if the direction is up
@@ -13,14 +13,10 @@
 	  - decrease `x` b`y` `1`
 	- change the colour to `YELLOW` to show the astronaut
 
-- To learn how to use the `sense_hat` module's joystick events, have a look at the section below.
-
-[[[rpi-python-sensehat-joystick-event-functions]]]
-
-- Now add some **conditional selection** to your `draw_astronaut` function, so that the pixel will move around the LED matrix when the joystick is pressed.
+- Add code to your `draw_astronaut` function so that the pixel will move around the LED matrix when the joystick is pressed.
 
 --- hints --- --- hint ---
-- The first thing to do is to 'hide' the astronaut. In other words, set the colour to `BLUE` so that it is the same as the background.
+- The first thing to do is to 'hide' the astronaut. In other words, set its colour to `BLUE` so that it is the same as the background.
 	```python
 	def draw_astronaut(event):
 		global y
@@ -28,7 +24,7 @@
 		sense.set_pixel(x, y, BLUE)
 	```
 --- /hint --- --- hint ---
-- You can now use conditional selection to detect particular directions and change a coordinate. For instance:
+- You can now use conditional selection to detect particular directions and change a coordinate in response. For instance:
   ```python
   def draw_astronaut(event):
 	  global y
@@ -38,7 +34,7 @@
 		  if event.direction == "up":
 			  y -= 1
   ```
-- Now see if you can add `elif` statements to detect other movements and set the `x` and `y` coordinates.
+- See if you can add `elif` statements to detect other movements and set the `x` and `y` coordinates accordingly.
 --- /hint --- --- hint ---
 - Here's the complete function:
   ```python
