@@ -29,9 +29,9 @@ Then you need to create two variables that represent the pixel colours. To make 
 	matrix = [[BLUE for column in range(8)] for row in range(8)]
 	```
 
-What does this do? The section `[BLUE for column in range(8)]` creates one list with eight values of `(0, 0, 255)` inside it. Then the `for row in range(8)` part makes eight copies of that list inside another list. After running the code, you can switch over to the interpreter and type `matrix` if you want to see the result for yourself.
+What does this code do? The section `[BLUE for column in range(8)]` creates one list with eight values of `(0, 0, 255)` inside it. Then the `for row in range(8)` part makes eight copies of that list inside another list. After running the code, you can switch over to the interpreter and type `matrix` if you want to see the result for yourself.
 
-However, you can't use this list of lists with the Sense HAT yet, as its software only understands a **flat** one-dimensional list. To solve this, you are going to create a function that turns 2D lists into 1D lists. You can then use this function every time the `matrix` needs to be displayed.
+However, you can't use this list of lists with the Sense HAT, as its software only understands a **flat** one-dimensional list. To solve this, you are going to create a function that turns 2D lists into 1D lists. You can then use this function every time the `matrix` needs to be displayed.
 
 To flatten a 2D list into a 1D list, you can again use a list comprehension. Here's an example of how to flatten a list.
 
