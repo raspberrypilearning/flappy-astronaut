@@ -4,7 +4,7 @@ In Flappy Astronaut, the astronaut will have to avoid 'pipes' that sprout from t
 
 To begin, you can create a single column of red pixels on the right-hand side of the matrix.
 
-	![column](images/SH-1.png)
+![column](images/SH-1.png)
 
 All you need to do is to set the last item in each of the lists within the matrix to be `RED` instead of `BLUE`. Below is a refresher of how to access items in a list.
 
@@ -12,7 +12,8 @@ All you need to do is to set the last item in each of the lists within the matri
 
 - You can use a for loop so that, for each list in the matrix, the last item is set to `RED`. Position this for loop so that it runs before you flatten and display the matrix. You can use the hints below to help you out if you need them.
 
---- hints --- --- hint ---
+--- hints ---
+--- hint ---
 - Here is an example of what your code should look like, with some comments added in where your for loop should go.
 	```python
 	from sense_hat import SenseHat
