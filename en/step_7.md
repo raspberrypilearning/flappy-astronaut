@@ -4,7 +4,7 @@ Now that you have a column of pixels representing a pipe on the right-hand side 
 
 The gap needs to be three pixels high, and should be placed randomly in the column of red pixels.
 
-	![gap](images/SH-2.png)
+![gap](images/SH-2.png)
 
 You'll want the three-pixel-high gap to be centred around one of the rows between `1` and `6` (inclusive). You can use the `random` module to achieve this:
 
@@ -16,7 +16,7 @@ You'll want the three-pixel-high gap to be centred around one of the rows betwee
   1. Change the last pixel in that row of the matrix to `BLUE`
   1. Change the last pixel in row `gap - 1` to `BLUE`
   1. Change the last pixel in row `gap + 1` to `BLUE`
-  
+
 --- hints --- --- hint ---
 - The method you need to import is the `randint` method.
 ```python

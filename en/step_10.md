@@ -2,15 +2,15 @@
 
 As mentioned in the section before, the algorithm to move the pipes will need to be repeated each time you want to shift the pixels left by `1`. Any code that needs to be repeated can be placed inside a function. Create this function below you `gen_pipes(matrix)` function:
 
-	```python
-	def move_pipes(matrix):
-	```
+```python
+def move_pipes(matrix):
+```
 The algorithm for this function can be broken down like this:
   1. For each row in the matrix
 	 1. For each item in the row from `0` to `7`
 	 1. Set the item to be the same as the next item in the row
   1. Set the last item in the row to be `BLUE`.
-  
+
 - Try and complete this by yourself, and use the hints below if you need some help.
 
 --- hints --- --- hint ---
