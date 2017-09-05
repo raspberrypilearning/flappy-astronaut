@@ -1,127 +1,71 @@
-## Catching user input
+## Watching the pipes move
 
-- The astronaut needs to move upwards when the Raspberry Pi and Sense HAT are shaken. To do this you'll need to catch the **accelerometer** readings from the Sense HAT. To do this you can make another threaded function. Add this after the `draw_columns` function. 
+At the moment, running your code won't do much. You need to call your functions in a loop to see it working.
 
-	```python
-	def get_shake():
-		global speed
-		while not game_over:
-
-	```
-
-- The next step is to read the data from the accelerometer, and then round each of the values. The accelerometer detects changes in velocity (speed) in three directions: x, y, and z.
+Right now you should have these three lines at the bottom of your code:
 
 	```python
-	def get_shake():
-		global speed
-		while not game_over:
-			accel = sense.get_accelerometer_raw()
-			x = round(accel['x'])
-			y = round(accel['y'])
-			z = round(accel['z'])
+	matrix = gen_pipes(matrix)
+	matrix = flatten(matrix)
+	sense.set_pixels(matrix)
 	```
 
-- If the Raspberry Pi and Sense HAT are motionless and sitting flat on a surface then the values should be:
-
-	```
-	x will be 0
-	y will be 0
-	z will be 1
-	```
-
-- Note that z has a value of 1 because it is reading the gravitational pull of the Earth. If these values change (because the Sense HAT is being shaken), you want the speed of the astronaut to change. A simple conditional will do this:
+- Instead of using two lines of code to flatten the matrix and then display it, you can use a single line to do this. This will avoid flattening the actual matrix each time, and instead just use a flattened version of the matrix for the display. Replace the last three lines with this:
 
 	```python
-	def get_shake():
-		global speed
-		while not game_over:
-			accel = sense.get_accelerometer_raw()
-			x = round(accel['x'])
-			y = round(accel['y'])
-			z = round(accel['z'])
-			if x != 0 or y != 0 or z != 1:
-				speed = -1
-			else:
-				speed = +1
+	matrix = gen_pipes(matrix)
+	sense.set_pixels(flatten(matrix))
 	```
-
-- Then make this function threaded, by adding these two lines.
+	
+- Now you can add in your `move_pipes(matrix)` function call to move the pipes:
 
 	```python
-	shake = Thread(target=get_shake)
-	shake.start()
+	matrix = gen_pipes(matrix)
+	sense.set_pixels(flatten(matrix))	
+	matrix = move_pipes(matrix)	
 	```
-
-- Save and run your code, and shake the Sense HAT (carefully) to see the astronaut move up and then down.
-
-- Your script should so far look like this:
+- Although this will move the pipes, they won't be displayed, as there is no second `set_pixels` call. To solve this, you can just add in a loop so that moving and displaying always follow each other.
 
 	```python
-	from sense_hat import SenseHat
+	matrix = gen_pipes(matrix)
+	for i in range(9):
+		sense.set_pixels(flatten(matrix))	
+		matrix = move_pipes(matrix)
+	```
+
+Try and run this code, and see what happens. Was it a little fast?
+
+- You can solve this by adding a `sleep()` command. At the top of your code, import the `sleep` method from the `time` module:
+
+	```python
 	from time import sleep
-	from random import randint
-	from threading import Thread
-
-	sense = SenseHat()
-	sense.clear()
-
-	##Globals
-	game_over = False
-	RED = (255,0,0)
-	BLACK = (0,0,0)
-	BLUE = (0,0,255)
-	y = 4
-	speed = +1
-
-	def draw_column():
-		global game_over
-		x = 7
-		gap = randint(2,6)
-		while x >= 0 and not game_over:
-			for led in range(8):
-				sense.set_pixel(x,led,RED)
-			sense.set_pixel(x,gap,BLACK)
-			sense.set_pixel(x,gap-1,BLACK)
-			sense.set_pixel(x,gap+1,BLACK)
-			sleep(0.5)
-			for i in range(8):
-				sense.set_pixel(x,i,BLACK)
-			x -= 1
-
-	def draw_columns():
-		while not game_over:
-			column = Thread(target=draw_column)
-			column.start()
-			sleep(2)
-
-	def get_shake():
-		global speed
-		while not game_over:
-			accel = sense.get_accelerometer_raw()
-			x = round(accel['x'])
-			y = round(accel['y'])
-			z = round(accel['z'])
-			sleep(0.01)
-			if x != 0 or y != 0 or z != 1:
-				speed = -1
-			else:
-				speed = +1
-
-	columns = Thread(target=draw_columns)
-	columns.start()
-
-	shake = Thread(target=get_shake)
-	shake.start()
-
-	while not game_over:
-		sense.set_pixel(3,y,BLUE)
-		sleep(0.1)
-		sense.set_pixel(3,y,BLACK)
-		y += speed
-		if y > 7:
-			y = 7
-		if y < 0:
-			y = 0    
-
 	```
 
+- Then add a `sleep` command into your loop:
+
+	```python
+	matrix = gen_pipes(matrix)
+	for i in range(9):
+		sense.set_pixels(flatten(matrix))	
+		matrix = move_pipes(matrix)
+		sleep(1)
+	```
+
+- If you run the code now, you should see something a little more like this:
+
+<iframe src="https://trinket.io/embed/python/e79f0007a3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>.
+
+- One small alteration will give you a continuous stream of pipes. Simply change the for loop to repeat `3` or `4` times, and then enclose the entire last section of code in an infinite `while True` loop:
+
+  ```python
+  while True:
+	  matrix = gen_pipes(matrix)
+	  for i in range(3):
+		  sense.set_pixels(flatten(matrix))
+		  matrix = move_pipes(matrix)
+		  sleep(1)
+  ```
+
+- This should give you something that looks like this:
+
+<iframe src="https://trinket.io/embed/python/03d79d3f93" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>

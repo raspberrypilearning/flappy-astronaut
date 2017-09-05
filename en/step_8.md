@@ -1,12 +1,35 @@
-## Multiple Columns
+## Create a function to make more pipes
 
-- Now that you have a single column scrolling across the matrix, you'll want keep them coming. This can be achieved with a `while` loop. Add this code to the bottom of your script, and remove the function call you used for testing.
+The game would be a little easy if only one set of pipes were created. You can generate as many pipes as you like by using a function.
+
+- Below your `flatten()` function, create a new function called `gen_pipes`:
 
 	```python
-	while not game_over:
-		draw_column()
-		sleep(2)
+	def gen_pipes(matrix):
 	```
 
-<iframe src="https://trinket.io/embed/python/55d742ffaf" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+- Put the code you wrote to generate a set of pipes into this function. You can just add some indentation to do this. At the end of the function, you should `return` the altered `matrix`.
+  ```python
+  def gen_pipes(matrix):
+	  for row in matrix:
+		row[-1] = RED
+	  gap = randint(1, 6)
+	  matrix[gap][-1] = BLUE
+	  matrix[gap - 1][-1] = BLUE
+	  matrix[gap + 1][-1] = BLUE
+	  return matrix
+  ```
+
+- Then call the function before you flatten and display the `matrix`.
+
+	```python
+	matrix = gen_pipes(matrix)
+	matrix = flatten(matrix)
+	sense.set_pixels(matrix)
+	```
+
+- Here's what the code should look like now:
+
+<iframe src="https://trinket.io/embed/python/f77f1ddd0e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 

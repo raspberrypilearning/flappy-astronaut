@@ -1,98 +1,70 @@
-## Finishing off
+## Moving the astronaut
 
-- To finish off you need to make sure that the two threads have actually ended. You can also leave a message for the player.
+- You can now program the pixel representing the astronaut to move around the screen in response to the joystick's movements by using **conditional selection**. The basic algorithm inside your `draw_astronaut` function should do the following:
+  - If the joystick is pressed:
+	- change the colour to `BLUE` to 'hide' the astronaut
+	- if the direction is up
+	  - decrease `y` b`y` `1`
+	- if the direction is down
+	  - increase `y` b`y` `1`
+	- if the direction is right
+	  - increase `x` b`y` `1`
+	- if the direction is left
+	  - decrease `x` b`y` `1`
+	- change the colour to `YELLOW` to show the astronaut
+
+- Add code to your `draw_astronaut` function so that the pixel will move around the LED matrix when the joystick is pressed.
+
+--- hints --- --- hint ---
+- The first thing to do is to 'hide' the astronaut. In other words, set its colour to `BLUE` so that it is the same as the background.
+	```python
+	def draw_astronaut(event):
+		global y
+		global x
+		sense.set_pixel(x, y, BLUE)
+	```
+--- /hint --- --- hint ---
+- You can now use conditional selection to detect particular directions and change a coordinate in response. For instance:
+  ```python
+  def draw_astronaut(event):
+	  global y
+	  global x
+	  sense.set_pixel(x, y, BLUE)
+	  if event.action == "pressed":
+		  if event.direction == "up":
+			  y -= 1
+  ```
+- See if you can add `elif` statements to detect other movements and set the `x` and `y` coordinates accordingly.
+--- /hint --- --- hint ---
+- Here's the complete function:
+  ```python
+  def draw_astronaut(event):
+	  global y
+	  global x
+	  sense.set_pixel(x, y, BLUE)
+	  if event.action == "pressed":
+		  if event.direction == "up":
+			  y -= 1
+		  elif event.direction == "down":
+			  y += 1
+		  elif event.direction == "right":
+			  x += 1
+		  elif event.direction == "left":
+			  x -= 1
+	  sense.set_pixel(x, y, YELLOW)
+  ```
+- You can see it in action here - just use the cursor keys to control the astronaut. You'll notice that you can only see the astronaut when the keys are being pressed.
+<iframe src="https://trinket.io/embed/python/9dc48939c7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+--- /hint --- --- /hints ---
+
+- To finish off this section, you'll need to display the astronaut within your main game loop.
 
 	```python
-	shake.join()
-	columns.join()
-
-	sense.show_message("You Lose", text_colour=(255,0,0))
+	while True:
+	  matrix = gen_pipes(matrix)
+	  for i in range(3):
+		  sense.set_pixels(flatten(matrix))
+		  matrix = move_pipes(matrix)
+		  sense.set_pixel(x, y, YELLOW) ##THIS IS THE NEW CODE
+		  sleep(1)
 	```
-
-- Have a play with your game. Your full code should look like this:
-
-	```python
-	from sense_hat import SenseHat
-	from time import sleep
-	from random import randint
-	from threading import Thread
-
-	sense = SenseHat()
-	sense.clear()
-
-	##Globals
-	game_over = False
-	RED = (255,0,0)
-	BLACK = (0,0,0)
-	BLUE = (0,0,255)
-	y = 4
-	speed = +1
-
-
-	def draw_column():
-		global game_over
-		x = 7
-		gap = randint(2,6)
-		while x >= 0 and not game_over:
-			for led in range(8):
-				sense.set_pixel(x,led,RED)
-			sense.set_pixel(x,gap,BLACK)
-			sense.set_pixel(x,gap-1,BLACK)
-			sense.set_pixel(x,gap+1,BLACK)
-			sleep(0.5)
-			for i in range(8):
-				sense.set_pixel(x,i,BLACK)
-			if collision(x,gap):
-				game_over = True
-			x -= 1
-
-
-	def draw_columns():
-		while not game_over:
-			column = Thread(target=draw_column)
-			column.start()
-			sleep(2)
-
-	def get_shake():
-		global speed
-		while not game_over:
-			accel = sense.get_accelerometer_raw()
-			x = round(accel['x'])
-			y = round(accel['y'])
-			z = round(accel['z'])
-			sleep(0.01)
-			if x != 0 or y != 0 or z != 1:
-				speed = -1
-			else:
-				speed = +1
-
-	def collision(x,gap):
-		if x == 3:
-			if y < gap -1 or y > gap +1:
-				return True
-		return False
-
-
-	columns = Thread(target=draw_columns)
-	columns.start()
-
-	shake = Thread(target=get_shake)
-	shake.start()
-
-	while not game_over:
-		sense.set_pixel(3,y,BLUE)
-		sleep(0.1)
-		sense.set_pixel(3,y,BLACK)
-		y += speed
-		if y > 7:
-			y = 7
-		if y < 0:
-			y = 0    
-
-
-	shake.join()
-	columns.join()
-
-	sense.show_message("You Lose", text_colour=(255,0,0))
-	```
-

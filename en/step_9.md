@@ -1,89 +1,44 @@
-## Threading
+## Moving pipes algorithm
 
-Now we have a single column scrolling across the matrix, but what if we wanted to display more than one column at a time? It would be possible to alter the `draw_column` function to produce more than one column, but it is easier to have the same function called several times.
+Now that you can generate as many pipes as you want, you need to move them across the matrix so that they proceed towards the left of the screen.
 
-The problem is that, at the moment, the program has to wait for a function to finish before it can be called again. It is possible to overcome this problem by using **threading**.
+It might be easier to picture this on a smaller scale. For instance, here's a 5×5 matrix:
 
-Threading allows you to call a function in a way that doesn't block the rest of your program, meaning that the `draw_column()` function can be called several times in a row.
-
-- First you'll need the `Thread` function. At the top of your program, add in a line to import it.
-
-	```python
-	from sense_hat import SenseHat
-	from time import sleep
-	from random import randint
-	from threading import Thread
 	```
-	
-	**If you're using the trinket.io emulator, you'll need to stop at this point, as it doesn't yet support threading, and start working locally on your computer.**
-
-- Now you can turn the function call in the `while` loop into a threaded function call, that will be called every two seconds:
-
-	```python
-	while not game_over:
-		column = Thread(target=draw_column)
-		column.start()
-		sleep(2)
+	  0 1 2 3 4
+	0 b b b b r
+	1 b b b b r
+	2 b b b b b
+	3 b b b b r
+	4 b b b b r
 	```
+To move the red pixels (`r`) to the left, you can follow a simple algorithm:
+  1. Move all the items at index `1` in each of the rows to index `0`
+  1. Move all the items at index `2` in each of the tows to index `1`
+  1. Move all the items at index `3` in each of the tows to index `2`
+  1. Move all the items at index `4` in each of the tows to index `3`
+  1. Fill all the items at index `5` in each row with a `b`
 
-- The problem is that now you have this while loop blocking the program, and there is still a lot to do, such as getting some user input and moving the flappy astronaut itself up and down. The solution is to place the `while` loop into a function, and have it called as another thread. Add it to a function first:
+This would then give you a matrix that looks like this:
 
-	```python
-	def draw_columns():
-		while not game_over:
-			column = Thread(target=draw_column)
-			column.start()
-			sleep(2)
 	```
-
-- Then call it as a threaded function:
-
-	```python
-	columns = Thread(target=draw_columns)
-	columns.start()
+	  0 1 2 3 4
+	0 b b b r b
+	1 b b b r b
+	2 b b b b b
+	3 b b b r b
+	4 b b b r b
 	```
+You could run the algorithm again to repeat the movement, which would give you this:
 
-	![scrolling](images/scrolling.gif)
-
-- Your entire code so far should look like this:
-
-	```python
-	from sense_hat import SenseHat
-	from time import sleep
-	from random import randint
-	from threading import Thread
-
-	sense = SenseHat()
-	sense.clear()
-
-	##Globals
-	game_over = False
-	RED = (255,0,0)
-	BLACK = (0,0,0)
-
-	def draw_column():
-		global game_over
-		x = 7
-		gap = randint(1,6)
-		while x >= 0 and not game_over:
-			for led in range(8):
-				sense.set_pixel(x,led,RED)
-			sense.set_pixel(x,gap,BLACK)
-			sense.set_pixel(x,gap-1,BLACK)
-			sense.set_pixel(x,gap+1,BLACK)
-			sleep(0.5)
-			for i in range(8):
-				sense.set_pixel(x,i,BLACK)
-			x -= 1
-
-	def draw_columns():
-		while not game_over:
-			column = Thread(target=draw_column)
-			column.start()
-			sleep(2)
-
-	columns = Thread(target=draw_columns)
-	columns.start()
 	```
-- Save and run your program (Ctrl+s, F5) to make sure that it works.
+	  0 1 2 3 4
+	0 b b r b b
+	1 b b r b b
+	2 b b b b b
+	3 b b r b b
+	4 b b r b b
+	```
+If you do this with your matrix, then the following will happen:
 
+![moving pipes](images/SH-1.gif)
