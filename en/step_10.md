@@ -1,6 +1,6 @@
 ## Moving the pipes
 
-As mentioned in the section before, the algorithm to move the pipes will need to be repeated each time you want to shift the pixels left by `1`. Any code that needs to be repeated can be placed inside a function. Create this function below you `gen_pipes(matrix)` function:
+As mentioned in the section before, the algorithm to move the pipes will need to be repeated each time you want to shift the pixels left by `1`. Any code that needs to be repeated can be placed inside a function. Create this function below your `gen_pipes(matrix)` function:
 
 ```python
 def move_pipes(matrix):
