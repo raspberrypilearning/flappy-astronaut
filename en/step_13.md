@@ -1,7 +1,7 @@
 ## Moving the astronaut
 
 - You can now program the pixel representing the astronaut to move around the screen in response to the joystick's movements by using **conditional selection**. The basic algorithm inside your `draw_astronaut` function should do the following:
-  - If the joystick is pressed:
+  - When a joystick event is detected:
 	- change the colour to `BLUE` to 'hide' the astronaut
 	- if the direction is up
 	  - decrease `y` b`y` `1`
