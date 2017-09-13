@@ -4,6 +4,7 @@
 If you are not using an emulator you will need the following hardware:
 + Raspberry Pi
 + Sense HAT
+
 If you are using an emulator then you simply require a computer with access to https://trinket.io/.
 
 ### Software
