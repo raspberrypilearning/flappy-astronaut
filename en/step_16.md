@@ -7,9 +7,10 @@
 
 - Now, when your astronaut collides with the pipes, this message should scroll.
 
-- You may notice a small bug in the program. Sometimes you can fly your astronaut straight through the pipes. This is because the joystick detection is operating outside of the main game loop.
+- You may notice a small bug in the program. Sometimes you can fly your astronaut straight through the pipes. This is because the joystick detection is operating outside of the main game loop. The joystick events are not synchronized with the moving columns.
 
-- To fix this, create a new variable called `game_over`, and set it to `False` near where you have set your colour constants.
+
+- To fix this, create a new variable called `game_over`, and set it to `False` near where you have set your colour constants. This variable can be used to control when the game ends.
 
 	```python
 	game_over = False
@@ -46,7 +47,7 @@
 				game_over = True
 			sleep(1)
 	```
-- Lastly, add `global game_over` to the draw astronaut function so that, if there is a collision, `game_over` can become `True`:
+- Lastly, add `global game_over` to the draw astronaut function so that, if there is a collision, `game_over` can become `True`and the main game loop will come to an end:
 
 	```python
 	def draw_astronaut(event):

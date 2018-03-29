@@ -48,13 +48,7 @@ If you want to set multiple pixels in this way, you're going to need a lot of li
 	
 - Try creating another image using the list. How about creating a smiley face?
 
-The only problem with using a single list like this is that it can be tricky to figure out which item in the list corresponds to which pixel on the screen. For instance, what is the list index of the pixel at `x = 5` and `y = 5`? To calculate this you would have to do the following:
-
-```
-index = (y - 1) * 8 + x
-```
-
-This will tell you that the index is `37`, but that's not very easy to understand.
+The only problem with using a single list like this is that it can be tricky to figure out which item in the list corresponds to which pixel on the screen. For instance, what is the list index of the pixel at `x = 5` and `y = 5`? It can be calculated, but it is a little tricky.
 
 To get around this problem, programmers often use two-dimensional lists, which are also known as lists of lists, to represent the arrangement of pixels on a screen.
 
