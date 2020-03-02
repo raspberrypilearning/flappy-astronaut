@@ -1,0 +1,53 @@
+---
+title: Flappy Astronaut
+hero_image: images/banner.png
+description: Make a Flappy Bird clone using your Raspberry Pi and the Sense HAT
+original_url: https://raspberrypi.org/learning/flappy-astronaut
+theme: green
+duration: 2
+listed: true
+ingredient: false
+copyedit: true
+curriculum: 3, design-0, programming-3, phys-comp-1, manufacture-0, community-0
+interests: games
+technologies: python, sense-hat
+site_areas: projects
+hardware: sense-hat
+software: python
+version: 4
+last_tested: 2017-09-01
+steps:
+  - 
+    title: Introduction
+  - 
+    title: What you will need
+  - 
+    title: Flappy Astronaut
+  - 
+    title: Representing pixels
+  - 
+    title: Using 2D lists with the Sense HAT
+  - 
+    title: Generating pipes
+  - 
+    title: Mind the gaps
+  - 
+    title: Create a function to make more pipes
+  - 
+    title: Moving pipes algorithm
+  - 
+    title: Moving the pipes
+  - 
+    title: Watching the pipes move
+  - 
+    title: Adding your astronaut
+  - 
+    title: Moving the astronaut
+  - 
+    title: Edge detection
+  - 
+    title: Collisions
+  - 
+    title: Finishing your game
+  - 
+    title: "Challenge: taking it further"
