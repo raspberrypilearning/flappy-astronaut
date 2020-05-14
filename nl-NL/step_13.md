@@ -35,7 +35,8 @@
           if event.direction == "up":
               y -= 1
   ```
-- Kijk of je `elif` instructies kunt toevoegen om andere bewegingen te detecteren en de `x` en `y` coördinaten dienovereenkomstig kunt instellen. --- /hint hint ---
+- Kijk of je `elif` instructies kunt toevoegen om andere bewegingen te detecteren en de `x` en `y` coördinaten dienovereenkomstig kunt instellen. --- /hint ---
+--- hint ---
 - Hier is de complete functie:
   ```python
   def teken_astronaut(event):

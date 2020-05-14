@@ -30,6 +30,6 @@ Het spel zou een beetje eenvoudig zijn als er slechts één set buizen was gemaa
 
 - Zo ziet de code er nu uit:
 
-iframe src="https://trinket.io/embed/python/f77f1ddd0e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/f77f1ddd0e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
 

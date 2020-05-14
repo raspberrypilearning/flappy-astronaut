@@ -17,7 +17,8 @@ Om het spel te beëindigen, moet je ervoor zorgen dat het eindigt wanneer de ast
   def check_botsing(matrix):
       if matrix[y][x] == ROOD:
   ```
---- /hint hint ---
+--- /hint ---
+--- hint ---
 - Hier is de complete functie:
   ```python
   def check_botsing(matrix):
