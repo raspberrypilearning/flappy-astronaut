@@ -1,60 +1,60 @@
-## Finishing your game
-- There are just a couple of things to do before you're completely done. On the very last line, you should insert code to display a message to indicate that the game is over.
+## Je spel afmaken
+- Er zijn maar een paar dingen die je moet doen voordat je helemaal klaar bent. Op de laatste regel moet je code invoegen om een bericht weer te geven om aan te geven dat het spel is afgelopen.
 
     ```python
-    sense.show_message('You lose')
+    sense.show_message('Jij verliest')
     ```
 
-- Now, when your astronaut collides with the pipes, this message should scroll.
+- Wanneer jouw astronaut nu tegen de buizen botst, zou dit bericht moeten verschijnen.
 
-- You may notice a small bug in the program. Sometimes you can fly your astronaut straight through the pipes. This is because the joystick detection is operating outside of the main game loop. The joystick events are not synchronized with the moving columns.
+- Je kunt een kleine bug in het programma opmerken. Soms kan jouw astronaut dwars door de buizen vliegen. Dit komt omdat de joystickdetectie buiten de hoofdgame-lus werkt. De joystick gebeurtenissen worden niet gesynchroniseerd met de bewegende kolommen.
 
 
-- To fix this, create a new variable called `game_over`, and set it to `False` near where you have set your colour constants. This variable can be used to control when the game ends.
+- Om dit op te lossen, maak je een nieuwe variabele met de naam `game_over`en stel je deze in op `False` in de buurt van waar je jouw kleurconstanten hebt ingesteld. Deze variabele kan worden gebruikt om te bepalen wanneer het spel eindigt.
 
     ```python
     game_over = False
     ```
 
-- Now you can change your `while True` loop so that it becomes a `while not game_over` loop:
+- Nu kun je je `while True` lus veranderen zodat het een `while not game_over` lus wordt:
 
     ```python
     while not game_over:
-        matrix = gen_pipes(matrix)
-        if check_collision(matrix):
+        matrix = gen_buizen(matrix)
+        if check_botsing(matrix):
             break
         for i in range(3):
-            matrix = move_pipes(matrix)
-            sense.set_pixels(flatten(matrix))
-            sense.set_pixel(x, y, YELLOW)   
-            if check_collision(matrix):
+            matrix = beweeg_buizen(matrix)
+            sense.set_pixels(afvlakken(matrix))
+            sense.set_pixel(x, y, GEEL)   
+            if check_botsing(matrix):
                 break
             sleep(1)
     ```
 
-- Then you can get rid of those nasty `break`s by setting `game_over` to `True`.
+- Dan kun je van die vervelende `pauze`s afkomen door `game_over` op `True` te zetten.
 
     ```python
     while not game_over:
-        matrix = gen_pipes(matrix)
-        if check_collision(matrix):
+        matrix = gen_buizen(matrix)
+        if check_botsing(matrix):
             game_over = True
         for i in range(3):
-            matrix = move_pipes(matrix)
-            sense.set_pixels(flatten(matrix))
-            sense.set_pixel(x, y, YELLOW)   
-            if check_collision(matrix):
+            matrix = beweeg_buizen(matrix)
+            sense.set_pixels(afvlakken(matrix))
+            sense.set_pixel(x, y, GEEL)   
+            if check_botsing(matrix):
                 game_over = True
             sleep(1)
     ```
-- Lastly, add `global game_over` to the draw astronaut function so that, if there is a collision, `game_over` can become `True`and the main game loop will come to an end:
+- Voeg ten slotte `global game_over` aan de teken astronaut-functie, zodat bij een botsing `game_over` `True`kan worden en de hoofdgame-lus ten einde komt:
 
     ```python
-    def draw_astronaut(event):
+    def teken_astronaut(event):
         global y
         global x
         global game_over
-        sense.set_pixel(x, y, BLUE)
+        sense.set_pixel(x, y, BLAUW)
         if event.action == "pressed":
             if event.direction == "up" and y > 0:
                 y -= 1
@@ -64,9 +64,9 @@
                 x += 1
             elif event.direction == "left" and x > 0:
                 x -= 1
-        sense.set_pixel(x, y, YELLOW)
-        if matrix[y][x] == RED:
+        sense.set_pixel(x, y, GEEL)
+        if matrix[y][x] == ROOD:
             game_over = True
     ```
 
-- Now you should have a finished program, and a game you can play! Have a look at the last step to get some ideas for how you can improve it.
+- Nu zou je een voltooid programma moeten hebben, en een game die je kunt spelen! Neem een kijkje in de laatste stap om ideeën op te doen over hoe je het kunt verbeteren.
