@@ -1,42 +1,42 @@
-## Mind the gaps
+## Let op de gaten
 
-Now that you have a column of pixels representing a pipe on the right-hand side of the matrix, you need to insert a gap into it through which the astronaut can fly.
+Nu je een kolom met pixels hebt die een buis aan de rechterkant van de matrix vertegenwoordigt, moet je er een opening in invoegen waardoor de astronaut kan vliegen.
 
-The gap needs to be three pixels high, and should be placed randomly in the column of red pixels.
+De opening moet drie pixels hoog zijn en moet willekeurig in de kolom met rode pixels worden geplaatst.
 
-![gap](images/SH-2.png)
+![tussenruimte](images/SH-2.png)
 
-You'll want the three-pixel-high gap to be centred around one of the rows between `1` and `6` (inclusive). You can use the `random` module to achieve this:
+Je wilt dat de opening van drie pixels hoog wordt gecentreerd rond een van de rijen tussen `1` en `6` (inclusief). Je kunt de `willekeurige` module gebruiken om dit te bereiken:
 
 [[[generic-python-random]]]
 
-- Here's what you need to do:
-  1. Import the `randint` method at the top of your code
-  1. After the for loop has ended, create a variable called `gap`, and assign a random number between `1` and `6` as its value
-  1. Change the last pixel in that row of the matrix to `BLUE`
-  1. Change the last pixel in row `gap - 1` to `BLUE`
-  1. Change the last pixel in row `gap + 1` to `BLUE`
+- Dit is wat je moet doen:
+  1. Importeer de `randint` methode bovenaan uw code
+  1. Nadat de for-lus is beëindigd, maak je een variabele met de naam `gap`en wijs je een willekeurig getal tussen `1` en `6` als waarde
+  1. Wijzig de laatste pixel in die rij van de matrix in `BLAUW`
+  1. Verander de laatste pixel in rij `opening - 1` naar `BLAUW`
+  1. Wijzig de laatste pixel in rij `kloof + 1` naar `BLAUW`
 
 --- hints --- --- hint ---
-- The method you need to import is the `randint` method.
+- De methode die u moet importeren is de `randint` methode.
 ```python
 from random import randint
 ```
---- /hint --- --- hint ---
-- After the for loop, choose a random value for `gap`.
+--- /hint hint ---
+- Kies na de for-lus een willekeurige waarde voor `opening`.
 ```python
 for row in matrix:
-    row[-1] = RED
-gap = randint(1, 6)
+    row[-1] = ROOD
+tussenruimte = randint(1, 6)
 ```
---- /hint --- --- hint ---
-- Now set the pixels in the last column of each of the rows numbered `gap`, `gap + 1`, and `gap -1`.
+--- /hint hint ---
+- Stel nu de pixels in de laatste kolom van elk van de rijen met nummer `tussenruimte`, `tussenruimte + 1`en `tussenruimte -1`.
 ```python
 for row in matrix:
-    row[-1] = RED
-gap = randint(1, 6)
-matrix[gap][-1] = BLUE
-matrix[gap - 1][-1] = BLUE
-matrix[gap + 1][+1] = BLUE
+    row[-1] = ROOD
+tussenruimte = randint(1, 6)
+matrix[tussenruimte][-1] = BLAUW
+matrix[tussenruimte - 1][-1] = BLAUW
+matrix[tussenruimte + 1][+1] = BLAUW
 ```
-- Here's what it should look like: <iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> --- /hint --- --- /hints ---
+- Zo zou het eruit moeten zien: <iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> --- / hint --- --- / hints ---
