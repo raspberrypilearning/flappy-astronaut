@@ -42,4 +42,4 @@ Bekijk het onderstaande gedeelte om te zien hoe je Booleaanse logische operatore
 
 <iframe src="https://trinket.io/embed/python/c50810b1b0" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
 
---- / hint --- --- / hints ---
+--- /hint --- --- /hints ---
