@@ -1,10 +1,10 @@
-## Using 2D lists with the Sense HAT
+## 2D-lijsten gebruiken met de Sense HAT
 
-Now you know that the best way to represent the pixels on the LED matrix is using a 2D list, let's see how this can be done with the Sense HAT.
+Nu weet je dat de beste manier om de pixels op de LED-matrix weer te geven, een 2D-lijst is, laten we eens kijken hoe dit kan worden gedaan met de Sense HAT.
 
-- Open a new Python file, or use the Sense HAT emulator at [trinket.io](https://trinket.io/).
+- Open een nieuw Python-bestand of gebruik de Sense HAT-emulator op [trinket.io](https://trinket.io/).
 
-- With the first two lines of code, import the Sense HAT modules and create a `SenseHAT` object that can be used to control the LED matrix:
+- Importeer met de eerste twee coderegels de Sense HAT-modules en maak een `SenseHAT` object dat kan worden gebruikt om de LED-matrix te besturen:
 
 ```python
 from sense_hat import SenseHat
@@ -12,51 +12,51 @@ from sense_hat import SenseHat
 sense = SenseHat()
 ```
 
-Then you need to create two variables that represent the pixel colours. To make this simple, you can use red and blue. If you want to learn a little more about how computers represent colours, have a look at the section below.
+Vervolgens moet je twee variabelen maken die de pixelkleuren vertegenwoordigen. Om dit eenvoudig te maken, kun je rood en blauw gebruiken. Als je meer wilt weten over hoe computers kleuren vertegenwoordigen, kijk dan in het onderstaande gedeelte.
 
 [[[generic-theory-colours]]]
 
-- To store the colour information, you can use a pair of tuples, one for red and one for blue.
+- Om de kleurinformatie op te slaan, kun je een paar tuples gebruiken, één voor rood en één voor blauw.
 
 ```python
-RED = (255, 0, 0)
-BLUE = (0, 0, 255)
+ROOD = (255, 0, 0)
+BLAUW = (0, 0, 255)
 ```
 
-- Now you are going to create a list of lists filled with the variable `BLUE`. Manually creating it would mean a lot of typing, but instead you can use a list comprehension to complete the task in a single line.
+- Nu ga je een lijst met lijsten maken die zijn gevuld met de variabele `BLAUW`. Handmatig maken zou veel typen met zich meebrengen, maar in plaats daarvan kunt u een lijstbegrip gebruiken om de taak op een enkele regel te voltooien.
 
 ```python
 matrix = [[BLUE for column in range(8)] for row in range(8)]
 ```
 
-What does this code do? The section `[BLUE for column in range(8)]` creates one list with eight values of `(0, 0, 255)` inside it. Then the `for row in range(8)` part makes eight copies of that list inside another list. After running the code, you can switch over to the interpreter and type `matrix` if you want to see the result for yourself.
+Wat doet deze code? De sectie `[BLUE for column in range(8)]` maakt een lijst met acht waarden van `(0, 0, 255)` erin. Dan maakt het deel `for row in range(8)` acht kopieën van die lijst in een andere lijst. Nadat je de code hebt uitgevoerd, kun je overschakelen naar de interperter en `matrix` typen als je het resultaat zelf wilt zien.
 
-If you want to learn more about list comprehensions, take a look at the section below.
+Als je meer wilt weten over lijstbegrippen, neem dan een kijkje in de onderstaande sectie.
 
 [[[generic-python-simple-list-comprehensions]]]
 
-You can't use this list of lists with the Sense HAT, as its software only understands a **flat** one-dimensional list. To deal with this issue, you are going to create a function that turns 2D lists into 1D lists. You can then use this function every time the `matrix` needs to be displayed.
+Je kunt geen gebruik maken van deze lijst van lijsten met de Sense HAT, omdat de software alleen een **vlakke** eendimensionale lijst begrijpt. Om dit probleem aan te pakken, ga je een functie maken die 2D-lijsten omzet in 1D-lijsten. Je kunt dan gebruik maken van deze functie telkens wanneer de `matrix` moet worden weergegeven.
 
-To flatten a 2D list into a 1D list, you can again use a list comprehension. Here's an example of how to flatten a list.
+Als je een 2D-lijst wilt samenvoegen tot een 1D-lijst, kun je opnieuw een lijstbegrip gebruiken. Hier is een voorbeeld van het afvlakken van een lijst.
 
 ```python
-flattened = [pixel for row in matrix for pixel in row]
+afgevlakt = [pixel for row in matrix for pixel in row]
 ```
 
-What does this do? The `for row in matrix` part looks at each of the lists in the matrix, and the `for pixel in row` section looks at the individual pixels in each row of that list. These pixels are then all placed into a single list.
+Wat doet dit? De `for row in matrix` kijkt naar elk van de lijsten in de matrix en de sectie`for pixel in row` kijkt naar de afzonderlijke pixels in elke rij van die lijst. Deze pixels worden vervolgens allemaal in één lijst geplaatst.
 
-- You can turn this into a function to avoid having to write it out all the time. Add this to your file:
+- Je kunt dit in een functie veranderen om te voorkomen dat je het altijd moet wegschrijven. Voeg dit toe aan jouw bestand:
 
 ```python
-def flatten(matrix):
-    flattened = [pixel for row in matrix for pixel in row]
-    return flattened
+def afvlakken(matrix):
+    afgevlakt = [pixel for row in matrix for pixel in row]
+    return afgevlakt
 ```
 
-- To flatten your matrix and then display it on the Sense HAT, you can now simply add these lines of code to the bottom of your file.
+- Om jouw matrix af te vlakken en vervolgens weer te geven op de Sense HAT, kun je nu eenvoudig deze coderegels onderaan jouw bestand toevoegen.
 
 ```python
-matrix = flatten(matrix)
+matrix = afvlakken(matrix)
 sense.set_pixels(matrix)
 ```
-- Save and run your code. You can see an example of the code and its output in the embedded Trinket below. <iframe src="https://trinket.io/embed/python/b4c1aad6c3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+- Bewaar en voer je code uit. Je kunt een voorbeeld van de code en de uitvoer ervan zien in de hieronder ingesloten Trinket. <iframe src="https://trinket.io/embed/python/b4c1aad6c3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
