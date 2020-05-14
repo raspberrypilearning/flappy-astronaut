@@ -1,0 +1,36 @@
+---
+title: Flappy Astronaut
+hero_image: images/banner.png
+description: Maak een Flappy Bird-kloon met je Raspberry Pi en de Sense HAT
+original_url: https://raspberrypi.org/learning/flappy-astronaut
+theme: green
+duration: 2
+listed: true
+ingredient: false
+copyedit: true
+curriculum: 3, design-0, programming-3, phys-comp-1, manufacture-0, community-0
+interests: games
+technologies: python, sense-hat
+site_areas: projects
+hardware: sense-hat
+software: python
+version: 4
+last_tested: 2017/09/01
+steps:
+  - title: Inleiding
+  - title: Wat heb je nodig
+  - title: Flappy Astronaut
+  - title: Pixels vertegenwoordigen
+  - title: 2D-lijsten gebruiken met de Sense HAT
+  - title: Buizen genereren
+  - title: Let op de gaten
+  - title: Maak een functie om meer buizen te maken
+  - title: Bewegend buizen-algoritme
+  - title: De buizen verplaatsen
+  - title: Kijken hoe de buizen bewegen
+  - title: Uw astronaut toevoegen
+  - title: De astronaut verplaatsen
+  - title: Randen detecteren
+  - title: Botsingen
+  - title: Je spel afmaken
+  - title: "Uitdaging: verder gaan"
