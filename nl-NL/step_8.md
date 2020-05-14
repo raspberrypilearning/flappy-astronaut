@@ -1,33 +1,33 @@
-## Create a function to make more pipes
+## Maak een functie om meer buizen te maken
 
-The game would be a little easy if only one set of pipes were created. You can generate as many pipes as you like by using a function.
+Het spel zou een beetje eenvoudig zijn als er slechts één set buizen was gemaakt. Je kunt zoveel buizen genereren als je wilt met behulp van een functie.
 
-- Below your `flatten()` function, create a new function called `gen_pipes`:
+- Maak onder je functie `afvlakken()` een nieuwe functie met de naam `gen_buizen`:
 
     ```python
-    def gen_pipes(matrix):
+    def gen_buizen(matrix):
     ```
 
-- Put the code you wrote to generate a set of pipes into this function. You can just add some indentation to do this. At the end of the function, you should `return` the altered `matrix`.
+- Plaats de code die je hebt geschreven om een aantal buizen te genereren in deze functie. Je kunt hiervoor gewoon een inspringing toevoegen. Aan het einde van de functie, dien je `return` de gewijzigde `matrix` aan te roepen.
   ```python
-  def gen_pipes(matrix):
+  def gen_buizen(matrix):
       for row in matrix:
-        row[-1] = RED
+        row[-1] = ROOD
       gap = randint(1, 6)
-      matrix[gap][-1] = BLUE
-      matrix[gap - 1][-1] = BLUE
-      matrix[gap + 1][-1] = BLUE
+      matrix[tussenruimte][-1] = BLAUW
+      matrix[tussenruimte - 1][-1] = BLAUW
+      matrix[tussenruimte + 1][-1] = BLAUW
       return matrix
   ```
 
-- Then call the function before you flatten and display the `matrix`.
+- Roep vervolgens de functie aan voordat je afvlakt en geef de `matrix` weer.
 
     ```python
-    matrix = gen_pipes(matrix)
-    matrix = flatten(matrix)
+    matrix = gen_buizen(matrix)
+    matrix = afvlakken(matrix)
     sense.set_pixels(matrix)
     ```
 
-- Here's what the code should look like now: <iframe src="https://trinket.io/embed/python/f77f1ddd0e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+- Zo ziet de code er nu uit: <iframe src="https://trinket.io/embed/python/f77f1ddd0e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
 
