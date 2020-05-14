@@ -1,53 +1,53 @@
-## Adding your astronaut
+## Jouw astronaut toevoegen
 
-Your astronaut will be represented by a single coloured pixel. You can choose whatever colour you want for the astronaut, but the example will use yellow.
+Jouw astronaut wordt weergegeven door een enkele gekleurde pixel. U kunt elke gewenste kleur kiezen voor de astronaut, maar het voorbeeld gebruikt geel.
 
-- Where you have set your other colour variables, now create a new tuple for your chosen astronaut colour.
+- Waar je jouw andere kleurvariabelen hebt ingesteld, maakt je nu een nieuwe tuple voor de door je gekozen astronautenkleur.
 
     ```python
-    RED = (255, 0, 0)
-    BLUE = (0, 0, 255)
-    YELLOW = (255, 255, 0)
+    ROOD = (255, 0, 0)
+    BLAUW = (0, 0, 255)
+    GEEL = (255, 255, 0)
     ```
 
-- As the astronaut is going to be a single pixel, she'll need an `x` and a `y` coordinate, so that the pixel at those coordinates can be illuminated. Near where you have set your colours, set an `x` and `y` position for the astronaut.
+- Omdat de astronaut een enkele pixel wordt, heeft ze een `x` en een `y` coördinaat nodig, zodat de pixel op die coördinaten kan worden verlicht. In de buurt van waar je jouw kleuren hebt ingesteld, stel je een positie van `x` en `y` in voor de astronaut.
 
     ```python
     x = 0
     y = 0
     ```
 
-The player is going to control the astronaut with the Sense HAT's joystick. The joystick can be set up so that whenever it is used, it sends the **event** to a function you have created. Events can be things such as 'pressed up' or 'released right'. To learn how to use the `sensehat` module's joystick events, have a look at the section below.
+De speler gaat de astronaut besturen met de joystick van de Sense HAT. De joystick kan zo worden ingesteld dat wanneer het wordt gebruikt, het een **evenement** naar een functie stuurt die je hebt gemaakt. Gebeurtenissen kunnen dingen zijn zoals 'ingedrukt' of 'goed vrijgegeven'. Om te leren hoe u de joystick gebeurtenissen van de `sensehat` module kunt gebruiken, bekijk je het onderstaande gedeelte.
 
 [[[rpi-python-sensehat-joystick-event-functions]]]
 
-- Just above your `while True` loop, add in code for the joystick to use a function (one which you have not yet created):
+- Net boven je `while True` lus, voeg code toe voor de joystick om een functie te gebruiken (een die je nog niet hebt gemaakt):
 
     ```python
-    sense.stick.direction_any = draw_astronaut
+    sense.stick.direction_any = teken_astronaut
     ```
-- Now you need to create this `draw_astronaut` function. It will have a single parameter, which is the event. Create the function below one of your other functions.
+- Nu moet je deze `teken_astronaut` functie maken. Het heeft een enkele parameter, wat de gebeurtenis is. Maak de functie onder een van jouw andere functies.
 
     ```python
-    def draw_astronaut(event):
+    def teken_astronaut(event):
     ```
 
-- This function is going to need to alter the `x` and `y` variables you set earlier for the astronaut's position. In Python, a function is not normally allowed to alter the value of variables that have been declared outside of the function. To allow your `draw_astronaut` function to do set the `x` and `y` variables, you need to state that `x` and `y` are **global** variables:
+- Deze functie moet de `x` en `y` variabelen wijzigen die je eerder hebt ingesteld voor de positie van de astronaut. In Python is het normaal gesproken niet toegestaan dat een functie de waarde wijzigt van variabelen die buiten de functie zijn gedeclareerd. Om jouw `teken_astronaut` functie toe te staan om de `x` en `y` variabelen in te stellen, moet je aangeven dat `x` en `y` **globale** variabelen zijn:
 
     ```python
-    def draw_astronaut(event):
+    def teken_astronaut(event):
         global x
         global y
     ```
 
-- Now you can illuminate the pixel at the `x` and `y` coordinates:
+- Nu kun je de pixel op de coördinaten `x` en `y` verlichten:
 
     ```python
-    def draw_astronaut(event):
+    def teken_astronaut(event):
         global x
         global y
-        sense.set_pixel(x, y, YELLOW)
+        sense.set_pixel(x, y, GEEL)
     ```
 
-- The pixel will be illuminated as soon as you move the Sense HAT's joystick. In the emulator below, you can try it out using your keyboard's cursor keys. <iframe src="https://trinket.io/embed/python/a3444b6288" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+- De pixel wordt verlicht zodra je de joystick van de Sense HAT beweegt. In de onderstaande emulator kun je het uitproberen met de cursortoetsen van jouw toetsenbord. <iframe src="https://trinket.io/embed/python/a3444b6288" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
