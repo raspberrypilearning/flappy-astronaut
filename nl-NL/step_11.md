@@ -1,67 +1,67 @@
-## Watching the pipes move
+## Kijken hoe de buizen bewegen
 
-At the moment, running your code won't do much. You need to call your functions in a loop to see it working.
+Op dit moment zal het uitvoeren van jouw code niet veel doen. Je moet jouw functies in een lus oproepen om te zien hoe het werkt.
 
-Right now you should have these three lines at the bottom of your code:
+Op dit moment zouden deze drie regels onderaan jouw code moeten staan:
 
 ```python
-matrix = gen_pipes(matrix)
-matrix = flatten(matrix)
+matrix = gen_buizen(matrix)
+matrix = afvlakken(matrix)
 sense.set_pixels(matrix)
 ```
 
-- Instead of using two lines of code to flatten the matrix and then display it, you can use a single line to do this. This will avoid flattening the actual matrix each time, and instead just use a flattened version of the matrix for the display. Replace the last three lines with this:
+- In plaats van twee coderegels te gebruiken om de matrix af te vlakken en vervolgens weer te geven, kun je hiervoor een enkele regel gebruiken. Hiermee wordt voorkomen dat de werkelijke matrix elke keer wordt afgevlakt, en in plaats daarvan gebruik je gewoon een afgevlakte versie van de matrix voor de weergave. Vervang de laatste drie regels hiermee:
 
 ```python
-matrix = gen_pipes(matrix)
-sense.set_pixels(flatten(matrix))
+matrix = gen_buizen(matrix)
+sense.set_pixels(afvlakken(matrix))
 ```
 
-- Now you can add in your `move_pipes(matrix)` function call to move the pipes:
+- Nu kun je jouw `move_pipes (matrix)` functie-oproep toevoegen om de buizen te verplaatsen:
 
 ```python
-matrix = gen_pipes(matrix)
-sense.set_pixels(flatten(matrix))
-matrix = move_pipes(matrix)
+matrix = gen_buizen(matrix)
+sense.set_pixels(afvlakken(matrix))
+matrix = beweeg_buizen(matrix)
 ```
-- Although this will move the pipes, they won't be displayed, as there is no second `set_pixels` call. To solve this, you can just add in a loop so that moving and displaying always follow each other.
+- Hoewel dit de buizen zal verplaatsen, zullen ze niet worden weergegeven, omdat er geen tweede `set_pixels` oproep is. Om dit op te lossen, kun je gewoon een lus toevoegen zodat verplaatsen en weergeven elkaar altijd volgen.
 
 ```python
-matrix = gen_pipes(matrix)
+matrix = gen_buizen(matrix)
 for i in range(9):
-    sense.set_pixels(flatten(matrix))
-    matrix = move_pipes(matrix)
+    sense.set_pixels(afvlakken(matrix))
+    matrix = beweeg_buizen(matrix)
 ```
 
-Try and run this code, and see what happens. Was it a little fast?
+Probeer deze code uit te voeren en kijk wat er gebeurt. Was het een beetje snel?
 
-- You can solve this by adding a `sleep()` command. At the top of your code, import the `sleep` method from the `time` module:
+- Je kunt dit oplossen door een opdracht `sleep()` toe te voegen. Bovenaan uw code importeert u de `sleep` methode uit de `time` module:
 
 ```python
 from time import sleep
 ```
 
-- Then add a `sleep` command into your loop:
+- Voeg vervolgens een opdracht `sleep` aan je lus:
 
 ```python
-matrix = gen_pipes(matrix)
+matrix = gen_buizen(matrix)
 for i in range(9):
-    sense.set_pixels(flatten(matrix))
-    matrix = move_pipes(matrix)
+    sense.set_pixels(afvlakken(matrix))
+    matrix = beweeg_buizen(matrix)
     sleep(1)
 ```
 
-- If you run the code now, you should see something a little more like this: <iframe src="https://trinket.io/embed/python/e79f0007a3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+- Als je de code nu uitvoert, zou je iets meer als dit moeten zien: <iframe src="https://trinket.io/embed/python/e79f0007a3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
-- One small alteration will give you a continuous stream of pipes. Simply change the for loop to repeat `3` or `4` times, and then enclose the entire last section of code in an infinite `while True` loop:
+- Een kleine wijziging geeft je een continue stroom buizen. Wijzig eenvoudig de for-lus om `3` of `4` keer te herhalen en omsluit vervolgens het hele laatste gedeelte van de code in een oneindige `while True` lus:
 
 ```python
 while True:
-  matrix = gen_pipes(matrix)
+  matrix = gen_buizen(matrix)
   for i in range(3):
-      sense.set_pixels(flatten(matrix))
-      matrix = move_pipes(matrix)
+      sense.set_pixels(afvlakken(matrix))
+      matrix = beweeg_buizen(matrix)
       sleep(1)
 ```
 
-- This should give you something that looks like this: <iframe src="https://trinket.io/embed/python/03d79d3f93" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+- Dit zou je iets moeten geven dat er zo uitziet: <iframe src="https://trinket.io/embed/python/03d79d3f93" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
