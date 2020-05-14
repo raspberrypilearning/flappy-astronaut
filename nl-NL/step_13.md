@@ -1,46 +1,46 @@
-## Moving the astronaut
+## De astronaut verplaatsen
 
-- You can now program the pixel representing the astronaut to move around the screen in response to the joystick's movements by using **conditional selection**. The basic algorithm inside your `draw_astronaut` function should do the following:
-  - When a joystick event is detected:
-    - change the colour to `BLUE` to 'hide' the astronaut
-    - if the direction is up
-      - decrease `y` b`y` `1`
-    - if the direction is down
-      - increase `y` b`y` `1`
-    - if the direction is right
-      - increase `x` b`y` `1`
-    - if the direction is left
-      - decrease `x` b`y` `1`
-    - change the colour to `YELLOW` to show the astronaut
+- Je kunt nu de pixel programmeren die de astronaut representeert om over het scherm te bewegen in reactie op de bewegingen van de joystick met behulp van **voorwaardelijke selectie**. Het basisalgoritme in jouw `draw_astronaut` functie zou het volgende moeten doen:
+  - Wanneer een joystick-gebeurtenis wordt gedetecteerd:
+    - verander de kleur in `BLAUW` om de astronaut te 'verbergen'
+    - als de richting omhoog is
+      - verlagen `y` b`y` `1`
+    - als de richting omlaag is
+      - verhogen `y` b`y` `1`
+    - als de richting rechts is
+      - verhogen `x` b`y` `1`
+    - als de richting links is
+      - verlagen `x` b`y` `1`
+    - verander de kleur in `GEEL` om de astronaut te tonen
 
-- Add code to your `draw_astronaut` function so that the pixel will move around the LED matrix when the joystick is pressed.
+- Voeg code toe aan jouw `draw_astronaut` functie zodat de pixel rond de LED-matrix beweegt wanneer de joystick wordt ingedrukt.
 
 --- hints --- --- hint ---
-- The first thing to do is to 'hide' the astronaut. In other words, set its colour to `BLUE` so that it is the same as the background.
+- Het eerste wat je moet doen is de astronaut 'verbergen'. Met andere woorden, stel de kleur in op `BLAUW` zodat deze hetzelfde is als de achtergrond.
     ```python
-    def draw_astronaut(event):
+    def teken_astronaut(event):
         global y
         global x
-        sense.set_pixel(x, y, BLUE)
+        sense.set_pixel(x, y, BLAUW)
     ```
---- /hint --- --- hint ---
-- You can now use conditional selection to detect particular directions and change a coordinate in response. For instance:
+--- /hint hint ---
+- Je kunt nu voorwaardelijke selectie gebruiken om bepaalde richtingen te detecteren en als reactie een coördinaat te wijzigen. Bijvoorbeeld:
   ```python
-  def draw_astronaut(event):
+  def teken_astronaut(event):
       global y
       global x
-      sense.set_pixel(x, y, BLUE)
+      sense.set_pixel(x, y, BLAUW)
       if event.action == "pressed":
           if event.direction == "up":
               y -= 1
   ```
-- See if you can add `elif` statements to detect other movements and set the `x` and `y` coordinates accordingly. --- /hint --- --- hint ---
-- Here's the complete function:
+- Kijk of je `elif` instructies kunt toevoegen om andere bewegingen te detecteren en de `x` en `y` coördinaten dienovereenkomstig kunt instellen. --- /hint hint ---
+- Hier is de complete functie:
   ```python
-  def draw_astronaut(event):
+  def teken_astronaut(event):
       global y
       global x
-      sense.set_pixel(x, y, BLUE)
+      sense.set_pixel(x, y, BLAUW)
       if event.action == "pressed":
           if event.direction == "up":
               y -= 1
@@ -50,18 +50,18 @@
               x += 1
           elif event.direction == "left":
               x -= 1
-      sense.set_pixel(x, y, YELLOW)
+      sense.set_pixel(x, y, GEEL)
   ```
-- You can see it in action here - just use the cursor keys to control the astronaut. You'll notice that you can only see the astronaut when the keys are being pressed. <iframe src="https://trinket.io/embed/python/9dc48939c7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> --- /hint --- --- /hints ---
+- Je kunt het hier in actie zien - gebruik gewoon de cursortoetsen om de astronaut te besturen. Je zult merken dat je de astronaut alleen kunt zien wanneer de toetsen worden ingedrukt. <iframe src="https://trinket.io/embed/python/9dc48939c7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> --- / hint --- --- / hints ---
 
-- To finish off this section, you'll need to display the astronaut within your main game loop.
+- Om dit gedeelte af te sluiten, moet je de astronaut in je hoofdgame-lus weergeven.
 
     ```python
     while True:
-      matrix = gen_pipes(matrix)
+      matrix = gen_buizen(matrix)
       for i in range(3):
-          sense.set_pixels(flatten(matrix))
-          matrix = move_pipes(matrix)
-          sense.set_pixel(x, y, YELLOW) ##THIS IS THE NEW CODE
+          sense.set_pixels(afvlakken(matrix))
+          matrix = beweeg_buizen(matrix)
+          sense.set_pixel(x, y, GEEL) ##DIT IS DE NIEUWE CODE
           sleep(1)
     ```
