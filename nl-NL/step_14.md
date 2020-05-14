@@ -1,31 +1,31 @@
-## Edge detection
+## Randen detecteren
 
-You may notice that if your astronaut drifts off the edge of the screen, your program crashes. Try it out if this hasn't happened to you yet.
+Je merkt misschien dat als je astronaut van de rand van het scherm afdrijft, je programma crasht. Probeer het uit als dit je nog niet is overkomen.
 
-This happens because the `sense_hat` module throws an error whenever the `x` or `y` variables go above `7` or below `0`, since there are no LEDs at these coordinates.
+Dit gebeurt omdat de `sense_hat` module een foutmelding geeft wanneer de `x` of `y` variabelen boven `7` of onder `0`, omdat er geen LED's op deze coördinaten zijn.
 
-You can use a logical operator to help prevent this. For instance, you would only move the astronaut pixel up if the joystick event was `up` **and** the `y` coordinate is greater than `0`.
+Je kunt een logische operator gebruiken om dit te voorkomen. Je verplaatst de pixel van de astronaut bijvoorbeeld alleen omhoog als de joystick gebeurtenis `op` **en** de coördinaat `y` groter is dan `0`.
 
-Have a look at the section below to see how to use Boolean logical operators within your conditional selection.
+Bekijk het onderstaande gedeelte om te zien hoe je Booleaanse logische operatoren kunt gebruiken in jouw voorwaardelijke selectie.
 
 [[[generic-python-conditional-selection-with-boolean]]]
 
-- Now add some edge detection to your `draw_astronaut` function, so that the pixel coordinate values can't be less than `0` or greater than `7`.
+- Voeg nu wat randdetectie toe aan jouw `teken_astronaut` functie, zodat de pixelcoördinaatwaarden niet minder dan `0` of groter dan `7`.
 
 --- hints --- --- hint ---
-- You need to check every time that the coordinate is greater than `0` before decreasing it, and less than `7` before increasing it. --- /hint --- --- hint ---
-- Here is your first check within the `draw_astronaut` function:
+- Je moet elke keer controleren of de coördinaat groter is dan `0` voordat je deze verlaagt en minder dan `7` voordat je deze verhoogt. --- /hint hint ---
+- Hier is jouw eerste controle binnen de `teken_astronaut` functie:
   ```python
   if event.direction == "up" and y > 0:
       y -= 1
   ```
---- /hint --- --- hint ---
-- Here's the whole function:
+--- /hint hint ---
+- Hier is de hele functie:
     ```python
-    def draw_astronaut(event):
+    def teken_astronaut(event):
         global y
         global x
-        sense.set_pixel(x, y, BLUE)
+        sense.set_pixel(x, y, BLAUW)
         if event.action == "pressed":
             if event.direction == "up" and y > 0:
                 y -= 1
@@ -35,6 +35,6 @@ Have a look at the section below to see how to use Boolean logical operators wit
                 x += 1
             elif event.direction == "left" and x > 0:
                 x -= 1
-        sense.set_pixel(x, y, YELLOW)   
+        sense.set_pixel(x, y, GEEL)   
     ```
-- Here's an example of the completed code: <iframe src="https://trinket.io/embed/python/c50810b1b0" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> --- /hint --- --- /hints ---
+- Hier is een voorbeeld van de voltooide code: <iframe src="https://trinket.io/embed/python/c50810b1b0" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> --- / hint --- --- / hints ---
