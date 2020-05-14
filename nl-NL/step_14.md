@@ -19,7 +19,8 @@ Bekijk het onderstaande gedeelte om te zien hoe je Booleaanse logische operatore
   if event.direction == "up" and y > 0:
       y -= 1
   ```
---- /hint hint ---
+--- /hint ---
+--- hint ---
 - Hier is de hele functie:
     ```python
     def teken_astronaut(event):
