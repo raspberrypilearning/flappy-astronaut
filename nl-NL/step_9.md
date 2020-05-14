@@ -1,8 +1,8 @@
-## Moving pipes algorithm
+## Bewegend buizen-algoritme
 
-Now that you can generate as many pipes as you want, you need to move them across the matrix so that they proceed towards the left of the screen.
+Nu je zoveel buizen kunt genereren als je wilt, moet je ze over de matrix verplaatsen zodat ze naar de linkerkant van het scherm gaan.
 
-It might be easier to picture this on a smaller scale. For instance, here's a 5×5 matrix:
+Het is misschien gemakkelijker om dit op een kleinere schaal te bekijken. Hier is bijvoorbeeld een 5 × 5-matrix:
 
 ```
   0 1 2 3 4
@@ -12,14 +12,14 @@ It might be easier to picture this on a smaller scale. For instance, here's a 5�
 3 b b b b r
 4 b b b b r
 ```
-To move the red pixels (`r`) to the left, you can follow a simple algorithm:
-  1. Move all the items at index `1` in each of the rows to index `0`
-  1. Move all the items at index `2` in each of the tows to index `1`
-  1. Move all the items at index `3` in each of the tows to index `2`
-  1. Move all the items at index `4` in each of the tows to index `3`
-  1. Fill all the items at index `5` in each row with a `b`
+Om de rode pixels (`r`) naar links te verplaatsen, kun je een eenvoudig algoritme volgen:
+  1. Verplaats alle items op index `1` in elk van de rijen naar index `0`
+  1. Verplaats alle items op index `2` in elk van de rijen naar index `1`
+  1. Verplaats alle items op index `3` in elk van de rijen naar index `2`
+  1. Verplaats alle items op index `4` in elk van de rijen naar index `3`
+  1. Vul alle items op index `5` in elke rij met een `b`
 
-This would then give you a matrix that looks like this:
+Dit zou je dan een matrix geven die er zo uitziet:
 
 ```
   0 1 2 3 4
@@ -29,7 +29,7 @@ This would then give you a matrix that looks like this:
 3 b b b r b
 4 b b b r b
 ```
-You could run the algorithm again to repeat the movement, which would give you this:
+Je zou het algoritme opnieuw kunnen uitvoeren om de beweging te herhalen, wat je dit zou geven:
 
 ```
   0 1 2 3 4
@@ -39,6 +39,6 @@ You could run the algorithm again to repeat the movement, which would give you t
 3 b b r b b
 4 b b r b b
 ```
-If you do this with your matrix, then the following will happen:
+Als je dit met jouw matrix doet, gebeurt het volgende:
 
-![moving pipes](images/SH-1.gif)
+![buizen verplaatsen](images/SH-1.gif)
