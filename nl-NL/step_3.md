@@ -1,3 +1,3 @@
 ## Flappy Astronaut
 
-While the astronauts on the ISS are kept pretty busy, every now and then they still need to have a few minutes of relaxation. There are two Raspberry Pis with Sense HATs up there with them, so a little game of Flappy Astronaut would be the perfect way for an astronaut to unwind after a hard day's work in zero gravity.
+Terwijl de astronauten op het ISS behoorlijk druk zijn, moeten ze af en toe nog een paar minuten ontspanning hebben. Er zijn daar twee Raspberry Pis met Sense HAT's, dus een klein spelletje Flappy Astronaut zou de perfecte manier zijn voor een astronaut om te ontspannen na een dag hard werken zonder zwaartekracht.
