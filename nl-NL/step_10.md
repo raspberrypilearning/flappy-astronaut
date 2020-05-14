@@ -1,41 +1,41 @@
-## Moving the pipes
+## De buizen verplaatsen
 
-As mentioned in the section before, the algorithm to move the pipes will need to be repeated each time you want to shift the pixels left by `1`. Any code that needs to be repeated can be placed inside a function. Create this function below your `gen_pipes(matrix)` function:
+Zoals eerder vermeld in het gedeelte, moet het algoritme om de pijpen te verplaatsen telkens worden herhaald als je de pixels met `1` naar links wilt verschuiven. Elke code die moet worden herhaald, kan in een functie worden geplaatst. Maak deze functie onder je `gen_pipes(matrix)` functie:
 
 ```python
-def move_pipes(matrix):
+def beweeg_buizen(matrix):
 ```
-The algorithm for this function can be broken down like this:
-  1. For each row in the matrix
-     1. For each item in the row from `0` to `7`
-     1. Set the item to be the same as the next item in the row
-  1. Set the last item in the row to be `BLUE`.
+Het algoritme voor deze functie kan als volgt worden opgesplitst:
+  1. Voor elke rij in de matrix
+     1. Voor elk item in de rij van `0` tot `7`
+     1. Stel het item hetzelfde in als het volgende item in de rij
+  1. Stel het laatste item in de rij in op `BLAUW`.
 
-- Try and complete this by yourself, and use the hints below if you need some help.
+- Probeer dit zelf uit te voeren en gebruik de onderstaande tips als je hulp nodig hebt.
 
 --- hints --- --- hint ---
-- Within the function you can begin your for loop like this:
+- Binnen de functie kun je je for loop als volgt beginnen:
 ```python
-def move_pipes(matrix):
+def beweeg_buizen(matrix):
     for row in matrix:
         for i in range(7):
 ```
---- /hint --- --- hint ---
-- To switch around the items, you can use their index.
+--- /hint hint ---
+- Om de items om te schakelen, kun je hun index gebruiken.
 ```python
-def move_pipes(matrix):
+def beweeg_buizen(matrix):
     for row in matrix:
         for i in range(7):
             row[i] = row[i + 1]
 ```
---- /hint --- --- hint ---
-- To finish, set the last item in each row to be `BLUE`, and then return the altered matrix.
+--- /hint hint ---
+- Stel om te eindigen het laatste item in elke rij in op `BLAUW`en retourneer vervolgens de gewijzigde matrix.
 ```python
-def move_pipes(matrix):
+def beweeg_buizen(matrix):
     for row in matrix:
         for i in range(7):
             row[i] = row[i + 1]
-        row[-1] = BLUE
+        row[-1] = BLAUW
     return matrix
 ```
---- /hint --- --- /hints ---
+--- / hint --- --- / hints ---
