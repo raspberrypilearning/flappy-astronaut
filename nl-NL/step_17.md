@@ -1,8 +1,8 @@
 --- challenge ---
-## Challenge: taking it further
+## Uitdaging: verder gaan
 
-Here are some ideas for how you could alter your game:
-- The for loop alters the spacing between the pipes. Try changing it to see if that makes the game trickier.
-- Alter the `sleep` function to make the pipes move faster.
-- Add a score, so that for each for loop passed the score increases by 1. Then display the score when the game ends.
-- Try making the game a little more like Flappy Bird. Can you make it so that the astronaut constantly falls, but flicking the joystick causes her to move upwards? --- /challenge ---
+Hier zijn enkele ideeën over hoe je je spel kunt veranderen:
+- De for-lus wijzigt de afstand tussen de buizen. Probeer het te veranderen om te zien of dat het spel lastiger maakt.
+- Wijzig de functie `sleep` om de buizen sneller te laten bewegen.
+- Voeg een score toe, zodat voor elke doorgegeven lus de score met 1 toeneemt. Toon vervolgens de score wanneer het spel eindigt.
+- Probeer het spel een beetje meer zoals Flappy Bird te maken. Kun je het zo maken dat de astronaut voortdurend valt, maar door de joystick te bewegen, beweegt ze naar boven? --- /challenge ---
