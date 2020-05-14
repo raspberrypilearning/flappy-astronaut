@@ -1,23 +1,23 @@
-## What you will need
+## Wat heb je nodig
 
 ### Hardware
-If you are not using an emulator you will need the following hardware:
+Als je geen emulator gebruikt, heb je de volgende hardware nodig:
 + Raspberry Pi
 + Sense HAT
 
-If you are using an emulator then you simply require a computer with access to https://trinket.io/.
+Als je een emulator gebruikt, heb je gewoon een computer nodig met toegang tot https://trinket.io/.
 
 ### Software
-You will need the [latest version of Raspbian](https://www.raspberrypi.org/downloads/), which already includes the following software packages:
+Je zult de [nieuwste versie van Raspbian](https://www.raspberrypi.org/downloads/) nodig hebben, die bevat al de volgende software pakketten:
 
 - Python 3
-- Sense HAT for Python 3
+- Sense HAT voor Python 3
 
-If for any reason you need to install a package manually, follow these instructions:
+Als u om welke reden dan ook een pakket handmatig moet installeren, volgt u deze instructies:
 
 [[[rpi-install-software]]]
 
-Type this command into a terminal window to install the Sense HAT package:
+Typ deze opdracht in een terminalvenster om het Sense HAT-pakket te installeren:
 
 ```bash
 sudo apt-get install sense-hat
