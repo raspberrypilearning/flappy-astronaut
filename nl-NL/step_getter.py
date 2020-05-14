@@ -2,7 +2,7 @@ import os
 from glob import glob
 import re
 
-steps = {}
+stappen = {}
 files = [y for x in os.walk("./") for y in glob(os.path.join(x[0], '*.md'))]
 
 for filename in files:
