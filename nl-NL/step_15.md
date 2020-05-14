@@ -1,45 +1,45 @@
-## Collisions
+## Botsingen
 
-To finish off the game, you need to ensure that it ends whenever the astronaut collides with one of the pipes.
+Om het spel te beëindigen, moet je ervoor zorgen dat het eindigt wanneer de astronaut tegen een van de buizen botst.
 
-- Create a new function called `check_collision` that takes the `matrix` as a parameter.
+- Maak een nieuwe functie genaamd `check_collision` die de `matrix` als parameter neemt.
 
     ```python
-    def check_collision(matrix):
+    def check_botsing(matrix):
     ```
 
-- Now all you need to do is check whether the astronaut's `x, y` position corresponds to a `RED` item in the matrix. If it does, you can return `True`, and if not, return `False`.
+- Nu hoef je alleen nog maar te controleren of de `x, y` positie van de astronaut overeenkomt met een `ROOD` item in de matrix. Als dit het geval is, kunt u `True` retourneren en zo niet `False` retourneren.
 
 --- hints --- --- hint ---
-- The astronaut's position is at `x` and `y`. So the item you need to be checking is at `matrix[y][x]`. --- /hint --- --- hint ---
-- Within your function, use a conditional to check the item.
+- De positie van de astronaut is op `x` en `y`. Het item dat je wilt controleren, is dus `matrix[y][x]`. --- /hint hint ---
+- Gebruik een voorwaardelijke functie binnen jouw functie om het item te controleren.
   ```python
-  def check_collision(matrix):
-      if matrix[y][x] == RED:
+  def check_botsing(matrix):
+      if matrix[y][x] == ROOD:
   ```
---- /hint --- --- hint ---
-- Here's the complete function:
+--- /hint hint ---
+- Hier is de complete functie:
   ```python
-  def check_collision(matrix):
-      if matrix[y][x] == RED:
+  def check_botsing(matrix):
+      if matrix[y][x] == ROOD:
           return True
       else:
           return False
   ```
---- /hint --- --- /hints ---
+--- / hint --- --- / hints ---
 
-- Now that you are checking for a collision, you can use this conditional in you game loop. It will need to be in both the for loop and the while loop. If it returns `True`, then you can exit the loops.
+- Nu je controleert op een botsing, kan je deze voorwaardelijke gebruiken in je gamelus. Het moet zowel in de for-lus als in de while-lus zijn. Als het `True` retourneert, kun je de lussen verlaten.
 
 ```python
 while True:
-    matrix = gen_pipes(matrix)
-    if check_collision(matrix):
+    matrix = gen_buizen(matrix)
+    if check_botsing(matrix):
         break
     for i in range(3):
-        matrix = move_pipes(matrix)
-        sense.set_pixels(flatten(matrix))
-        sense.set_pixel(x, y, YELLOW)   
-        if check_collision(matrix):
+        matrix = beweeg_buizen(matrix)
+        sense.set_pixels(afvlakken(matrix))
+        sense.set_pixel(x, y, GEEL)   
+        if check_botsing(matrix):
             break
         sleep(1)
 ```
