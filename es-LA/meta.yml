@@ -1,0 +1,53 @@
+---
+title: Astronauta Aleteador
+hero_image: images/banner.png
+description: Crea un clon Flappy Bird usando tu Raspberry Pi y el Sense HAT
+original_url: https://raspberrypi.org/learning/flappy-astronaut
+theme: green
+duration: 2
+listed: true
+ingredient: false
+copyedit: true
+curriculum: 3, design-0, programming-3, phys-comp-1, manufacture-0, community-0
+interests: games
+technologies: python, sense-hat
+site_areas: projects
+hardware: sense-hat
+software: python
+version: 4
+last_tested: 2017-09-01
+steps:
+  - 
+    title: Introducción
+  - 
+    title: Lo que necesitarás
+  - 
+    title: Astronauta Aleteador
+  - 
+    title: Representando píxeles
+  - 
+    title: Utilizando listas 2D con el HAT Sense
+  - 
+    title: Generando tuberías
+  - 
+    title: Cuidado con las aberturas
+  - 
+    title: Crea una función para hacer más tuberías
+  - 
+    title: Algoritmo de tuberías móviles
+  - 
+    title: Moviendo las tuberías
+  - 
+    title: Mirando el movimiento de las tuberías
+  - 
+    title: Añadiendo tu astronauta
+  - 
+    title: Moviendo al astronauta
+  - 
+    title: Detección de bordes
+  - 
+    title: Colisiones
+  - 
+    title: Terminando tu juego
+  - 
+    title: "Desafío: ve más allá"
