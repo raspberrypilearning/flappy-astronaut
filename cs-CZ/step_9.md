@@ -14,9 +14,9 @@ It might be easier to picture this on a smaller scale. For instance, here's a 5Ã
 ```
 To move the red pixels (`r`) to the left, you can follow a simple algorithm:
   1. Move all the items at index `1` in each of the rows to index `0`
-  1. Move all the items at index `2` in each of the tows to index `1`
-  1. Move all the items at index `3` in each of the tows to index `2`
-  1. Move all the items at index `4` in each of the tows to index `3`
+  1. Move all the items at index `2` in each of the rows to index `1`
+  1. Move all the items at index `3` in each of the rows to index `2`
+  1. Move all the items at index `4` in each of the rows to index `3`
   1. Fill all the items at index `5` in each row with a `b`
 
 This would then give you a matrix that looks like this:
