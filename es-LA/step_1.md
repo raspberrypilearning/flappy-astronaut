@@ -9,7 +9,7 @@ Al hacer un juego Flappy Astronaut con tu Raspberry Pi y Sense HAT, aprenderás 
 - Usar listas 2D para representar una pantalla
 
 Haz clic en la flecha en la emulación de abajo para jugar el juego. Usa las teclas de cursor para guiar a tu astronauta alrededor de las tuberías.
-<iframe src="https://trinket.io/embed/python/e77660ee7e?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/d7ed0a3c83?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
 Este proyecto incluye elementos de los siguientes aspectos del [Currículo de creación digital de Raspberry Pi](https://www.raspberrypi.org/curriculum/):
 

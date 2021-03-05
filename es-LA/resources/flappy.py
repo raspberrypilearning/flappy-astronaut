@@ -3,8 +3,8 @@ from time import sleep
 from random import randint
 from threading import Thread
 
-sensor = SenseHat()
-sensor.clear()
+sense = SenseHat()
+sense.clear()
 
 ## Globales
 juego_terminado = False
@@ -21,13 +21,13 @@ def dibujar_columna():
     espacio = randint(2,6)
     while x > 0 and not juego_terminado:
         for led in range(8):
-            sensor.set_pixel(x,led,ROJO)
-        sensor.set_pixel(x,espacio, NEGRO)
-        sensor.set_pixel(x,espacio-1,NEGRO)
-        sensor.set_pixel(x,espacio+1,NEGRO)
+            sense.set_pixel(x,led,ROJO)
+        sense.set_pixel(x,espacio, NEGRO)
+        sense.set_pixel(x,espacio-1,NEGRO)
+        sense.set_pixel(x,espacio+1,NEGRO)
         sleep(0.5)
         for i in range(8):
-            sensor.set_pixel(x,i,NEGRO)
+            sense.set_pixel(x,i,NEGRO)
         if colision(x,espacio):
             juego_terminado = True
         x -= 1
@@ -42,7 +42,7 @@ def dibujar_columnas():
 def obtener_sacudon():
     global velocidad
     while not juego_terminado:
-        acel = sensor.get_accelerometer_raw()
+        acel = sense.get_accelerometer_raw()
         x = round(acel['x'])
         y = round(acel['y'])
         z = round(acel['z'])
@@ -66,10 +66,10 @@ sacudon = Thread(target=obtener_sacudon)
 sacudon.start()
 
 while not juego_terminado:
-    sensor.set_pixel(3,y,AZUL)
+    sense.set_pixel(3,y,AZUL)
     sleep(0.1)
-    sensor.set_pixel(3,y,NEGRO)
-    y + = velocidad
+    sense.set_pixel(3,y,NEGRO)
+    y += velocidad
     if y > 7:
         y = 7
     if y < 0:
@@ -79,4 +79,4 @@ while not juego_terminado:
 sacudon.join()
 columnas.join()
 
-sensor.show_message("Has perdido", text_colour=(255,0,0))
+sense.show_message("Has perdido", text_colour=(255,0,0))

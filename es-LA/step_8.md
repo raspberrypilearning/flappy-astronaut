@@ -29,6 +29,6 @@ sensor.set_pixels(matriz)
     ```
 
 - Así es como debería verse tu código ahora: 
-<iframe src="https://trinket.io/embed/python/f77f1ddd0e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/04a85934e4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
 

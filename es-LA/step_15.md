@@ -46,5 +46,5 @@ while True:
             break
         sleep(1)
 ```
- <iframe src="https://trinket.io/embed/python/d3b08137fd" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+ <iframe src="https://trinket.io/embed/python/3b049d4b4a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 

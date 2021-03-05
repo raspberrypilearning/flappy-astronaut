@@ -52,7 +52,7 @@ for i in range(9):
 ```
 
 - Si ejecutas el código ahora, deberías ver algo un poco más parecido a esto: 
-<iframe src="https://trinket.io/embed/python/e79f0007a3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/74307750be" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
 - Una pequeña alteración te dará un flujo continuo de tuberías. Simplemente cambia el bucle for para repetir `3` o `4` veces, y luego adjunta toda la última sección del código en un bucle infinito `while True`:
 
@@ -66,4 +66,4 @@ while True:
 ```
 
 - Esto debería darte algo que se vea así: 
-<iframe src="https://trinket.io/embed/python/03d79d3f93" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/46cf11b0c9" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>

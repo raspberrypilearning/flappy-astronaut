@@ -56,7 +56,7 @@
       sensor.set_pixel(x, y, AMARILLO)
   ```
 - Puedes verlo en acción aquí - sólo tienes que usar las teclas del cursor para controlar el astronauta. Notarás que solo puedes ver al astronauta cuando las teclas están siendo presionadas. 
-<iframe src="https://trinket.io/embed/python/9dc48939c7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/d452f9cdd4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 --- /hint ---
 --- /hints ---
 

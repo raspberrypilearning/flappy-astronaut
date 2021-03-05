@@ -46,5 +46,5 @@ matriz[abertura - 1][-1] = AZUL
 matriz[abertura + 1][+1] = AZUL
 ```
 - Así es como debería verse: 
-<iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
+<iframe src="https://trinket.io/embed/python/29cd037f5f" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
 --- /hint --- --- /hints ---

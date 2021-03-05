@@ -50,5 +50,5 @@ El jugador va a controlar al astronauta con el joystick del Sense HAT. El joysti
     ```
 
 - El píxel se iluminará tan pronto como muevas el joystick de Sense HAT. En el emulador a continuación, puedes probarlo utilizando las teclas de cursor de tu teclado. 
-<iframe src="https://trinket.io/embed/python/a3444b6288" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/31c68ae6a3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
