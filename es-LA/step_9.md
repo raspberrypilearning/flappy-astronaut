@@ -14,9 +14,9 @@ Podría ser más fácil imaginar esto a una escala menor. Por ejemplo, aquí hay
 ```
 Para mover los píxeles rojos (`r`) a la izquierda, puedes seguir un simple algoritmo:
   1. Mueve todos los elementos en el índice `1` en cada una de las filas al índice `0`
-  1. Move all the items at index `2` in each of the rows to index `1`
-  1. Move all the items at index `3` in each of the rows to index `2`
-  1. Move all the items at index `4` in each of the rows to index `3`
+  1. Mueve todos los elementos en el índice `2` en cada una de las filas al índice `1`
+  1. Mueve todos los elementos en el índice `3` en cada una de las filas al índice `2`
+  1. Mueve todos los elementos en el índice `4` en cada una de las filas al índice `3`
   1. Rellena todos los elementos en el índice `5` en cada fila con una `a`
 
 Esto entonces te daría una matriz que se ve así:
