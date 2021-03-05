@@ -28,7 +28,7 @@ Echa un vistazo a la sección de abajo para ver cómo utilizar los operadores l�
     def dibujar_astronauta(evento):
         global y
         global x
-        sensor.set_pixel(x, y, AZUL)
+        sense.set_pixel(x, y, AZUL)
         if event.action == "pressed":
             if event.direction == "up" and y > 0:
                 y -= 1
@@ -38,7 +38,7 @@ Echa un vistazo a la sección de abajo para ver cómo utilizar los operadores l�
                 x += 1
             elif event.direction == "left" and x > 0:
                 x -= 1
-        sensor.set_pixel(x, y, AMARILLO)   
+        sense.set_pixel(x, y, AMARILLO)   
     ```
 - Aquí hay un ejemplo del código completado: 
 <iframe src="https://trinket.io/embed/python/32dc06f444" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>

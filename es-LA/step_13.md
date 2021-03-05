@@ -22,7 +22,7 @@
     def dibujar_astronauta(evento):
         global y
         global x
-        sensor.set_pixel (x, y, AZUL)
+        sense.set_pixel (x, y, AZUL)
     ```
 --- /hint --- --- hint ---
 - Ahora puedes utilizar la selección condicional para detectar direcciones particulares y cambiar una coordenada en respuesta. Por ejemplo:
@@ -30,7 +30,7 @@
   def dibujar_astronauta(evento):
       global y
       global x
-      sensor.set_pixel(x, y, AZUL)
+      sense.set_pixel(x, y, AZUL)
       if event.action == "pressed":
           if event.direction == "up":
                y -= 1
@@ -43,7 +43,7 @@
   def dibujar_astronauta(evento):
       global y      
       global x
-      sensor.set_pixel(x, y, AZUL)
+      sense.set_pixel(x, y, AZUL)
       if event.action == "pressed":
           if event.direction == "up":
               y -= 1
@@ -53,7 +53,7 @@
               x += 1
           elif event.direction == "left":
               x -= 1
-      sensor.set_pixel(x, y, AMARILLO)
+      sense.set_pixel(x, y, AMARILLO)
   ```
 - Puedes verlo en acción aquí - sólo tienes que usar las teclas del cursor para controlar el astronauta. Notarás que solo puedes ver al astronauta cuando las teclas están siendo presionadas. 
 <iframe src="https://trinket.io/embed/python/d452f9cdd4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
@@ -66,8 +66,8 @@
     while True:
       matriz = gen_tuberias(matriz)
       for i in range(3):
-          sensor.set_pixels(aplanar(matriz))
+          sense.set_pixels(aplanar(matriz))
           matriz = mover_tuberias(matriz)
-          sensor.set_pixel(x, y, AMARILLO) ##THIS IS THE NEW CODE
+          sense.set_pixel(x, y, AMARILLO) ##THIS IS THE NEW CODE
           sleep(1)
     ```

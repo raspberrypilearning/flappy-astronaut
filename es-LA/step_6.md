@@ -18,7 +18,7 @@ Todo lo que necesitas hacer es configurar el último elemento en cada una de las
     ```python
     from sense_hat import SenseHat
 
-    sensor = SenseHat()
+    sense = SenseHat()
     ROJO = (255, 0, 0)
     AZUL = (0, 0, 255)
 
@@ -32,7 +32,7 @@ Todo lo que necesitas hacer es configurar el último elemento en cada una de las
     ## Coloca tu bucle aquí
 
     matriz = aplanar(matriz)
-    sensor.set_pixels(matriz)
+    sense.set_pixels(matriz)
     ```
 --- /hint --- --- hint ---
 - Tu bucle for debe repetirse sobre las listas dentro de la matriz.

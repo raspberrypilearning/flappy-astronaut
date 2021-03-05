@@ -25,7 +25,7 @@ El juego sería un poco fácil si solo fuesen creadas un conjunto de tuberías. 
     ```python
     matriz = gen_tuberias(matriz)
 matriz = aplanar(matriz)
-sensor.set_pixels(matriz)
+sense.set_pixels(matriz)
     ```
 
 - Así es como debería verse tu código ahora: 

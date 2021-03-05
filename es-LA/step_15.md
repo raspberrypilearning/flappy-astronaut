@@ -40,8 +40,8 @@ while True:
         break
     for i in range(3):
         matriz = mover_tuberias(matriz)
-        sensor.set_pixels(aplanar(matriz))
-        sensor.set_pixel(x, y, AMARILLO)   
+        sense.set_pixels(aplanar(matriz))
+        sense.set_pixel(x, y, AMARILLO)   
         if verificar_collisiones(matriz):
             break
         sleep(1)

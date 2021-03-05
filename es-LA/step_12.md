@@ -24,7 +24,7 @@ El jugador va a controlar al astronauta con el joystick del Sense HAT. El joysti
 - Justo encima de tu ciclo `while True`, agregar un código para que el joystick use una función (una que aún no has creado):
 
     ```python
-    sensor.stick.direction_any = dibujar_astronauta
+    sense.stick.direction_any = dibujar_astronauta
     ```
 - Ahora necesitas crear esta función `dibujar_astronauta`. Esta tendrá un único parámetro, el cual es el evento. Crea la función bajo una de tus otras funciones.
 
@@ -46,7 +46,7 @@ El jugador va a controlar al astronauta con el joystick del Sense HAT. El joysti
     def dibujar_astronauta(evento):
         global x
         global y
-        sensor.set_pixel(x, y, AMARILLO)
+        sense.set_pixel(x, y, AMARILLO)
     ```
 
 - El píxel se iluminará tan pronto como muevas el joystick de Sense HAT. En el emulador a continuación, puedes probarlo utilizando las teclas de cursor de tu teclado. 

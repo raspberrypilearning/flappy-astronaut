@@ -2,7 +2,7 @@
 - Solo hay un par de cosas que hacer antes de que hayas terminado por completo. En la última línea, debes insertar código para mostrar un mensaje que indique que el juego ha terminado.
 
     ```python
-    sensor.show_message('Perdiste')
+    sense.show_message('Perdiste')
     ```
 
 - Ahora, cuando tu astronauta choca con las tuberías, este mensaje debería desplazarse.
@@ -25,8 +25,8 @@
             break
         for i in range(3):
             matriz = mover_tuberias(matriz)
-            sensor.set_pixels(aplanar(matriz))
-            sensor.set_pixel(x, y, AMARILLO)   
+            sense.set_pixels(aplanar(matriz))
+            sense.set_pixel(x, y, AMARILLO)   
             if verificar_collisiones(matriz):
                 break
             sleep(1)
@@ -41,8 +41,8 @@
             game_over = True
         for i in range(3):
             matrix = move_pipes(matrix)
-            sense. et_pixels(flatten(matrix))
-            sentido. et_pixel(x, y, YELLOW)   
+            sense.set_pixels(flatten(matrix))
+            sense.set_pixel(x, y, YELLOW)   
             if check_collision(matrix):
                 game_over = True
             sleep(1)
@@ -54,7 +54,7 @@
         global y
         global x
         global juego_terminado
-        sensor.set_pixel(x, y, AZUL)
+        sense.set_pixel(x, y, AZUL)
         if event.action == "pressed":
             if event.direction == "up" and y > 0:
                 y -= 1
@@ -64,7 +64,7 @@
                 x += 1
             elif event.direction == "left" and x > 0:
                 x -= 1
-        sensor.set_pixel(x, y, AMARILLO)
+        sense.set_pixel(x, y, AMARILLO)
         if matrix[y][x] == ROJO:
             juego_terminado = True
     ```

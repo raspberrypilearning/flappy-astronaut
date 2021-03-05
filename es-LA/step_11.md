@@ -7,21 +7,21 @@ En este momento deberías tener estas tres líneas en la parte inferior de tu c�
 ```python
 matriz = gen_tuberias(matriz)
 matriz = aplanar(matriz)
-sensor.set_pixels(matriz)
+sense.set_pixels(matriz)
 ```
 
 - En lugar de utilizar dos líneas de código para aplanar la matriz y luego mostrarla, puede utilizar una sola línea para hacer esto. Esto evitará el aplanamiento de la matriz original cada vez, y en su lugar simplemente usar una versión aplanada de la matriz para la pantalla. Reemplaza las tres últimas líneas con esto:
 
 ```python
 matriz = gen_tuberias(matriz)
-sensor.set_pixels(aplanar(matriz))
+sense.set_pixels(aplanar(matriz))
 ```
 
 - Ahora puedes añadir tu función `mover_tuberias(matriz)` para mover las tuberías:
 
 ```python
 matriz = gen_tuberias(matriz)
-sensor.set_pixels(aplanar(matriz))
+sense.set_pixels(aplanar(matriz))
 matriz = mover_tuberias(matriz)
 ```
 - Aunque esto moverá las tuberías, estas no se mostrarán, ya que no hay una segunda llamada a `set_pixels`. Para resolver esto, puedes añadir un ciclo para que moviendo y mostrando siempre sigan en sequencia.
@@ -29,7 +29,7 @@ matriz = mover_tuberias(matriz)
 ```python
 matriz = gen_tuberias(matriz)
 for i in range(9):
-    sensor.set_pixels(aplanar(matriz))
+    sense.set_pixels(aplanar(matriz))
     matriz = mover_tuberias(matriz)
 ```
 
@@ -46,7 +46,7 @@ from time import sleep
 ```python
 matriz = gen_tuberias(matriz)
 for i in range(9):
-    sensor.set_pixels(aplanar(matriz))
+    sense.set_pixels(aplanar(matriz))
     matriz = mover_tuberias(matriz)
     sleep(1)
 ```
@@ -60,7 +60,7 @@ for i in range(9):
 while True:
   matriz = gen_tuberias(matriz)
   for i in range(3):
-      sensor.set_pixels(aplanar(matriz))
+      sense.set_pixels(aplanar(matriz))
       matriz = mover_tuberias(matriz)
       sleep(1)
 ```

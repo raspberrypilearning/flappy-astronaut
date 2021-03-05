@@ -10,10 +10,10 @@ Cuando los programadores quieren colorear un píxel específico en una pantalla,
 
     ```python
     from sense_hat import SenseHat
-    sensor = SenseHat()
+    sense = SenseHat()
 
     r = (255, 0, 0)
-    sensor.set_pixel(0, 0, r)
+    sense.set_pixel(0, 0, r)
     ```
 
 - Intenta cambiar la posición del píxel que estás configurando. También intenta y cambia el color.
@@ -27,7 +27,7 @@ Si quieres configurar múltiples píxeles de esta manera, vas a necesitar muchas
     ```python
     from sense_hat import SenseHat
 
-    sensor = SenseHat()
+    sense = SenseHat()
 
     g = (0, 255, 0)
     b = (0, 0, 0, 0)
@@ -43,7 +43,7 @@ Si quieres configurar múltiples píxeles de esta manera, vas a necesitar muchas
         g, g, b, g, g, b, g, g,
     ]
 
-    sensor.set_ pixels(pixeles_creeper)
+    sense.set_ pixels(pixeles_creeper)
     ```
 
 - Intenta crear otra imagen usando la lista. ¿Qué tal crear una carita sonriente?

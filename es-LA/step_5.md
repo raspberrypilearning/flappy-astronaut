@@ -9,7 +9,7 @@ Ahora que sabes que la mejor manera de representar los píxeles en la matriz LED
 ```python
 from sense_hat import SenseHat
 
-sensor = SenseHat()
+sense = SenseHat()
 ```
 
 Luego, necesitas crear dos variables que representen los colores de los píxeles. Para hacer esto sencillo, puedes usar rojo y azul. Si deseas aprender un poco más sobre cómo las computadoras representan los colores, observa la sección a continuación.
@@ -57,7 +57,7 @@ def aplanar(matriz):
 
 ```python
 matriz = aplanar(matriz)
-sensor.set_pixels(matriz)
+sense.set_pixels(matriz)
 ```
 - Graba y ejecuta tu código. Puedes ver un ejemplo del código y de su salida en el trinket incrustado a continuación. 
 <iframe src="https://trinket.io/embed/python/b4c1aad6c3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
