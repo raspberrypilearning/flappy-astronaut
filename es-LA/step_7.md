@@ -19,18 +19,23 @@ Querrás que el hueco de tres píxeles se centre en una de las filas entre `1` y
 
 --- hints ---
  --- hint ---
+
 - El método que necesitas importar es el método `randint`.
 ```python
 from random import randint
 ```
---- /hint --- --- hint ---
+--- /hint --- 
+
+--- hint ---
 - Después del ciclo for, elige un valor aleatorio para `abertura`.
 ```python
 for fila in matriz:
     fila[-1] = ROJO
 abertura = randint(1,6)
 ```
---- /hint --- --- hint ---
+--- /hint --- 
+
+--- hint ---
 - Ahora, configura los píxeles en la última columna de cada una de las filas numeradas `abertura`, `abertura + 1`, y `abertura - 1`.
 ```python
 for fila in matriz:
@@ -41,4 +46,5 @@ matriz[abertura - 1][-1] = AZUL
 matriz[abertura + 1][+1] = AZUL
 ```
 - Así es como debería verse: 
-<iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> --- / hint --- --- / hints ---
+<iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
+--- /hint --- --- /hints ---
