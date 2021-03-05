@@ -4,13 +4,13 @@
   - Cuando se detecta un evento de joystick:
     - cambiar el color a `AZUL` para 'ocultar' al astronauta
     - si la dirección es hacia arriba
-      - disminuir `y` e`n` `1`
+      - decrease `y` by `1`
     - si la dirección es hacia abajo
-      - aumentar `y` e`n` `1`
+      - increase `y` by `1`
     - si la dirección es hacia la derecha
-      - aumentar `x` e`n` `1`
+      - increase `x` by `1`
     - si la dirección es hacia la izquierda
-      - disminuir `x` e`n` `1`
+      - decrease `x` by `1`
     - cambia el color a `AMARILLO` para mostrar al astronauta
 
 - Añade código a tu función `dibujar_astronauta` para que así el píxel se mueva alrededor de la matriz LED cuando se presiona el joystick.
