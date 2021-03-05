@@ -4,13 +4,13 @@
   - Wanneer een joystick-gebeurtenis wordt gedetecteerd:
     - verander de kleur in `BLAUW` om de astronaut te 'verbergen'
     - als de richting omhoog is
-      - verlagen `y` b`y` `1`
+      - decrease `y` by `1`
     - als de richting omlaag is
-      - verhogen `y` b`y` `1`
+      - increase `y` by `1`
     - als de richting rechts is
-      - verhogen `x` b`y` `1`
+      - increase `x` by `1`
     - als de richting links is
-      - verlagen `x` b`y` `1`
+      - decrease `x` by `1`
     - verander de kleur in `GEEL` om de astronaut te tonen
 
 - Voeg code toe aan jouw `draw_astronaut` functie zodat de pixel rond de LED-matrix beweegt wanneer de joystick wordt ingedrukt.
