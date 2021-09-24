@@ -12,7 +12,8 @@ Bekijk het onderstaande gedeelte om te zien hoe je Booleaanse logische operatore
 
 - Voeg nu wat randdetectie toe aan jouw `teken_astronaut` functie, zodat de pixelcoördinaatwaarden niet minder dan `0` of groter dan `7`.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 - Je moet elke keer controleren of de coördinaat groter is dan `0` voordat je deze verlaagt en minder dan `7` voordat je deze verhoogt. --- /hint hint ---
 - Hier is jouw eerste controle binnen de `teken_astronaut` functie:
   ```python
@@ -39,7 +40,5 @@ Bekijk het onderstaande gedeelte om te zien hoe je Booleaanse logische operatore
         sense.set_pixel(x, y, GEEL)   
     ```
 - Hier is een voorbeeld van de voltooide code: 
-
 <iframe src="https://trinket.io/embed/python/c50810b1b0" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
-
 --- /hint --- --- /hints ---

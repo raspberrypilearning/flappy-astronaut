@@ -50,6 +50,5 @@ De speler gaat de astronaut besturen met de joystick van de Sense HAT. De joysti
     ```
 
 - De pixel wordt verlicht zodra je de joystick van de Sense HAT beweegt. In de onderstaande emulator kun je het uitproberen met de cursortoetsen van jouw toetsenbord. 
-
 <iframe src="https://trinket.io/embed/python/a3444b6288" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 

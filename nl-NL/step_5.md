@@ -60,5 +60,4 @@ matrix = afvlakken(matrix)
 sense.set_pixels(matrix)
 ```
 - Bewaar en voer je code uit. Je kunt een voorbeeld van de code en de uitvoer ervan zien in de hieronder ingesloten Trinket. 
-
 <iframe src="https://trinket.io/embed/python/b4c1aad6c3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>

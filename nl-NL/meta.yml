@@ -15,7 +15,7 @@ site_areas: projects
 hardware: sense-hat
 software: python
 version: 4
-last_tested: 2017/09/01
+last_tested: 2017-09-01
 steps:
   - title: Inleiding
   - title: Wat heb je nodig
@@ -28,7 +28,7 @@ steps:
   - title: Bewegend buizen-algoritme
   - title: De buizen verplaatsen
   - title: Kijken hoe de buizen bewegen
-  - title: Jouw astronaut toevoegen
+  - title: Uw astronaut toevoegen
   - title: De astronaut verplaatsen
   - title: Randen detecteren
   - title: Botsingen

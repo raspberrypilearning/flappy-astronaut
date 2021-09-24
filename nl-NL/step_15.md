@@ -10,7 +10,8 @@ Om het spel te beëindigen, moet je ervoor zorgen dat het eindigt wanneer de ast
 
 - Nu hoef je alleen nog maar te controleren of de `x, y` positie van de astronaut overeenkomt met een `ROOD` item in de matrix. Als dit het geval is, kunt u `True` retourneren en zo niet `False` retourneren.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 - De positie van de astronaut is op `x` en `y`. Het item dat je wilt controleren, is dus `matrix[y][x]`. --- /hint hint ---
 - Gebruik een voorwaardelijke functie binnen jouw functie om het item te controleren.
   ```python
