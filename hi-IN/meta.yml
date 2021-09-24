@@ -1,7 +1,7 @@
 ---
-title: Flappy Astronaut
+title: फ्लाप्पी अंतरिक्ष यात्री
 hero_image: images/banner.png
-description: Make a Flappy Bird clone using your Raspberry Pi and the Sense HAT
+description: रास्पबेरी पाई और सेंस हैट का उपयोग करके एक फ्लाप्पी बर्ड का एक प्रतिरूप बनाए
 original_url: https://raspberrypi.org/learning/flappy-astronaut
 theme: green
 duration: 2
@@ -26,7 +26,7 @@ steps:
   - 
     title: Representing pixels
   - 
-    title: Using 2D lists with the Sense HAT
+    title: Sense HAT के साथ 2D सूचियों का उपयोग करना
   - 
     title: Generating pipes
   - 
