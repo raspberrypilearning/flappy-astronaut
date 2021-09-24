@@ -14,9 +14,9 @@ Het is misschien gemakkelijker om dit op een kleinere schaal te bekijken. Hier i
 ```
 Om de rode pixels (`r`) naar links te verplaatsen, kun je een eenvoudig algoritme volgen:
   1. Verplaats alle items op index `1` in elk van de rijen naar index `0`
-  1. Move all the items at index `2` in each of the rows to index `1`
-  1. Move all the items at index `3` in each of the rows to index `2`
-  1. Move all the items at index `4` in each of the rows to index `3`
+  1. Verplaats alle items op index `2` in elk van de rijen naar index `1`
+  1. Verplaats alle items op index `3` in elk van de rijen naar index `2`
+  1. Verplaats alle items op index `4` in elk van de rijen naar index `3`
   1. Vul alle items op index `5` in elke rij met een `b`
 
 Dit zou je dan een matrix geven die er zo uitziet:
