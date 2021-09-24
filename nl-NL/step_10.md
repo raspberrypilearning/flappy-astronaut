@@ -13,7 +13,8 @@ Het algoritme voor deze functie kan als volgt worden opgesplitst:
 
 - Probeer dit zelf uit te voeren en gebruik de onderstaande tips als je hulp nodig hebt.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 - Binnen de functie kun je je for loop als volgt beginnen:
 ```python
 def beweeg_buizen(matrix):
@@ -40,5 +41,4 @@ def beweeg_buizen(matrix):
         row[-1] = BLAUW
     return matrix
 ```
---- /hint --- 
---- /hints ---
+--- /hint --- --- /hints ---

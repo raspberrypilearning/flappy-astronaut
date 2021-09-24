@@ -17,7 +17,8 @@ Je wilt dat de opening van drie pixels hoog wordt gecentreerd rond een van de ri
   1. Verander de laatste pixel in rij `opening - 1` naar `BLAUW`
   1. Wijzig de laatste pixel in rij `kloof + 1` naar `BLAUW`
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 - De methode die u moet importeren is de `randint` methode.
 ```python
 from random import randint
@@ -42,7 +43,5 @@ matrix[tussenruimte - 1][-1] = BLAUW
 matrix[tussenruimte + 1][+1] = BLAUW
 ```
 - Zo zou het eruit moeten zien: 
-
 <iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
-
 --- /hint --- --- /hints ---

@@ -12,7 +12,8 @@ Het enige wat je hoeft te doen is om het laatste item in elk van de lijsten in d
 
 - Je kunt een for-lus gebruiken, zodat voor elke lijst in de matrix het laatste item wordt ingesteld op `RED`. Plaats deze voor de lus zodat deze wordt uitgevoerd voordat je de schijf afvlakt en de matrix weergeeft. Je kunt de onderstaande tips gebruiken om je te helpen als je ze nodig hebt.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 - Hier is een voorbeeld van hoe jouw code eruit zou moeten zien, met enkele opmerkingen toegevoegd waar jouw for-lus zou moeten komen.
     ```python
     from sense_hat import SenseHat
@@ -47,7 +48,5 @@ Het enige wat je hoeft te doen is om het laatste item in elk van de lijsten in d
         row[-1] = ROOD
     ```
 - Dit is wat het zou moeten doen: 
-
 <iframe src="https://trinket.io/embed/python/55875860f1" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
-
 --- /hint --- --- /hints ---

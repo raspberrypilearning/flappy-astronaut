@@ -15,7 +15,8 @@
 
 - Voeg code toe aan jouw `draw_astronaut` functie zodat de pixel rond de LED-matrix beweegt wanneer de joystick wordt ingedrukt.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 - Het eerste wat je moet doen is de astronaut 'verbergen'. Met andere woorden, stel de kleur in op `BLAUW` zodat deze hetzelfde is als de achtergrond.
     ```python
     def teken_astronaut(event):
@@ -35,7 +36,8 @@
           if event.direction == "up":
               y -= 1
   ```
-- Kijk of je `elif` instructies kunt toevoegen om andere bewegingen te detecteren en de `x` en `y` coördinaten dienovereenkomstig kunt instellen. --- /hint ---
+- Kijk of je `elif` instructies kunt toevoegen om andere bewegingen te detecteren en de `x` en `y` coördinaten dienovereenkomstig kunt instellen. 
+--- /hint ---
 --- hint ---
 - Hier is de complete functie:
   ```python
@@ -55,9 +57,7 @@
       sense.set_pixel(x, y, GEEL)
   ```
 - Je kunt het hier in actie zien - gebruik gewoon de cursortoetsen om de astronaut te besturen. Je zult merken dat je de astronaut alleen kunt zien wanneer de toetsen worden ingedrukt. 
-
 <iframe src="https://trinket.io/embed/python/9dc48939c7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe> 
-
 --- /hint --- --- /hints ---
 
 - Om dit gedeelte af te sluiten, moet je de astronaut in je hoofdgame-lus weergeven.

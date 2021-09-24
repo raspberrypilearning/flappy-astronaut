@@ -52,7 +52,6 @@ for i in range(9):
 ```
 
 - Als je de code nu uitvoert, zou je iets meer als dit moeten zien: 
-
 <iframe src="https://trinket.io/embed/python/e79f0007a3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
 - Een kleine wijziging geeft je een continue stroom buizen. Wijzig eenvoudig de for-lus om `3` of `4` keer te herhalen en omsluit vervolgens het hele laatste gedeelte van de code in een oneindige `while True` lus:
@@ -67,5 +66,4 @@ while True:
 ```
 
 - Dit zou je iets moeten geven dat er zo uitziet: 
-
 <iframe src="https://trinket.io/embed/python/03d79d3f93" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
