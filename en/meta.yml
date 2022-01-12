@@ -16,9 +16,10 @@ hardware: sense-hat
 software: python
 version: 4
 last_tested: 2017-09-01
-steps: 
+steps:
 - title: Introduction
 - title: What you will need
+  completion: engaged
 - title: Flappy Astronaut
 - title: Representing pixels
 - title: Using 2D lists with the Sense HAT
@@ -33,4 +34,5 @@ steps:
 - title: Edge detection
 - title: Collisions
 - title: Finishing your game
-- title: "Challenge: taking it further"
+  completion: internal
+- title: 'Challenge: taking it further'
