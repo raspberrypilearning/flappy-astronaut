@@ -17,20 +17,24 @@ software: python
 version: 4
 last_tested: 2017-09-01
 steps:
-  - title: Introducción
-  - title: Lo que necesitarás
-  - title: Astronauta Aleteador
-  - title: Representando píxeles
-  - title: Utilizando listas 2D con el HAT Sense
-  - title: Generando tuberías
-  - title: Cuidado con las aberturas
-  - title: Crea una función para hacer más tuberías
-  - title: Algoritmo de tuberías móviles
-  - title: Moviendo las tuberías
-  - title: Mirando el movimiento de las tuberías
-  - title: Añadiendo tu astronauta
-  - title: Moviendo al astronauta
-  - title: Detección de bordes
-  - title: Colisiones
-  - title: Terminando tu juego
-  - title: "Desafío: ve más allá"
+- title: Introducción
+- title: Lo que necesitarás
+- title: Astronauta Aleteador
+- title: Representando píxeles
+  completion:
+  - engaged
+- title: Utilizando listas 2D con el HAT Sense
+- title: Generando tuberías
+- title: Cuidado con las aberturas
+- title: Crea una función para hacer más tuberías
+- title: Algoritmo de tuberías móviles
+- title: Moviendo las tuberías
+- title: Mirando el movimiento de las tuberías
+- title: Añadiendo tu astronauta
+- title: Moviendo al astronauta
+- title: Detección de bordes
+- title: Colisiones
+- title: Terminando tu juego
+  completion:
+  - internal
+- title: 'Desafío: ve más allá'
