@@ -19,9 +19,10 @@ last_tested: 2017-09-01
 steps:
 - title: Inleiding
 - title: Wat heb je nodig
-  completion: engaged
 - title: Flappy Astronaut
 - title: Pixels vertegenwoordigen
+  completion:
+  - engaged
 - title: 2D-lijsten gebruiken met de Sense HAT
 - title: Buizen genereren
 - title: Let op de gaten
@@ -34,5 +35,6 @@ steps:
 - title: Randen detecteren
 - title: Botsingen
 - title: Je spel afmaken
-  completion: internal
+  completion:
+  - internal
 - title: 'Uitdaging: verder gaan'
