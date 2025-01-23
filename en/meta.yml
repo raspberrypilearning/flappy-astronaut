@@ -38,3 +38,5 @@ steps:
   completion:
   - internal
 - title: 'Challenge: taking it further'
+  completion:
+  - external
