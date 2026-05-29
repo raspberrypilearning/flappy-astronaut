@@ -17,19 +17,8 @@ You'll want the three-pixel-high gap to be centred around one of the rows betwee
   1. Change the last pixel in row `gap - 1` to `BLUE`
   1. Change the last pixel in row `gap + 1` to `BLUE`
 
---- hints --- --- hint ---
-- The method you need to import is the `randint` method.
-```python
-from random import randint
-```
---- /hint --- --- hint ---
-- After the for loop, choose a random value for `gap`.
-```python
-for row in matrix:
-	row[-1] = RED
-gap = randint(1, 6)
-```
---- /hint --- --- hint ---
+--- hints ---
+--- hint ---
 - Now set the pixels in the last column of each of the rows numbered `gap`, `gap + 1`, and `gap -1`.
 ```python
 for row in matrix:
@@ -41,4 +30,6 @@ matrix[gap + 1][+1] = BLUE
 ```
 - Here's what it should look like:
 <iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
---- /hint --- --- /hints ---
+--- /hint ---
+--- /hints ---
+
