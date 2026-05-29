@@ -12,15 +12,8 @@ Have a look at the section below to see how to use Boolean logical operators wit
 
 - Now add some edge detection to your `draw_astronaut` function, so that the pixel coordinate values can't be less than `0` or greater than `7`.
 
---- hints --- --- hint ---
-- You need to check every time that the coordinate is greater than `0` before decreasing it, and less than `7` before increasing it.
---- /hint --- --- hint ---
-- Here is your first check within the `draw_astronaut` function:
-  ```python
-  if event.direction == "up" and y > 0:
-	  y -= 1
-  ```
---- /hint --- --- hint ---
+--- hints ---
+--- hint ---
 - Here's the whole function:
 	```python
 	def draw_astronaut(event):
@@ -40,4 +33,6 @@ Have a look at the section below to see how to use Boolean logical operators wit
 	```
 - Here's an example of the completed code:
 <iframe src="https://trinket.io/embed/python/c50810b1b0" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
---- /hint --- --- /hints ---
+--- /hint ---
+--- /hints ---
+

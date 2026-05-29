@@ -13,22 +13,8 @@ The algorithm for this function can be broken down like this:
 
 - Try and complete this by yourself, and use the hints below if you need some help.
 
---- hints --- --- hint ---
-- Within the function you can begin your for loop like this:
-```python
-def move_pipes(matrix):
-    for row in matrix:
-	    for i in range(7):
-```
---- /hint --- --- hint ---
-- To switch around the items, you can use their index.
-```python
-def move_pipes(matrix):
-    for row in matrix:
-	    for i in range(7):
-		    row[i] = row[i + 1]
-```
---- /hint --- --- hint ---
+--- hints ---
+--- hint ---
 - To finish, set the last item in each row to be `BLUE`, and then return the altered matrix.
 ```python
 def move_pipes(matrix):
@@ -38,4 +24,6 @@ def move_pipes(matrix):
 		row[-1] = BLUE
 	return matrix
 ```
---- /hint --- --- /hints ---
+--- /hint ---
+--- /hints ---
+

@@ -15,27 +15,8 @@
 
 - Add code to your `draw_astronaut` function so that the pixel will move around the LED matrix when the joystick is pressed.
 
---- hints --- --- hint ---
-- The first thing to do is to 'hide' the astronaut. In other words, set its colour to `BLUE` so that it is the same as the background.
-	```python
-	def draw_astronaut(event):
-		global y
-		global x
-		sense.set_pixel(x, y, BLUE)
-	```
---- /hint --- --- hint ---
-- You can now use conditional selection to detect particular directions and change a coordinate in response. For instance:
-  ```python
-  def draw_astronaut(event):
-	  global y
-	  global x
-	  sense.set_pixel(x, y, BLUE)
-	  if event.action == "pressed":
-		  if event.direction == "up":
-			  y -= 1
-  ```
-- See if you can add `elif` statements to detect other movements and set the `x` and `y` coordinates accordingly.
---- /hint --- --- hint ---
+--- hints ---
+--- hint ---
 - Here's the complete function:
   ```python
   def draw_astronaut(event):
@@ -55,7 +36,9 @@
   ```
 - You can see it in action here - just use the cursor keys to control the astronaut. You'll notice that you can only see the astronaut when the keys are being pressed.
 <iframe src="https://trinket.io/embed/python/9dc48939c7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
---- /hint --- --- /hints ---
+--- /hint ---
+--- /hints ---
+
 
 - To finish off this section, you'll need to display the astronaut within your main game loop.
 
