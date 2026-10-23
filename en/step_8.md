@@ -32,6 +32,8 @@ The game would be a little easy if only one set of pipes were created. You can g
 
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-8" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
+If the LEDs don't light up, click **Run** again.
+
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-8){:target="_blank"}
 
 

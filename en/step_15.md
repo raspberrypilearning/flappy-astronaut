@@ -40,5 +40,5 @@ while True:
         sleep(1)
 ```
 
-- Run your code and steer your astronaut through the gaps. The game ends as soon as your astronaut hits a pipe.
+- Run your code and steer your astronaut through the gaps. The game should stop when a pipe runs into your astronaut.
 

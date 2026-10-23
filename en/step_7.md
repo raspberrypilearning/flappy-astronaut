@@ -31,6 +31,8 @@ matrix[gap + 1][-1] = BLUE
 - Here's what it should look like:
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
+If the LEDs don't light up, click **Run** again.
+
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-7){:target="_blank"}
 
 --- /hint ---
