@@ -55,6 +55,8 @@ for i in range(9):
 
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-11-a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
+
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-11-a){:target="_blank"}
 
 - One small alteration will give you a continuous stream of pipes. Simply change the for loop to repeat `3` or `4` times, and then enclose the entire last section of code in an infinite `while True` loop:
@@ -71,5 +73,7 @@ while True:
 - This should give you something that looks like this:
 
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-11-b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise.
 
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-11-b){:target="_blank"}

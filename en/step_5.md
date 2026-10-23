@@ -63,6 +63,6 @@ sense.set_pixels(matrix)
 
 <iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-If the LEDs don't light up, click **Run** again.
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise. If you see a white smiley face, click **Run** again.
 
 [Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-5){:target="_blank"}
