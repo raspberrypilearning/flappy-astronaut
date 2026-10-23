@@ -1,0 +1,4 @@
+name: "Flappy Astronaut step 5"
+identifier: "flappy-astronaut-step-5"
+type: 'python'
+build: true

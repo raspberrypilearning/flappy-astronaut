@@ -53,7 +53,9 @@ for i in range(9):
 
 - If you run the code now, you should see something a little more like this:
 
-<iframe src="https://trinket.io/embed/python/e79f0007a3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-11-a" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-11-a){:target="_blank"}
 
 - One small alteration will give you a continuous stream of pipes. Simply change the for loop to repeat `3` or `4` times, and then enclose the entire last section of code in an infinite `while True` loop:
 
@@ -68,4 +70,6 @@ while True:
 
 - This should give you something that looks like this:
 
-<iframe src="https://trinket.io/embed/python/03d79d3f93" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-11-b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-11-b){:target="_blank"}

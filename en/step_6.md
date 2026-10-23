@@ -20,7 +20,10 @@ All you need to do is to set the last item in each of the lists within the matri
 		row[-1] = RED
 	```
 - Here's what it should do:
-<iframe src="https://trinket.io/embed/python/55875860f1" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-6" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-6){:target="_blank"}
+
 --- /hint ---
 --- /hints ---
 

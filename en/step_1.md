@@ -8,9 +8,9 @@ By making a Flappy Astronaut game with your Raspberry Pi and Sense HAT, you will
 - Use the Sense HAT joystick
 - Use 2D lists to represent a screen
 
-Click on the arrow in the emulation below to play the game. Use your cursor keys to guide your astronaut around the pipes.
+Here's the game in action. The astronaut is the yellow pixel, and the player steers it with the joystick to fly through the gaps in the pipes.
 
-<iframe src="https://trinket.io/embed/python/e77660ee7e?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+![The Sense HAT LED matrix shows red pipes scrolling from right to left. A yellow pixel moves up and down to fly through the gap in each pipe.](images/flappy-astronaut-game.gif)
 
 This resource covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](https://www.raspberrypi.org/curriculum/):
 

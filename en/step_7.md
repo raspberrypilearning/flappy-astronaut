@@ -26,10 +26,13 @@ for row in matrix:
 gap = randint(1, 6)
 matrix[gap][-1] = BLUE
 matrix[gap - 1][-1] = BLUE
-matrix[gap + 1][+1] = BLUE
+matrix[gap + 1][-1] = BLUE
 ```
 - Here's what it should look like:
-<iframe src="https://trinket.io/embed/python/37ee188eb5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-7){:target="_blank"}
+
 --- /hint ---
 --- /hints ---
 

@@ -30,6 +30,8 @@ The game would be a little easy if only one set of pipes were created. You can g
 
 - Here's what the code should look like now:
 
-<iframe src="https://trinket.io/embed/python/f77f1ddd0e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-8" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-8){:target="_blank"}
 
 
