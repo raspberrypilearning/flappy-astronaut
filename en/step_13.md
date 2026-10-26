@@ -34,8 +34,7 @@
 			  x -= 1
 	  sense.set_pixel(x, y, YELLOW)
   ```
-- You can see it in action here - just use the cursor keys to control the astronaut. You'll notice that you can only see the astronaut when the keys are being pressed.
-<iframe src="https://trinket.io/embed/python/9dc48939c7" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+- Run your code and move the joystick. You'll notice that you can only see the astronaut while the joystick is being pressed.
 --- /hint ---
 --- /hints ---
 

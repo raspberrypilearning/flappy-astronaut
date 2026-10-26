@@ -2,7 +2,7 @@
 
 Now you know that the best way to represent the pixels on the LED matrix is using a 2D list, let's see how this can be done with the Sense HAT.
 
-- Open a new Python file, or use the Sense HAT emulator at [trinket.io](https://trinket.io/).
+- Open a new Python file, or use the Sense HAT emulator in the [Code Editor](https://editor.raspberrypi.org/en/projects/blank-python-starter){:target="_blank"}.
 
 - With the first two lines of code, import the Sense HAT modules and create a `SenseHAT` object that can be used to control the LED matrix:
 
@@ -59,6 +59,10 @@ def flatten(matrix):
 matrix = flatten(matrix)
 sense.set_pixels(matrix)
 ```
-- Save and run your code. You can see an example of the code and its output in the embedded Trinket below.
+- Save and run your code. You can run an example below, and open its code in the Code Editor.
 
-<iframe src="https://trinket.io/embed/python/b4c1aad6c3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<iframe src="https://editor.raspberrypi.org/en/embed/viewer/flappy-astronaut-step-5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+The Code Editor shows the Sense HAT on its side, so the picture is turned a quarter-turn clockwise. If you see a white smiley face, click **Run** again.
+
+[Open this code in the Code Editor](https://editor.raspberrypi.org/en/projects/flappy-astronaut-step-5){:target="_blank"}

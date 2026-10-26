@@ -1,5 +1,7 @@
 ## Adding your astronaut
 
+**From this step on, you need a real Sense HAT.** Your astronaut is controlled with the Sense HAT's joystick, and the Sense HAT emulator in the Code Editor doesn't have a joystick.
+
 Your astronaut will be represented by a single coloured pixel. You can choose whatever colour you want for the astronaut, but the example will use yellow.
 
 - Where you have set your other colour variables, now create a new tuple for your chosen astronaut colour.
@@ -49,7 +51,5 @@ The player is going to control the astronaut with the Sense HAT's joystick. The 
 		sense.set_pixel(x, y, YELLOW)
 	```
 
-- The pixel will be illuminated as soon as you move the Sense HAT's joystick. In the emulator below, you can try it out using your keyboard's cursor keys.
-
-<iframe src="https://trinket.io/embed/python/a3444b6288" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+- The pixel will be illuminated as soon as you move the Sense HAT's joystick.
 
